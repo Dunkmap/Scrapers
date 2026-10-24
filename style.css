@@ -107,7 +107,11 @@ h3.group svg { width: 40px; height: 40px; padding: 10px; border-radius: 14px; ba
 .card > * { position: relative; }
 .card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 18px 24px 40px rgba(120,96,72,.22), inset -6px -8px 14px rgba(120,96,72,.10), inset 6px 8px 14px rgba(255,255,255,.85); }
 .card:hover::before { opacity: 1; }
-.card h4 { font: 600 1.25rem/1.25 var(--serif); margin: 0 0 10px; }
+.card-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+/* logo sits in a pastel clay tile in the group colour */
+.card .logo { flex: none; width: 56px; height: 56px; padding: 5px; border-radius: 18px; object-fit: cover; background: var(--accent); box-shadow: var(--clay-sm); transition: transform .3s cubic-bezier(.2,.8,.3,1.4); }
+.card:hover .logo { transform: rotate(-6deg) scale(1.06); }
+.card h4 { font: 600 1.2rem/1.25 var(--serif); margin: 0; }
 .card .price { align-self: flex-start; font: 600 .78rem var(--sans); color: var(--plum); background: var(--accent); padding: 4px 12px; border-radius: 999px; margin: 0 0 16px; box-shadow: var(--clay-sm); }
 .card p.what { margin: 0 0 14px; }
 .card ul { margin: 0 0 24px; padding: 0; list-style: none; font-size: .93rem; color: var(--muted); }
