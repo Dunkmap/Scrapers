@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Job & Data Scrapers on Apify | No Login, Low Cost</title>
-  <meta name="description" content="Fast, low-cost web scrapers on Apify. Get LinkedIn and Glassdoor jobs with salaries, skills and company ratings in one dataset. No login needed.">
+  <!-- SEO: title and description are replaced with the Populr-approved versions after deploy. -->
+  <title>Web Scrapers on Apify | Jobs, Amazon, Bilibili, VK</title>
+  <meta name="description" content="Low-cost web scrapers on Apify for LinkedIn and Glassdoor jobs, Amazon search, ads and keyword ranks, Bilibili comments and VK posts. No login needed.">
   <link rel="canonical" href="https://scrapers.practicemysql.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Job & Data Scrapers on Apify">
-  <meta property="og:description" content="LinkedIn and Glassdoor jobs with salaries, skills and company ratings in one dataset. No login, $0.40 per 1,000 jobs.">
+  <meta property="og:title" content="Web Scrapers on Apify">
+  <meta property="og:description" content="Scrapers for LinkedIn and Glassdoor jobs, Amazon search and ads, Bilibili and VK. No login, pay only for the rows you get.">
   <meta property="og:url" content="https://scrapers.practicemysql.com/">
   <meta name="twitter:card" content="summary">
 
@@ -19,19 +20,14 @@
     "@type": "ItemList",
     "name": "Web scrapers on Apify",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "SoftwareApplication",
-          "name": "LinkedIn Jobs Scraper + Glassdoor",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "url": "https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper",
-          "description": "Scrapes LinkedIn and Glassdoor jobs in one run and returns one deduplicated dataset with salaries, skills and company ratings. No login.",
-          "offers": { "@type": "Offer", "price": "0.40", "priceCurrency": "USD", "description": "Per 1,000 jobs" }
-        }
-      }
+      { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "LinkedIn Jobs Scraper + Glassdoor", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper", "offers": { "@type": "Offer", "price": "0.40", "priceCurrency": "USD", "description": "Per 1,000 jobs" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "Glassdoor Jobs Scraper", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/glassdoor-jobs-scraper", "offers": { "@type": "Offer", "price": "0.40", "priceCurrency": "USD", "description": "Per 1,000 jobs" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "Amazon Search Scraper", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/amazon-search-scraper", "offers": { "@type": "Offer", "price": "1.00", "priceCurrency": "USD", "description": "Per 1,000 results" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Amazon Ads Scraper", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/amazon-ads-scraper" } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Amazon Keyword Rank Tracker", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/amazon-keyword-rank-tracker" } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareApplication", "name": "Bilibili Scraper", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/bilibili-scraper" } },
+      { "@type": "ListItem", "position": 7, "item": { "@type": "SoftwareApplication", "name": "Bilibili Danmaku Scraper", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/bilibili-danmaku-scraper", "offers": { "@type": "Offer", "price": "1.00", "priceCurrency": "USD", "description": "Per 1,000 danmaku" } } },
+      { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareApplication", "name": "VK Posts Scraper", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://apify.com/molded_mountainpass/my-actor-2" } }
     ]
   }
   </script>
@@ -48,64 +44,273 @@
       }
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0; background: var(--bg); color: var(--text);
       font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
-    .wrap { max-width: 860px; margin: 0 auto; padding: 48px 16px; }
-    header h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 8px; }
-    header p { color: var(--muted); margin: 0 0 32px; max-width: 60ch; }
+    a { color: var(--accent); }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+    nav { border-bottom: 1px solid var(--line); background: var(--card); position: sticky; top: 0; z-index: 1; }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    nav .brand { font-weight: 700; color: var(--text); text-decoration: none; }
+    nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+    nav ul a { color: var(--muted); text-decoration: none; font-size: .95rem; }
+    nav ul a:hover { color: var(--text); }
+
+    .hero { padding: 64px 0 40px; }
+    .hero h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 14px; max-width: 22ch; }
+    .hero p { color: var(--muted); margin: 0 0 24px; max-width: 62ch; font-size: 1.05rem; }
+    .facts { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+    .facts li { background: var(--tag); border-radius: 999px; padding: 4px 14px; font-size: .9rem; }
+
+    section { padding: 32px 0; }
+    section > .wrap > h2 { font-size: 1.5rem; margin: 0 0 6px; }
+    section > .wrap > p.lead { color: var(--muted); margin: 0 0 24px; max-width: 62ch; }
+    h3.group { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 28px 0 12px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
     .card {
       background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-      padding: 24px; margin-bottom: 20px;
+      padding: 22px; display: flex; flex-direction: column;
     }
-    .card h2 { font-size: 1.3rem; margin: 0 0 6px; }
-    .card .price { color: var(--muted); margin: 0 0 14px; }
-    .card ul { margin: 0 0 18px; padding-left: 20px; }
-    .card li { margin-bottom: 4px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-    .tags span { background: var(--tag); border-radius: 999px; padding: 2px 12px; font-size: .85rem; }
-    .links { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .card h4 { font-size: 1.1rem; margin: 0 0 4px; line-height: 1.3; }
+    .card .price { color: var(--muted); margin: 0 0 12px; font-size: .92rem; }
+    .card p.what { margin: 0 0 12px; }
+    .card ul { margin: 0 0 18px; padding-left: 20px; font-size: .95rem; }
+    .card li { margin-bottom: 3px; }
+    .card .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
     .btn {
       background: var(--accent); color: var(--accent-text); text-decoration: none;
-      padding: 9px 18px; border-radius: 8px; font-weight: 600;
+      padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: .95rem;
     }
-    .links a:not(.btn) { color: var(--accent); }
-    footer { color: var(--muted); font-size: .9rem; margin-top: 40px; }
+
+    .about { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+    .about p { margin: 0 0 12px; max-width: 68ch; }
+
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; padding: 24px 0 48px; margin-top: 32px; }
+    footer p { margin: 0 0 6px; }
+
+    @media (max-width: 560px) {
+      nav ul { gap: 14px; }
+      .hero { padding: 40px 0 24px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Job &amp; Data Scrapers</h1>
-      <p>Fast, low-cost scrapers that run on Apify. No login, no cookies, clean data you can export to CSV, Excel or JSON, or use through the API.</p>
-    </header>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top">Scrapers</a>
+      <ul>
+        <li><a href="#scrapers">Scrapers</a></li>
+        <li><a href="#extensions">Extensions</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <main>
-      <!-- To add a scraper: copy this whole <article> block and change the text and links. -->
-      <article class="card">
-        <h2>LinkedIn Jobs Scraper + Glassdoor</h2>
-        <p class="price">From $0.40 per 1,000 jobs · No start fee</p>
-        <div class="tags">
-          <span>LinkedIn</span><span>Glassdoor</span><span>Jobs</span><span>Salaries</span>
-        </div>
-        <ul>
-          <li>LinkedIn and Glassdoor jobs in one run, one schema, duplicates removed</li>
-          <li>Salary ranges, skills and Glassdoor company ratings</li>
-          <li>"Only new jobs" mode for daily schedules</li>
-          <li>About 850 LinkedIn jobs in 87 seconds</li>
-        </ul>
-        <div class="links">
-          <a class="btn" href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper">Try it on Apify</a>
-          <a href="https://medium.com/@divyarajvt752/if-you-have-ever-tried-to-build-a-job-board-a-salary-report-or-a-list-of-companies-that-are-1b2da6520d90">Read the article</a>
-          <a href="https://community.n8n.io/t/get-new-linkedin-glassdoor-jobs-in-google-sheets-every-morning-no-login-no-duplicates/320897">n8n workflow</a>
-        </div>
-      </article>
-    </main>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1>Web scrapers and Chrome extensions for jobs, Amazon and social data</h1>
+      <p>I build scrapers that run on Apify, along with Chrome extensions for job hunting and LeetCode practice. Give a scraper a keyword or a link and it returns clean rows you can export to CSV, Excel or JSON, or pull through the API. The scrapers need no login or cookies, and you pay only for the rows you get.</p>
+      <ul class="facts">
+        <li>8 scrapers on Apify</li>
+        <li>2 Chrome extensions</li>
+        <li>No login or cookies</li>
+        <li>CSV, Excel, JSON and API</li>
+        <li>Pay per result</li>
+      </ul>
+    </div>
+  </header>
 
-    <footer>
-      All scrapers read public data only.
-    </footer>
-  </div>
+  <main>
+    <section id="scrapers">
+      <div class="wrap">
+        <h2>Scrapers</h2>
+        <p class="lead">Every scraper reads public pages only. Each card links to the Apify page, where you can try it on the free plan.</p>
+
+        <!-- To add a scraper: copy one <article class="card"> block and change the text and links. -->
+        <h3 class="group">Jobs</h3>
+        <div class="grid">
+          <article class="card">
+            <h4>LinkedIn Jobs Scraper + Glassdoor</h4>
+            <p class="price">From $0.40 per 1,000 jobs</p>
+            <p class="what">LinkedIn and Glassdoor jobs from one run, in one deduplicated dataset.</p>
+            <ul>
+              <li>Salary ranges, skills and company ratings</li>
+              <li>"Only new jobs" mode for daily schedules</li>
+              <li>About 850 LinkedIn jobs in 87 seconds</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper">Try it on Apify</a>
+              <a href="https://medium.com/@divyarajvt752/if-you-have-ever-tried-to-build-a-job-board-a-salary-report-or-a-list-of-companies-that-are-1b2da6520d90">Article</a>
+              <a href="https://community.n8n.io/t/get-new-linkedin-glassdoor-jobs-in-google-sheets-every-morning-no-login-no-duplicates/320897">n8n workflow</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Glassdoor Jobs Scraper</h4>
+            <p class="price">From $0.40 per 1,000 jobs</p>
+            <p class="what">Glassdoor jobs, salaries and company profiles across all 20 Glassdoor countries.</p>
+            <ul>
+              <li>Low, median and high salary for each job</li>
+              <li>Company ratings and sub-ratings, size, revenue and CEO</li>
+              <li>14 filters, including Easy Apply and minimum salary</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/glassdoor-jobs-scraper">Try it on Apify</a>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="group">Amazon</h3>
+        <div class="grid">
+          <article class="card">
+            <h4>Amazon Search Scraper</h4>
+            <p class="price">$1 per 1,000 results</p>
+            <p class="what">Amazon search results by keyword or link on 20 marketplaces.</p>
+            <ul>
+              <li>ASIN, price, stars, reviews and position</li>
+              <li>Sponsored, Prime, Amazon's Choice and Best Seller flags</li>
+              <li>Organic rank, sales estimate and "bought in past month"</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/amazon-search-scraper">Try it on Apify</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Amazon Ads Scraper</h4>
+            <p class="price">Flat price per run</p>
+            <p class="what">The sponsored ads on Amazon search pages, on 20 marketplaces.</p>
+            <ul>
+              <li>Brand banners with their featured ASINs</li>
+              <li>Sponsored video ads and sponsored products</li>
+              <li>Keyword, page, placement, price and rating for each ad</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/amazon-ads-scraper">Try it on Apify</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Amazon Keyword Rank Tracker</h4>
+            <p class="price">$0.01 per ranked ASIN</p>
+            <p class="what">Shows where your ASINs rank for each keyword, and how that changed since the last run.</p>
+            <ul>
+              <li>Organic rank, sponsored position and page</li>
+              <li>Works on 20 Amazon marketplaces</li>
+              <li>Run it daily to build a rank history</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/amazon-keyword-rank-tracker">Try it on Apify</a>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="group">Social and video</h3>
+        <div class="grid">
+          <article class="card">
+            <h4>Bilibili Scraper</h4>
+            <p class="price">From $1 per 1,000 danmaku</p>
+            <p class="what">Bilibili (B站) comments, danmaku, videos, subtitles and creator profiles.</p>
+            <ul>
+              <li>Comments with full reply threads</li>
+              <li>Search, trending and ranking feeds</li>
+              <li>Optional AI sentiment labels</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try it on Apify</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Bilibili Danmaku Scraper</h4>
+            <p class="price">$1 per 1,000 danmaku</p>
+            <p class="what">Bilibili bullet comments (弹幕), each with the moment it appears in the video.</p>
+            <ul>
+              <li>From videos, searches, creators or ranking feeds</li>
+              <li>Keyword filter and free per-video density summaries</li>
+              <li>Delta mode returns only new danmaku</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">Try it on Apify</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>VK Posts Scraper</h4>
+            <p class="price">Pay per post</p>
+            <p class="what">Wall posts from public VK (VKontakte) profiles and communities.</p>
+            <ul>
+              <li>Post text with exact UTC timestamps</li>
+              <li>Attachment links, media types and repost flags</li>
+              <li>Add a VK token to get likes, authors and comments</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://apify.com/molded_mountainpass/my-actor-2">Try it on Apify</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="extensions">
+      <div class="wrap">
+        <h2>Chrome extensions</h2>
+        <p class="lead">These run in your own browser on the page you have open. Your data stays on your computer.</p>
+        <div class="grid">
+          <article class="card">
+            <h4>Jobs Exporter for LinkedIn &amp; Glassdoor</h4>
+            <p class="price">Free trial · Premium from $10 a month</p>
+            <p class="what">Exports the jobs on an open LinkedIn or Glassdoor search page to CSV, Excel or JSON.</p>
+            <ul>
+              <li>Scrolls through up to 10 result pages for you</li>
+              <li>Salary, job type, applicant count and full description</li>
+              <li>Shows which of a job's skills match yours</li>
+              <li>Company details and the hiring team, on their own sheet</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://chromewebstore.google.com/detail/jobs-exporter-for-linkedi/igoagclnnnijnhgfjeecaaapdhcflkhk">Add to Chrome</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>SQLens: LeetCode Helper &amp; Study Notes</h4>
+            <p class="price">Free plan · Pro from $2.50 a month</p>
+            <p class="what">A LeetCode notebook that saves the problems you solve and drafts study notes from your own code. It never solves problems for you.</p>
+            <ul>
+              <li>Saves the open problem in one click, or with Alt+Q</li>
+              <li>Notes on intuition, approach and complexity</li>
+              <li>Commits accepted solutions to your GitHub repo</li>
+              <li>Progress charts and a printable revision PDF</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://chromewebstore.google.com/detail/sqlens-leetcode-helper-st/jhdidhoflbefmnbhmbikmdfhbndcbadm">Add to Chrome</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="about">
+          <p>I'm Divya Raj, a data analyst from Mumbai, Maharashtra. I build scrapers that deliver enterprise-level data: clean, deduplicated and ready for reports, dashboards or your own database.</p>
+          <p>Need data from a site not listed here, or a custom pipeline? Email me at <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a>.</p>
+          <p>Find my work on <a href="https://github.com/Dunkmap">GitHub</a>, <a href="https://apify.com/molded_mountainpass">Apify</a> and <a href="https://medium.com/@divyarajvt752">Medium</a>, and practise SQL on <a href="https://practicemysql.com">practicemysql.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>All scrapers read public data only. Prices are from Apify's free plan and may be lower on paid plans.</p>
+      <p>© Divya Raj · <a href="https://practicemysql.com">practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+    </div>
+  </footer>
 </body>
 </html>
