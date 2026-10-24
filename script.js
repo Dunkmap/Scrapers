@@ -12,4 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
     card.style.setProperty('--my', (e.clientY - r.top) + 'px');
   }));
+
+  // Sends each link click to Google Tag Manager as a "link_click" event, with the
+  // card's product name, so GA4 can show which scrapers and extensions get clicked.
+  window.dataLayer = window.dataLayer || [];
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const card = a.closest('.card');
+    const href = a.getAttribute('href');
+    window.dataLayer.push({
+      event: 'link_click',
+      link_type: href.includes('apify.com') ? 'apify' : href.includes('chromewebstore') ? 'chrome_store'
+        : href.startsWith('mailto:') ? 'email' : href.startsWith('#') ? 'in_page' : 'other',
+      item_name: card ? card.querySelector('h4').textContent.trim() : a.textContent.trim(),
+      section: a.closest('section, header, footer, nav')?.id || a.closest('footer, nav')?.tagName.toLowerCase() || '',
+      link_url: a.href
+    });
+  });
 });
