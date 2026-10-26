@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = {
       link_type: href.includes('apify.com') ? 'apify' : href.includes('chromewebstore') ? 'chrome_store'
         : href.startsWith('mailto:') ? 'email' : href.startsWith('#') ? 'in_page' : 'other',
-      item_name: card ? card.querySelector('h4').textContent.trim() : a.textContent.trim(),
+      item_name: (card?.querySelector('h4, h3') || a).textContent.trim(),
       section: a.closest('section, header, footer, nav')?.id || a.closest('footer, nav')?.tagName.toLowerCase() || '',
       link_url: a.href
     };

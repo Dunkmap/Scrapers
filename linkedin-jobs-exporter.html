@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4NHL4WT');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH5BEL56V4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MH5BEL56V4');
+  </script>
+  <title>Jobs Exporter: Export LinkedIn &amp; Glassdoor Jobs to Excel</title>
+  <meta name="description" content="Chrome extension that exports LinkedIn and Glassdoor job searches to Excel, CSV or JSON, with salary, skills, company details and the hiring team.">
+  <link rel="canonical" href="https://scrapers.practicemysql.com/linkedin-jobs-exporter">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jobs Exporter for LinkedIn &amp; Glassdoor">
+  <meta property="og:description" content="Export every job in a LinkedIn or Glassdoor search to Excel, CSV or JSON in one click. Free trial, data stays in your browser.">
+  <meta property="og:url" content="https://scrapers.practicemysql.com/linkedin-jobs-exporter">
+  <meta property="og:image" content="https://scrapers.practicemysql.com/images/jobs-exporter.webp">
+  <meta name="twitter:card" content="summary">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Jobs Exporter for LinkedIn & Glassdoor",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "url": "https://scrapers.practicemysql.com/linkedin-jobs-exporter",
+        "downloadUrl": "https://chromewebstore.google.com/detail/jobs-exporter-for-linkedi/igoagclnnnijnhgfjeecaaapdhcflkhk",
+        "image": "https://scrapers.practicemysql.com/images/jobs-exporter.webp",
+        "description": "Chrome extension that exports LinkedIn and Glassdoor job listings to Excel (XLSX), CSV or JSON, with salary, skills, company details and the hiring team.",
+        "softwareVersion": "0.5.0",
+        "author": { "@type": "Person", "name": "Divya Raj", "url": "https://scrapers.practicemysql.com/" },
+        "offers": [
+          { "@type": "Offer", "name": "Free trial", "price": "0", "priceCurrency": "USD", "description": "One full run with every Premium field, up to 20 jobs" },
+          { "@type": "Offer", "name": "Premium monthly", "price": "10", "priceCurrency": "USD", "description": "Up to 3,100 jobs a month" },
+          { "@type": "Offer", "name": "Premium yearly", "price": "100", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "1-week pass", "price": "6", "priceCurrency": "USD", "description": "One-time payment, no subscription" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://scrapers.practicemysql.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Jobs Exporter for LinkedIn & Glassdoor", "item": "https://scrapers.practicemysql.com/linkedin-jobs-exporter" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is Jobs Exporter free?", "acceptedAnswer": { "@type": "Answer", "text": "You get one free trial run with every Premium field, up to 20 jobs. Premium costs $10 a month or $100 a year for up to 3,100 jobs a month, or you can buy a 1-week pass for $6 with no subscription." } },
+          { "@type": "Question", "name": "Can I export LinkedIn jobs to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open a LinkedIn job search, click Auto-scroll & scrape, and export the jobs to Excel (XLSX), CSV or JSON." } },
+          { "@type": "Question", "name": "Does it work on Glassdoor?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It exports jobs from Glassdoor job searches the same way it does from LinkedIn." } },
+          { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "The jobs you collect are stored only in your browser and are never sent to the developer's servers. Google sign-in is used only to link your free trial and Premium plan to your account." } },
+          { "@type": "Question", "name": "How many jobs can I export in one run?", "acceptedAnswer": { "@type": "Answer", "text": "Each run scrolls through up to 10 result pages. For 10,000 or more jobs per run, use the LinkedIn Jobs Scraper + Glassdoor actor on Apify, which runs in the cloud." } },
+          { "@type": "Question", "name": "Is Jobs Exporter made by LinkedIn or Glassdoor?", "acceptedAnswer": { "@type": "Answer", "text": "No. Jobs Exporter is an independent extension and is not affiliated with, endorsed by or sponsored by LinkedIn or Glassdoor." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4NHL4WT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="/"><i>DR</i><span>Divya Raj · Scrapers</span></a>
+      <ul>
+        <li><a href="/#scrapers">Scrapers</a></li>
+        <li><a href="/#extensions">Extensions</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> › <a href="/#extensions">Chrome extensions</a> › Jobs Exporter</p>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Chrome extension · Free trial</span>
+          <h1>Export LinkedIn and Glassdoor jobs to <em>Excel, CSV or JSON</em></h1>
+          <p>Jobs Exporter turns a LinkedIn or Glassdoor job search into a clean spreadsheet. Open a job search, click one button, and export every listing with its salary, skills, company details and hiring team. Your jobs stay in your browser.</p>
+          <div class="cta">
+            <a class="btn big" href="https://chromewebstore.google.com/detail/jobs-exporter-for-linkedi/igoagclnnnijnhgfjeecaaapdhcflkhk">Add to Chrome, it's free to try</a>
+            <a class="btn ghost" href="#pricing">See pricing</a>
+          </div>
+          <ul class="facts">
+            <li>LinkedIn + Glassdoor</li>
+            <li>XLSX · CSV · JSON</li>
+            <li>Up to 10 pages per run</li>
+          </ul>
+        </div>
+        <div class="term" role="img" aria-label="Sample row from a Jobs Exporter spreadsheet">
+          <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>sample export · jobs.csv</div>
+<pre><span class="c">// one example row from the Jobs sheet</span>
+<span class="p">title</span>       <span class="s">Data Analyst</span>
+<span class="p">company</span>     <span class="s">Example Corp</span>
+<span class="p">location</span>    <span class="s">Mumbai, Maharashtra</span>
+<span class="p">salary</span>      <span class="s">₹8L – ₹12L / yr</span>
+<span class="p">workplace</span>   <span class="s">Hybrid</span>
+<span class="p">applicants</span>  <span class="n">74</span>
+<span class="p">skills</span>      <span class="s">SQL, Python, Excel</span>
+<span class="p">your_match</span>  <span class="k">2 of 3</span><span class="cursor"></span></pre>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features">
+      <div class="wrap">
+        <p class="kicker">What you get</p>
+        <h2>Every job field you need, in one spreadsheet</h2>
+        <p class="lead">Jobs Exporter collects more than the job list. Turn on the details you want and each one becomes a column in your export.</p>
+        <div class="grid ext">
+          <article class="card reveal">
+            <h3 class="feat">Job list</h3>
+            <p class="what">Title, company, location, posted date and job link for every job in your search.</p>
+          </article>
+          <article class="card reveal">
+            <h3 class="feat">Auto-scroll &amp; scrape</h3>
+            <p class="what">Goes through up to 10 result pages per run for you, so you don't have to click through them.</p>
+          </article>
+          <article class="card reveal">
+            <h3 class="feat">Job details</h3>
+            <p class="what">Salary, experience level, workplace type, job type, applicant count, full description and apply link.</p>
+          </article>
+          <article class="card reveal">
+            <h3 class="feat">Skills match</h3>
+            <p class="what">The skills each job asks for, and which of them match your own profile.</p>
+          </article>
+          <article class="card reveal">
+            <h3 class="feat">Company details</h3>
+            <p class="what">Industry, size, headquarters, founded year, specialties and website for each employer.</p>
+          </article>
+          <article class="card reveal">
+            <h3 class="feat">Hiring team</h3>
+            <p class="what">The job poster's name, title and profile link, saved in a separate "Hiring Team" sheet.</p>
+          </article>
+        </div>
+        <div class="note reveal">
+          <strong>Optional AI clean-up.</strong> Jobs Exporter can fill in missing salary, experience and workplace details from the job description and remove off-topic skills. It uses Chrome's built-in on-device AI, so it's free and nothing leaves your computer.
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <p class="kicker">How it works</p>
+        <h2>From job search to spreadsheet in four steps</h2>
+        <ol class="steps">
+          <li class="reveal"><b>1</b><span>Install Jobs Exporter and sign in with Google.</span></li>
+          <li class="reveal"><b>2</b><span>Open a LinkedIn or Glassdoor job search.</span></li>
+          <li class="reveal"><b>3</b><span>Click <strong>Auto-scroll &amp; scrape</strong>.</span></li>
+          <li class="reveal"><b>4</b><span>Export to Excel (XLSX), CSV or JSON.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <p class="kicker">Pricing</p>
+        <h2>Try it free, then pick a plan</h2>
+        <p class="lead">Payments are handled securely by Paddle.</p>
+        <div class="plans">
+          <div class="plan reveal" style="--accent: var(--sage)">
+            <h3>Free trial</h3>
+            <p class="amount">$0</p>
+            <p>One full run with every Premium field, up to 20 jobs.</p>
+          </div>
+          <div class="plan reveal" style="--accent: var(--lilac)">
+            <h3>Premium</h3>
+            <p class="amount">$10<small>/month</small></p>
+            <p>Up to 3,100 jobs a month. Or $100 a year.</p>
+          </div>
+          <div class="plan reveal" style="--accent: var(--butter)">
+            <h3>1-week pass</h3>
+            <p class="amount">$6<small> once</small></p>
+            <p>One week of Premium, no subscription.</p>
+          </div>
+        </div>
+        <div class="note reveal">
+          <strong>Need more than 3,100 jobs?</strong> My <a href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper">LinkedIn Jobs Scraper + Glassdoor</a> on Apify runs in the cloud and scrapes 10,000+ jobs per run, from $0.40 per 1,000 jobs.
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <p class="kicker">FAQ</p>
+        <h2>Questions about Jobs Exporter</h2>
+        <div class="faq">
+          <details class="reveal"><summary>Is Jobs Exporter free?</summary><p>You get one free trial run with every Premium field, up to 20 jobs. Premium costs $10 a month or $100 a year for up to 3,100 jobs a month, or you can buy a 1-week pass for $6 with no subscription.</p></details>
+          <details class="reveal"><summary>Can I export LinkedIn jobs to Excel?</summary><p>Yes. Open a LinkedIn job search, click <strong>Auto-scroll &amp; scrape</strong>, and export the jobs to Excel (XLSX), CSV or JSON.</p></details>
+          <details class="reveal"><summary>Does it work on Glassdoor?</summary><p>Yes. It exports jobs from Glassdoor job searches the same way it does from LinkedIn.</p></details>
+          <details class="reveal"><summary>Where is my data stored?</summary><p>The jobs you collect are stored only in your browser and are never sent to my servers. Google sign-in is used only to link your free trial and Premium plan to your account.</p></details>
+          <details class="reveal"><summary>How many jobs can I export in one run?</summary><p>Each run scrolls through up to 10 result pages. For 10,000 or more jobs per run, use the <a href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper">LinkedIn Jobs Scraper + Glassdoor</a> on Apify, which runs in the cloud.</p></details>
+          <details class="reveal"><summary>Is Jobs Exporter made by LinkedIn or Glassdoor?</summary><p>No. Jobs Exporter is an independent extension and is not affiliated with, endorsed by or sponsored by LinkedIn or Glassdoor.</p></details>
+        </div>
+        <div class="cta center reveal">
+          <a class="btn big" href="https://chromewebstore.google.com/detail/jobs-exporter-for-linkedi/igoagclnnnijnhgfjeecaaapdhcflkhk">Add Jobs Exporter to Chrome</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Jobs Exporter is not affiliated with, endorsed by or sponsored by LinkedIn or Glassdoor. <a href="https://www.practicemysql.com/privacy.html">Privacy policy</a></p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
