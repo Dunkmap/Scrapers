@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4NHL4WT');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH5BEL56V4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MH5BEL56V4');
+  </script>
+  <title>2026 B站评论爬虫：无需登录采集评论、弹幕、UP主数据</title>
+  <meta name="description" content="2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。">
+  <meta name="keywords" content="B站爬虫, B站评论爬取, B站弹幕下载, UP主数据采集, w_rid, WBI 签名, 哔哩哔哩爬虫, Python 爬虫">
+  <meta name="author" content="Divya Raj">
+  <link rel="canonical" href="https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）">
+  <meta property="og:description" content="2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。">
+  <meta property="og:url" content="https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh">
+  <meta property="og:image" content="https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper-zh.webp">
+  <meta property="article:published_time" content="2026-11-09">
+  <meta property="article:modified_time" content="2026-11-09">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）",
+      "description": "2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。",
+      "image": "https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper-zh.webp",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@type": "Person",
+        "name": "Divya Raj",
+        "url": "https://scrapers.practicemysql.com/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Divya Raj",
+        "url": "https://scrapers.practicemysql.com/"
+      },
+      "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh",
+      "keywords": "B站爬虫, B站评论爬取, B站弹幕下载, UP主数据采集, w_rid, WBI 签名, 哔哩哔哩爬虫, Python 爬虫",
+      "about": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Bilibili Scraper",
+          "url": "https://apify.com/molded_mountainpass/bilibili-scraper",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://scrapers.practicemysql.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "博客",
+          "item": "https://scrapers.practicemysql.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "2026 B站评论爬虫：无需登录采集评论、弹幕、UP主数据",
+          "item": "https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "B站 评论爬虫需要登录或 Cookie 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要，只有字幕需要 Cookie。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "w_rid 参数怎么生成？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它来自 B站 的 WBI 签名，本项目已经内置，不用自己算。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能导出 Excel 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。Apify 上点 Export → Excel；本地用 -o xxx.csv。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能采集 UP主 粉丝数吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以，用 users 模式，每个 UP主 一行。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "合规吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只读取公开数据，和 bilibili.com 网页本身调用的接口一致。请遵守 B站 用户协议，控制请求频率，不要传播个人信息。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4NHL4WT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="/"><i>DR</i><span>Divya Raj · Scrapers</span></a>
+      <ul>
+        <li><a href="/#scrapers">Scrapers</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero post-hero" id="top">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">首页</a> › <a href="/blog/">博客</a></p>
+      <h1>2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）</h1>
+      <p class="post-meta">Divya Raj · 更新于 <time datetime="2026-11-09">2026-11-09</time></p>
+      <div class="cta">
+        <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">免费试用 Bilibili Scraper</a>
+        <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">弹幕专用版</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="wrap">
+        <article class="post">
+          <img class="post-cover" src="/images/blog/bilibili-comments-scraper-zh.webp" alt="B站评论爬虫：评论、弹幕、UP主数据" width="1000" height="420">
+<p>做舆情分析、竞品调研、找 UP主 合作，最常见的需求就是批量拿到 <strong>B站评论、弹幕和 UP主 数据</strong>。但很多人照着网上的旧教程写爬虫，很快就会遇到这些问题：</p>
+<ul>
+<li>评论接口多了 <code>w_rid</code> 和 <code>wts</code> 参数，不知道怎么生成；</li>
+<li>请求返回 <code>-352</code>、<code>-412</code>，或者返回 <code>code: 0</code> 却没有数据（隐性风控）；</li>
+<li>必须带 Cookie 才能用，账号还容易被限制。</li>
+</ul>
+<p>原因是 B站 现在的网页接口使用 <strong>WBI 签名</strong>，并且加了风控和频率限制。2022 年以前的教程大多用的是不带签名的老接口，现在基本已经失效。</p>
+<p>本文介绍一个开源项目 <strong>Bilibili Scraper</strong>，已经把这些问题处理好了，两种用法：</p>
+<ol>
+<li><strong>免代码</strong>：在 Apify 云端运行，一键导出 Excel / CSV / JSON；</li>
+<li><strong>Python</strong>：本地安装，命令行或代码调用。</li>
+</ol>
+<p>全程 <strong>不需要登录 B站 账号，也不需要 Cookie</strong>（只有字幕需要）。</p>
+<ul>
+<li>👉 在线使用（免代码）：https://apify.com/molded_mountainpass/bilibili-scraper</li>
+<li>👉 只要弹幕：https://apify.com/molded_mountainpass/bilibili-danmaku-scraper</li>
+<li>👉 开源代码（MIT）：https://github.com/Dunkmap/Bilibili-Scraper</li>
+</ul>
+<h2 id="_1">一、能采集哪些数据</h2>
+<table>
+<thead>
+<tr>
+<th>数据</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B站评论</strong></td>
+<td>热门 / 最新排序，含楼中楼回复。每条 23 个字段：用户、点赞、置顶、大会员、认证、UP主点赞、IP 属地、回复数等</td>
+</tr>
+<tr>
+<td><strong>B站弹幕</strong></td>
+<td>每条弹幕一行，含出现时间（视频第几秒）、颜色、模式、发送时间</td>
+</tr>
+<tr>
+<td><strong>视频数据</strong></td>
+<td>播放、点赞、投币、收藏、分享、弹幕数、评论数、标签</td>
+</tr>
+<tr>
+<td><strong>UP主 信息</strong></td>
+<td>昵称、签名、等级、认证、大会员、粉丝数、关注数、视频数、获赞数</td>
+</tr>
+<tr>
+<td><strong>UP主 投稿</strong></td>
+<td>某个 UP主 的全部投稿，可按发布时间、播放量、收藏排序</td>
+</tr>
+<tr>
+<td><strong>搜索 / 热门</strong></td>
+<td>关键词搜索（按播放、时间、弹幕等排序）、热门推荐、排行榜前 100</td>
+</tr>
+<tr>
+<td><strong>字幕</strong></td>
+<td>含 AI 字幕，<strong>需要登录 Cookie</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="apify-excel">二、免代码用法（Apify 云端，一键导出 Excel）</h2>
+<ol>
+<li>打开 <strong><a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a></strong>，点击 <strong>Try for free</strong>（免费账号每月有赠送额度）；</li>
+<li>选择 <strong>What to scrape</strong>：<code>videos</code>（视频）、<code>comments</code>（评论）、<code>danmaku</code>（弹幕）、<code>subtitles</code>（字幕）、<code>users</code>（UP主）；</li>
+<li>填入视频链接、UP主 空间链接（<code>space.bilibili.com/...</code>）、搜索链接，或者直接输入关键词，如 <code>原神</code>；</li>
+<li>点击 <strong>Start</strong>，完成后 <strong>Export</strong> 导出 Excel / CSV / JSON，也可以直接同步到 Google Sheets。</li>
+</ol>
+<p>示例：采集关键词「原神」搜索结果前 20 个视频的评论（含楼中楼回复）：</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;comments&quot;,
+  &quot;searchQueries&quot;: [&quot;原神&quot;],
+  &quot;maxVideosPerSource&quot;: 20,
+  &quot;maxCommentsPerVideo&quot;: 200,
+  &quot;includeReplies&quot;: true
+}
+</code></pre>
+<h3 id="up">采集 UP主 信息</h3>
+<p>把 <code>mode</code> 设为 <code>users</code>，填入 UP主 UID（<code>space.bilibili.com/</code> 后面的数字）：</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;users&quot;,
+  &quot;userIds&quot;: [&quot;2&quot;, &quot;546195&quot;]
+}
+</code></pre>
+<p>输出字段：<code>name</code>（昵称）、<code>sign</code>（签名）、<code>level</code>（等级）、<code>verified</code>（认证）、<code>vip</code>、<code>followers</code>（粉丝数）、<code>following</code>（关注数）、<code>videos</code>（视频数）、<code>likes</code>（获赞数）、<code>url</code>。想要 UP主 的投稿列表，用 <code>mode: "videos"</code> 加同样的 <code>userIds</code> 即可。</p>
+<p><strong>价格</strong>：按结果计费，无月费。评论 / 视频 / UP主 每条 $0.005，弹幕每条 $0.001，1000 条评论约 $5。</p>
+<h2 id="python">三、Python 用法</h2>
+<pre><code class="language-bash">git clone https://github.com/Dunkmap/Bilibili-Scraper
+cd Bilibili-Scraper
+pip install -e .
+</code></pre>
+<p>命令行：</p>
+<pre><code class="language-bash">bili comments BV1xx411c7mD --replies -o comments.csv     # 评论 + 楼中楼
+bili danmaku BV1xx411c7mD -o danmaku.csv                 # 弹幕
+bili user 2                                              # UP主 信息
+bili uploads 2 --order click --limit 100 -o uploads.csv  # UP主 投稿
+bili search &quot;原神&quot; --order click --limit 200 -o search.csv
+</code></pre>
+<p>代码调用：</p>
+<pre><code class="language-python">import asyncio
+from bilibili_scraper import Scraper
+
+async def main():
+    async with Scraper(rate=4) as s:
+        video = await s.video(&quot;BV1xx411c7mD&quot;)
+        async for c in s.comments(video[&quot;bvid&quot;], limit=500, replies=True):
+            print(c[&quot;uname&quot;], c[&quot;content&quot;])
+
+        up = await s.user(video[&quot;owner_mid&quot;])
+        print(up[&quot;name&quot;], up[&quot;followers&quot;])
+
+        async for v in s.user_videos(video[&quot;owner_mid&quot;], order=&quot;click&quot;, limit=20):
+            print(v[&quot;title&quot;], v[&quot;views&quot;])
+
+asyncio.run(main())
+</code></pre>
+<h2 id="w_rid">四、它是怎么解决 w_rid 签名和风控的</h2>
+<ul>
+<li><strong>WBI 签名</strong>：自动获取 <code>img_key</code> / <code>sub_key</code>，生成 <code>w_rid</code> 和 <code>wts</code>；密钥会缓存，签名被拒（<code>-352</code>）时自动刷新；</li>
+<li><strong>隐性风控识别</strong>：B站 有时返回 <code>code: 0</code> 但只有 <code>v_voucher</code> 没有数据，脚本会识别并重试，而不是当成空页面；</li>
+<li><strong>设备 Cookie</strong>：自动生成 <code>buvid</code>，不需要登录账号；</li>
+<li><strong>限速与重试</strong>：请求加随机间隔，遇到 <code>-412</code> 自动退避重试；云端版本被拦截时会逐级切换代理。</li>
+</ul>
+<h2 id="_2">五、其他功能</h2>
+<ul>
+<li><strong>情感分析</strong>：用你自己的 Groq API Key（有免费额度），把每条评论 / 弹幕标注为正面、中性、负面；</li>
+<li><strong>增量模式</strong>：定时任务只返回上次之后的新数据，适合长期舆情监控；</li>
+<li><strong>弹幕专用版</strong>：只需要弹幕的话，可以用 <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a>，支持关键词过滤和免费的弹幕密度 / 高能时刻分析。</li>
+</ul>
+        </article>
+      </div>
+    </section>
+    <section id="faq">
+      <div class="wrap">
+        <p class="kicker">常见问题</p>
+        <h2>常见问题</h2>
+        <div class="faq">
+          <details class="reveal"><summary>B站 评论爬虫需要登录或 Cookie 吗？</summary><p>不需要，只有字幕需要 Cookie。</p></details>
+          <details class="reveal"><summary>w_rid 参数怎么生成？</summary><p>它来自 B站 的 WBI 签名，本项目已经内置，不用自己算。</p></details>
+          <details class="reveal"><summary>能导出 Excel 吗？</summary><p>可以。Apify 上点 Export → Excel；本地用 -o xxx.csv。</p></details>
+          <details class="reveal"><summary>能采集 UP主 粉丝数吗？</summary><p>可以，用 users 模式，每个 UP主 一行。</p></details>
+          <details class="reveal"><summary>合规吗？</summary><p>只读取公开数据，和 bilibili.com 网页本身调用的接口一致。请遵守 B站 用户协议，控制请求频率，不要传播个人信息。</p></details>
+        </div>
+        <div class="note reveal"><strong>不想写代码？</strong> Bilibili Scraper 可一键导出 B站评论、弹幕、视频和 UP主 数据到 Excel / CSV / JSON，按结果计费，无需登录。</div>
+        <div class="cta center reveal">
+          <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">免费试用 Bilibili Scraper</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <p class="kicker">更多 B站 数据教程</p>
+        <ul class="post-list">
+          <li><a href="/blog/bilibili-api">Bilibili API in 2026: Is There an Official API? 5 Ways to Get Bilibili Data (Compared)</a></li>
+          <li><a href="/blog/scrape-bilibili-comments-python">How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)</a></li>
+          <li><a href="/blog/what-is-danmaku">What Is Danmaku? How to Download Bilibili Bullet Comments and Find Any Video&#x27;s Highlight</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>All scrapers read public data only. Bilibili is a trademark of its owner; these tools are independent and not affiliated with Bilibili.</p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

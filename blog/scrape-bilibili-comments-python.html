@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4NHL4WT');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH5BEL56V4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MH5BEL56V4');
+  </script>
+  <title>Scrape Bilibili Comments, Danmaku &amp; UP主 Data in Python (2026)</title>
+  <meta name="description" content="Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.">
+  <meta name="keywords" content="bilibili comments, scrape bilibili comments, bilibili scraper, bilibili danmaku, bilibili api python, UP主, export bilibili comments to excel">
+  <meta name="author" content="Divya Raj">
+  <link rel="canonical" href="https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)">
+  <meta property="og:description" content="Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.">
+  <meta property="og:url" content="https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python">
+  <meta property="og:image" content="https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper.webp">
+  <meta property="article:published_time" content="2026-11-09">
+  <meta property="article:modified_time" content="2026-11-09">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)",
+      "description": "Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.",
+      "image": "https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper.webp",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Divya Raj",
+        "url": "https://scrapers.practicemysql.com/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Divya Raj",
+        "url": "https://scrapers.practicemysql.com/"
+      },
+      "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python",
+      "keywords": "bilibili comments, scrape bilibili comments, bilibili scraper, bilibili danmaku, bilibili api python, UP主, export bilibili comments to excel",
+      "about": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Bilibili Scraper",
+          "url": "https://apify.com/molded_mountainpass/bilibili-scraper",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://scrapers.practicemysql.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://scrapers.practicemysql.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Scrape Bilibili Comments, Danmaku & UP主 Data in Python (2026)",
+          "item": "https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is there an official Bilibili API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I read Bilibili comments without an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I generate the w_rid parameter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You don't have to. The scraper signs every request itself with Bilibili's WBI keys."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export Bilibili comments to Excel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is scraping Bilibili legal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It reads public data the same way the bilibili.com website does. Follow Bilibili's terms of service, keep the request rate reasonable and don't republish personal data."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4NHL4WT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="/"><i>DR</i><span>Divya Raj · Scrapers</span></a>
+      <ul>
+        <li><a href="/#scrapers">Scrapers</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero post-hero" id="top">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> › <a href="/blog/">Blog</a></p>
+      <h1>How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)</h1>
+      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time></p>
+      <div class="cta">
+        <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
+        <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">Danmaku-only scraper</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="wrap">
+        <article class="post">
+          <img class="post-cover" src="/images/blog/bilibili-comments-scraper.webp" alt="Scrape Bilibili comments, danmaku and UP主 data in Python" width="1000" height="420">
+<p>Bilibili (哔哩哔哩, B站) is China's biggest video platform for anime, gaming, tech and lifestyle. Its comment sections and <strong>danmaku</strong> (弹幕, the bullet comments that fly across the video) are a goldmine for market research, sentiment analysis and influencer discovery.</p>
+<p>The problem: Bilibili has <strong>no official public API</strong> for this data. Its web endpoints now need a <strong><code>w_rid</code> / <code>wts</code> signature (WBI signing)</strong>, they throw silent risk-control errors (<code>-352</code>, <code>-412</code>) and they rate-limit you. Most tutorials from before 2023 use old unsigned endpoints and simply don't work anymore.</p>
+<p>This guide shows two ways to get the data <strong>without a Bilibili account</strong>:</p>
+<ol>
+<li><strong>No code:</strong> a ready-made Bilibili scraper on Apify, with a 1-click export to Excel.</li>
+<li><strong>Python:</strong> the same open-source library, run locally.</li>
+</ol>
+<h2 id="what-you-can-scrape">What you can scrape</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments</strong></td>
+<td>Hot or newest first, with full nested reply threads. 23 fields per comment: user, likes, pinned, VIP, verified, "liked by uploader", IP location, reply count…</td>
+</tr>
+<tr>
+<td><strong>Danmaku (bullet comments)</strong></td>
+<td>Every bullet comment as its own row, with its playback time, colour, mode and send time</td>
+</tr>
+<tr>
+<td><strong>Videos</strong></td>
+<td>Views, likes, coins, favourites, shares, danmaku and reply counts, tags</td>
+</tr>
+<tr>
+<td><strong>UP主 (creators)</strong></td>
+<td>Name, bio, level, verified title, VIP, followers, following, video count, total likes</td>
+</tr>
+<tr>
+<td><strong>Creator uploads</strong></td>
+<td>Every video a creator uploaded, sorted by date, views or favourites</td>
+</tr>
+<tr>
+<td><strong>Search &amp; trending</strong></td>
+<td>Keyword search (sort by views, date, danmaku…), the popular feed and the top-100 ranking</td>
+</tr>
+<tr>
+<td><strong>Subtitles / transcripts</strong></td>
+<td>Including AI captions. This is the one thing that needs a login cookie</td>
+</tr>
+</tbody>
+</table>
+<h2 id="option-1-no-code-apify">Option 1: No code (Apify)</h2>
+<ol>
+<li>Open the <strong><a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a></strong> and click <strong>Try for free</strong>. A free Apify account includes monthly credit.</li>
+<li>Pick <strong>What to scrape</strong>: <code>videos</code>, <code>comments</code>, <code>danmaku</code>, <code>subtitles</code> or <code>users</code>.</li>
+<li>Give it a source: paste video links, <code>space.bilibili.com/...</code> creator links or search links, or just type keywords such as <code>原神</code>.</li>
+<li>Click <strong>Start</strong>, then <strong>Export</strong> to Excel, CSV or JSON (or send it straight to Google Sheets).</li>
+</ol>
+<p>Example: the comments, with replies, on the top 20 search results for a keyword:</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;comments&quot;,
+  &quot;searchQueries&quot;: [&quot;原神&quot;],
+  &quot;maxVideosPerSource&quot;: 20,
+  &quot;maxCommentsPerVideo&quot;: 200,
+  &quot;includeReplies&quot;: true
+}
+</code></pre>
+<h3 id="scraping-up-creator-profiles">Scraping UP主 (creator) profiles</h3>
+<p>Set <code>mode</code> to <code>users</code> and pass creator IDs (the number in <code>space.bilibili.com/&lt;UID&gt;</code>):</p>
+<pre><code class="language-json">{
+  &quot;mode&quot;: &quot;users&quot;,
+  &quot;userIds&quot;: [&quot;2&quot;, &quot;546195&quot;]
+}
+</code></pre>
+<p>Each row has <code>name</code>, <code>sign</code> (bio), <code>level</code>, <code>verified</code>, <code>vip</code>, <code>followers</code>, <code>following</code>, <code>videos</code>, <code>likes</code> and the profile <code>url</code>. To get a creator's videos instead, use <code>mode: "videos"</code> with the same <code>userIds</code>.</p>
+<p><strong>Pricing:</strong> pay per result, no subscription. $0.005 per comment, video or creator profile and $0.001 per danmaku, so 1,000 comments cost about $5.</p>
+<h2 id="option-2-python">Option 2: Python</h2>
+<p>The scraper is open source (MIT):</p>
+<pre><code class="language-bash">git clone https://github.com/Dunkmap/Bilibili-Scraper
+cd Bilibili-Scraper
+pip install -e .
+</code></pre>
+<p>From the command line:</p>
+<pre><code class="language-bash">bili comments BV1xx411c7mD --replies -o comments.csv
+bili danmaku BV1xx411c7mD -o danmaku.csv
+bili user 2                                   # UP主 profile
+bili uploads 2 --order click --limit 100 -o uploads.csv
+bili search &quot;原神&quot; --order click --limit 200 -o search.csv
+</code></pre>
+<p>Or as a library:</p>
+<pre><code class="language-python">import asyncio
+from bilibili_scraper import Scraper
+
+async def main():
+    async with Scraper(rate=4) as s:
+        video = await s.video(&quot;BV1xx411c7mD&quot;)
+        async for c in s.comments(video[&quot;bvid&quot;], limit=500, replies=True):
+            print(c[&quot;uname&quot;], c[&quot;content&quot;])
+
+        creator = await s.user(video[&quot;owner_mid&quot;])
+        print(creator[&quot;name&quot;], creator[&quot;followers&quot;])
+
+        async for v in s.user_videos(video[&quot;owner_mid&quot;], order=&quot;click&quot;, limit=20):
+            print(v[&quot;title&quot;], v[&quot;views&quot;])
+
+asyncio.run(main())
+</code></pre>
+<h2 id="how-it-handles-w_rid-signing-and-risk-control">How it handles w_rid signing and risk control</h2>
+<ul>
+<li><strong>WBI signing:</strong> fetches <code>img_key</code> / <code>sub_key</code>, generates <code>w_rid</code> and <code>wts</code>, caches the keys and refreshes them when Bilibili rejects a signature (<code>-352</code>).</li>
+<li><strong>Silent risk control:</strong> Bilibili sometimes answers <code>code: 0</code> with only a <code>v_voucher</code> and no data. The scraper detects this and retries instead of treating it as an empty page.</li>
+<li><strong>Device cookies:</strong> generates a <code>buvid</code> itself, so no account is needed.</li>
+<li><strong>Rate limits:</strong> jittered delays and backoff retries on <code>-412</code>. The cloud version also switches to a proxy when it gets blocked.</li>
+</ul>
+<h2 id="extras">Extras</h2>
+<ul>
+<li><strong>Sentiment analysis:</strong> label every comment and danmaku positive, neutral or negative, using your own free Groq API key.</li>
+<li><strong>Delta mode:</strong> scheduled runs return only items that are new since the last run, which is handy for brand monitoring.</li>
+<li><strong>Danmaku-only version:</strong> if you only need bullet comments, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline.</li>
+</ul>
+        </article>
+      </div>
+    </section>
+    <section id="faq">
+      <div class="wrap">
+        <p class="kicker">FAQ</p>
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details class="reveal"><summary>Is there an official Bilibili API?</summary><p>No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you.</p></details>
+          <details class="reveal"><summary>Can I read Bilibili comments without an account?</summary><p>Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie.</p></details>
+          <details class="reveal"><summary>How do I generate the w_rid parameter?</summary><p>You don&#x27;t have to. The scraper signs every request itself with Bilibili&#x27;s WBI keys.</p></details>
+          <details class="reveal"><summary>Can I export Bilibili comments to Excel?</summary><p>Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel.</p></details>
+          <details class="reveal"><summary>Is scraping Bilibili legal?</summary><p>It reads public data the same way the bilibili.com website does. Follow Bilibili&#x27;s terms of service, keep the request rate reasonable and don&#x27;t republish personal data.</p></details>
+        </div>
+        <div class="note reveal"><strong>Want the data without writing code?</strong> The Bilibili Scraper exports comments, danmaku, videos and UP主 profiles to Excel, CSV or JSON. Pay per result, no login.</div>
+        <div class="cta center reveal">
+          <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <p class="kicker">More Bilibili guides</p>
+        <ul class="post-list">
+          <li><a href="/blog/bilibili-api">Bilibili API in 2026: Is There an Official API? 5 Ways to Get Bilibili Data (Compared)</a></li>
+          <li><a href="/blog/what-is-danmaku">What Is Danmaku? How to Download Bilibili Bullet Comments and Find Any Video&#x27;s Highlight</a></li>
+          <li><a href="/blog/bilibili-comments-scraper-zh">2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>All scrapers read public data only. Bilibili is a trademark of its owner; these tools are independent and not affiliated with Bilibili.</p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

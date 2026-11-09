@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://scrapers.practicemysql.com/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://scrapers.practicemysql.com/</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://scrapers.practicemysql.com/linkedin-jobs-exporter</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://scrapers.practicemysql.com/privacy</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://scrapers.practicemysql.com/blog/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://scrapers.practicemysql.com/blog/bilibili-api</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://scrapers.practicemysql.com/blog/what-is-danmaku</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh</loc><lastmod>2026-11-09</lastmod></url>
 </urlset>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4NHL4WT');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH5BEL56V4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MH5BEL56V4');
+  </script>
+  <title>Bilibili Scraping Guides: Comments, Danmaku, UP主 &amp; API | Blog</title>
+  <meta name="description" content="Guides to scraping Bilibili (哔哩哔哩, B站): comments with replies, danmaku bullet comments, UP主 creator data and the Bilibili API, with Python and no-code tools.">
+  <link rel="canonical" href="https://scrapers.practicemysql.com/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bilibili Scraping Guides">
+  <meta property="og:description" content="Scrape Bilibili comments, danmaku and UP主 data without a login.">
+  <meta property="og:url" content="https://scrapers.practicemysql.com/blog/">
+  <meta property="og:image" content="https://scrapers.practicemysql.com/images/blog/bilibili-api.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Bilibili Data Guides",
+  "url": "https://scrapers.practicemysql.com/blog/",
+  "author": {
+    "@type": "Person",
+    "name": "Divya Raj",
+    "url": "https://scrapers.practicemysql.com/"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Bilibili API in 2026: Is There an Official API? 5 Ways to Get Bilibili Data (Compared)",
+      "url": "https://scrapers.practicemysql.com/blog/bilibili-api",
+      "datePublished": "2026-11-09",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)",
+      "url": "https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python",
+      "datePublished": "2026-11-09",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What Is Danmaku? How to Download Bilibili Bullet Comments and Find Any Video's Highlight",
+      "url": "https://scrapers.practicemysql.com/blog/what-is-danmaku",
+      "datePublished": "2026-11-09",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）",
+      "url": "https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh",
+      "datePublished": "2026-11-09",
+      "inLanguage": "zh-CN"
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4NHL4WT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="/"><i>DR</i><span>Divya Raj · Scrapers</span></a>
+      <ul>
+        <li><a href="/#scrapers">Scrapers</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero post-hero" id="top">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> › Blog</p>
+      <h1>Bilibili scraping guides</h1>
+      <p>How to get Bilibili (哔哩哔哩, B站) comments, danmaku bullet comments, UP主 creator data and video stats, with Python or no code, and without a login.</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="grid">
+          <article class="card reveal">
+            <a href="/blog/bilibili-api"><img class="post-thumb" src="/images/blog/bilibili-api.webp" alt="Is there an official Bilibili API? Fix -352 and -412 errors" width="1000" height="420" loading="lazy"></a>
+            <h3><a class="title-link" href="/blog/bilibili-api">Bilibili API in 2026: Is There an Official API? 5 Ways to Get Bilibili Data (Compared)</a></h3>
+            <p class="what">Bilibili has no official public API for comments, danmaku or video stats. Learn what -352 and -412 mean, how w_rid signing works, and 5 ways to get Bilibili data.</p>
+          </article>
+          <article class="card reveal">
+            <a href="/blog/scrape-bilibili-comments-python"><img class="post-thumb" src="/images/blog/bilibili-comments-scraper.webp" alt="Scrape Bilibili comments, danmaku and UP主 data in Python" width="1000" height="420" loading="lazy"></a>
+            <h3><a class="title-link" href="/blog/scrape-bilibili-comments-python">How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)</a></h3>
+            <p class="what">Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.</p>
+          </article>
+          <article class="card reveal">
+            <a href="/blog/what-is-danmaku"><img class="post-thumb" src="/images/blog/bilibili-danmaku.webp" alt="Find any Bilibili video&#x27;s highlight with danmaku density" width="1000" height="420" loading="lazy"></a>
+            <h3><a class="title-link" href="/blog/what-is-danmaku">What Is Danmaku? How to Download Bilibili Bullet Comments and Find Any Video&#x27;s Highlight</a></h3>
+            <p class="what">Danmaku (弹幕) are Bilibili&#x27;s bullet comments, tied to a playback second. Learn what they mean, how to download them without a login, and how to find a video&#x27;s highlight.</p>
+          </article>
+          <article class="card reveal">
+            <a href="/blog/bilibili-comments-scraper-zh"><img class="post-thumb" src="/images/blog/bilibili-comments-scraper-zh.webp" alt="B站评论爬虫：评论、弹幕、UP主数据" width="1000" height="420" loading="lazy"></a>
+            <h3><a class="title-link" href="/blog/bilibili-comments-scraper-zh">2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）</a></h3>
+            <p class="what">2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>All scrapers read public data only. Bilibili is a trademark of its owner; these tools are independent and not affiliated with Bilibili.</p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
