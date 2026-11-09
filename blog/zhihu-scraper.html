@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4NHL4WT');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH5BEL56V4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MH5BEL56V4');
+  </script>
+  <title>Zhihu Scraper (知乎): Hot List, Answers &amp; API, $2 per 1,000</title>
+  <meta name="description" content="Scrape the Zhihu hot list (知乎热榜), search, answers, comments and profiles with no login, for a flat $2 per 1,000. The lowest price for Zhihu answers on Apify.">
+  <link rel="canonical" href="https://scrapers.practicemysql.com/blog/zhihu-scraper">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Zhihu answers, search and the hot list for a flat $2 per 1,000, the lowest price on Apify">
+  <meta property="og:description" content="Scrape the Zhihu hot list (知乎热榜), search, answers, comments and profiles with no login, for a flat $2 per 1,000. The lowest price for Zhihu answers on Apify.">
+  <meta property="og:url" content="https://scrapers.practicemysql.com/blog/zhihu-scraper">
+  <meta property="og:image" content="https://scrapers.practicemysql.com/images/zhihu-scraper.webp">
+  <meta name="twitter:card" content="summary">
+  <meta property="article:published_time" content="2026-11-09">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Zhihu answers, search and the hot list for a flat $2 per 1,000, the lowest price on Apify",
+      "description": "Scrape the Zhihu hot list (知乎热榜), search, answers, comments and profiles with no login, for a flat $2 per 1,000. The lowest price for Zhihu answers on Apify.",
+      "image": "https://scrapers.practicemysql.com/images/zhihu-scraper.webp",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/zhihu-scraper",
+      "author": {
+        "@type": "Person",
+        "name": "Divya Raj",
+        "url": "https://scrapers.practicemysql.com/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Divya Raj"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Zhihu Scraper",
+        "url": "https://apify.com/molded_mountainpass/zhihu-hot-list-scraper",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "2.00",
+          "priceCurrency": "USD",
+          "description": "Per 1,000 results on the Apify free plan"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://scrapers.practicemysql.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://scrapers.practicemysql.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Zhihu Scraper",
+          "item": "https://scrapers.practicemysql.com/blog/zhihu-scraper"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is there a Zhihu API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zhihu Scraper works as a ready-made Zhihu API: call it through the Apify API or its MCP endpoint and get structured JSON back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a Zhihu account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A Zhihu API key or cookie is optional and only unlocks more data or capacity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A flat $2 per 1,000 results for every row type. For answers and search results that is the lowest price among the Zhihu scrapers on the Apify Store."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get alerts when my brand trends on Zhihu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Add keywords and a Slack, Telegram or Discord destination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export Zhihu answers in English?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It exports the original Chinese text, ready to pass to a translation tool or model."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4NHL4WT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="/"><i>DR</i><span>Divya Raj · Scrapers</span></a>
+      <ul>
+        <li><a href="/#scrapers">Scrapers</a></li>
+        <li><a href="/#extensions">Extensions</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero cmp-hero" id="top">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> › <a href="/blog/">Blog</a> › Zhihu Scraper</p>
+      <div class="cmp-cover social">
+        <img src="/images/zhihu-scraper.webp" alt="Zhihu Scraper logo" width="96" height="96">
+        <div>
+          <span class="eyebrow">China social media · Apify actor</span>
+          <h1>Zhihu answers, search and hot list for a <em>flat $2 per 1,000</em></h1>
+          <p class="byline">By Divya Raj · Updated 9 November 2026 · 5 min read</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="cmp">
+    <div class="wrap">
+      <section class="answer reveal" aria-label="Quick answer">
+        <p class="kicker">Quick answer</p>
+        <p>Zhihu Scraper collects the Zhihu (知乎) hot list with rank and heat changes, search results, full answers, articles, comments and replies, creator profiles, topics and columns, with no login. It charges a flat <strong>$2 per 1,000 results</strong> for every row type. For answers and search results that is the lowest price of the 11 Zhihu scrapers on the Apify Store, and it can send trend alerts to Slack, Telegram or Discord.</p>
+        <a class="btn big" href="https://apify.com/molded_mountainpass/zhihu-hot-list-scraper">Try Zhihu Scraper on Apify</a>
+      </section>
+
+      <h2>Why choose Zhihu Scraper?</h2>
+      <ol class="reasons"><li class="reveal"><b>Lowest price for answers and search</b><span>One flat $2 per 1,000 rows for everything. The other 10 Zhihu scrapers on the Apify Store charge $2.99 to $12 per 1,000 answers or search results.</span></li><li class="reveal"><b>Hot list with change tracking</b><span>Each 知乎热榜 entry carries its rank and heat, plus the previous rank and the change since your last run.</span></li><li class="reveal"><b>Alerts when topics trend</b><span>Send alerts to Slack, Telegram or Discord when a brand or keyword reaches the hot list.</span></li><li class="reveal"><b>Full text for AI</b><span>Answers and articles come with full text and optional Markdown, ready for analysis, translation or LLM training.</span></li><li class="reveal"><b>MCP server for AI agents</b><span>AI agents can query Zhihu live through the built-in MCP endpoint.</span></li><li class="reveal"><b>No login needed</b><span>Works without an account. Add an official Zhihu API key or a cookie only if you want more data or capacity.</span></li></ol>
+
+      <h2>How does the price compare with other Zhihu scrapers?</h2>
+      <p>This chart includes all 11 Zhihu scrapers the Apify Store returned for "Zhihu" and "知乎", priced per Zhihu answer or search result. Some alternatives charge less for other row types, such as comments.</p>
+      <figure class="chart reveal" id="c1">
+<figcaption><strong>Price per 1,000 Zhihu answers or search results</strong><span>USD per 1,000 rows, free tier</span></figcaption>
+<svg viewBox="0 0 680 456" role="img" aria-labelledby="c1-t" class="bars">
+<title id="c1-t">Price per 1,000 Zhihu answers or search results. Zhihu Scraper (this): $2.00; zen-studio: $2.99; devcake: $3.00; memo23: $3.00; blackfalcondata: $3.00; vulnv: $3.00; maximedupre: $3.55; socialdatax: $3.99; clover_folktale: $4.00; openclawai: $5.00; sian.agency: $12.00</title>
+<line x1="250" y1="4" x2="250" y2="452" class="axis"/>
+<g class="row ours"><title>Zhihu Scraper (this): $2.00 (hot list, search, answers, comments)</title>
+<rect x="0" y="10.0" width="680" height="36" class="hit"/>
+<text x="238" y="33.0" text-anchor="end" class="lbl">Zhihu Scraper (this)</text>
+<path d="M250,18.0 h52.666666666666664 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-52.666666666666664 z" fill="#6250d6"/>
+<text x="314.6666666666667" y="33.0" class="val">$2.00</text></g>
+<g class="row"><title>zen-studio: $2.99</title>
+<rect x="0" y="50.0" width="680" height="36" class="hit"/>
+<text x="238" y="73.0" text-anchor="end" class="lbl">zen-studio</text>
+<path d="M250,58.0 h80.71666666666667 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-80.71666666666667 z" fill="#8a8297"/>
+<text x="342.7166666666667" y="73.0" class="val">$2.99</text></g>
+<g class="row"><title>devcake: $3.00</title>
+<rect x="0" y="90.0" width="680" height="36" class="hit"/>
+<text x="238" y="113.0" text-anchor="end" class="lbl">devcake</text>
+<path d="M250,98.0 h81.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-81.0 z" fill="#8a8297"/>
+<text x="343.0" y="113.0" class="val">$3.00</text></g>
+<g class="row"><title>memo23: $3.00</title>
+<rect x="0" y="130.0" width="680" height="36" class="hit"/>
+<text x="238" y="153.0" text-anchor="end" class="lbl">memo23</text>
+<path d="M250,138.0 h81.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-81.0 z" fill="#8a8297"/>
+<text x="343.0" y="153.0" class="val">$3.00</text></g>
+<g class="row"><title>blackfalcondata: $3.00</title>
+<rect x="0" y="170.0" width="680" height="36" class="hit"/>
+<text x="238" y="193.0" text-anchor="end" class="lbl">blackfalcondata</text>
+<path d="M250,178.0 h81.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-81.0 z" fill="#8a8297"/>
+<text x="343.0" y="193.0" class="val">$3.00</text></g>
+<g class="row"><title>vulnv: $3.00 (comments $2.00)</title>
+<rect x="0" y="210.0" width="680" height="36" class="hit"/>
+<text x="238" y="233.0" text-anchor="end" class="lbl">vulnv</text>
+<path d="M250,218.0 h81.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-81.0 z" fill="#8a8297"/>
+<text x="343.0" y="233.0" class="val">$3.00</text></g>
+<g class="row"><title>maximedupre: $3.55 (hot questions $9.00)</title>
+<rect x="0" y="250.0" width="680" height="36" class="hit"/>
+<text x="238" y="273.0" text-anchor="end" class="lbl">maximedupre</text>
+<path d="M250,258.0 h96.58333333333333 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-96.58333333333333 z" fill="#8a8297"/>
+<text x="358.5833333333333" y="273.0" class="val">$3.55</text></g>
+<g class="row"><title>socialdatax: $3.99</title>
+<rect x="0" y="290.0" width="680" height="36" class="hit"/>
+<text x="238" y="313.0" text-anchor="end" class="lbl">socialdatax</text>
+<path d="M250,298.0 h109.05000000000001 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-109.05000000000001 z" fill="#8a8297"/>
+<text x="371.05" y="313.0" class="val">$3.99</text></g>
+<g class="row"><title>clover_folktale: $4.00</title>
+<rect x="0" y="330.0" width="680" height="36" class="hit"/>
+<text x="238" y="353.0" text-anchor="end" class="lbl">clover_folktale</text>
+<path d="M250,338.0 h109.33333333333333 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-109.33333333333333 z" fill="#8a8297"/>
+<text x="371.3333333333333" y="353.0" class="val">$4.00</text></g>
+<g class="row"><title>openclawai: $5.00 (comments $1.00, hot list $2.00)</title>
+<rect x="0" y="370.0" width="680" height="36" class="hit"/>
+<text x="238" y="393.0" text-anchor="end" class="lbl">openclawai</text>
+<path d="M250,378.0 h137.66666666666669 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-137.66666666666669 z" fill="#8a8297"/>
+<text x="399.6666666666667" y="393.0" class="val">$5.00</text></g>
+<g class="row"><title>sian.agency: $12.00 (search rows; plus $0.14 per run)</title>
+<rect x="0" y="410.0" width="680" height="36" class="hit"/>
+<text x="238" y="433.0" text-anchor="end" class="lbl">sian.agency</text>
+<path d="M250,418.0 h336.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-336.0 z" fill="#8a8297"/>
+<text x="598.0" y="433.0" class="val">$12.00</text></g>
+</svg>
+<details class="table-view"><summary>Show as a table</summary><table><thead><tr><th>Scraper</th><th>USD per 1,000 rows, free tier</th><th>Note</th></tr></thead><tbody>
+<tr class=ours><td>Zhihu Scraper (this)</td><td>$2.00</td><td>hot list, search, answers, comments</td></tr>
+<tr><td>zen-studio</td><td>$2.99</td><td></td></tr>
+<tr><td>devcake</td><td>$3.00</td><td></td></tr>
+<tr><td>memo23</td><td>$3.00</td><td></td></tr>
+<tr><td>blackfalcondata</td><td>$3.00</td><td></td></tr>
+<tr><td>vulnv</td><td>$3.00</td><td>comments $2.00</td></tr>
+<tr><td>maximedupre</td><td>$3.55</td><td>hot questions $9.00</td></tr>
+<tr><td>socialdatax</td><td>$3.99</td><td></td></tr>
+<tr><td>clover_folktale</td><td>$4.00</td><td></td></tr>
+<tr><td>openclawai</td><td>$5.00</td><td>comments $1.00, hot list $2.00</td></tr>
+<tr><td>sian.agency</td><td>$12.00</td><td>search rows; plus $0.14 per run</td></tr>
+</tbody></table></details></figure>
+      
+
+      <h2>What you get in every row</h2>
+      <p>What a run can return:</p>
+      <ul class="fact-tiles reveal"><li><b>Hot list</b><span>rank, heat, previous rank, change</span></li><li><b>Search</b><span>answers, articles, videos, questions</span></li><li><b>Content</b><span>full answer and article text, Markdown</span></li><li><b>Discussion</b><span>comments with replies</span></li><li><b>Creators</b><span>followers, upvotes, verification, employer</span></li><li><b>Discovery</b><span>topics, columns, search suggestions</span></li></ul>
+
+      <h2>How to use it</h2>
+      <ol class="steps"><li class="reveal"><b>1</b><span>Open the actor on Apify.</span></li><li class="reveal"><b>2</b><span>Pick an operation: hot list, search, answers, comments, profiles, topics or columns.</span></li><li class="reveal"><b>3</b><span>Optionally add keywords to filter and a Slack, Telegram or Discord alert.</span></li><li class="reveal"><b>4</b><span>Run it or schedule it hourly to monitor trends.</span></li></ol>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq"><details class="reveal"><summary>Is there a Zhihu API?</summary><p>Zhihu Scraper works as a ready-made Zhihu API: call it through the Apify API or its MCP endpoint and get structured JSON back.</p></details><details class="reveal"><summary>Do I need a Zhihu account?</summary><p>No. A Zhihu API key or cookie is optional and only unlocks more data or capacity.</p></details><details class="reveal"><summary>How much does it cost?</summary><p>A flat $2 per 1,000 results for every row type. For answers and search results that is the lowest price among the Zhihu scrapers on the Apify Store.</p></details><details class="reveal"><summary>Can I get alerts when my brand trends on Zhihu?</summary><p>Yes. Add keywords and a Slack, Telegram or Discord destination.</p></details><details class="reveal"><summary>Can I export Zhihu answers in English?</summary><p>It exports the original Chinese text, ready to pass to a translation tool or model.</p></details></div>
+
+      <div class="note reveal">Watching more than Zhihu? <a href="/blog/china-trending-topics-api">China Trending Topics API</a> puts 7 Chinese platforms' hot lists in one dataset.</div>
+      <div class="cta center reveal"><a class="btn big" href="https://apify.com/molded_mountainpass/zhihu-hot-list-scraper">Try Zhihu Scraper on Apify</a></div>
+      <p class="more-posts">More comparisons: <a href="/blog/linkedin-jobs-scraper-with-glassdoor">LinkedIn Jobs Scraper + Glassdoor</a> · <a href="/blog/glassdoor-jobs-scraper">Glassdoor Jobs Scraper</a> · <a href="/blog/amazon-search-scraper">Amazon Search Scraper</a> · <a href="/blog/amazon-ads-scraper">Amazon Ads Scraper</a> · <a href="/blog/amazon-keyword-rank-tracker">Amazon Keyword Rank Tracker</a> · <a href="/blog/china-trending-topics-api">China Trending Topics API</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Prices are Apify's free-tier prices, checked on 9 November 2026. They can change, so check each scraper's Apify page before you buy. Competitor names belong to their developers.</p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
