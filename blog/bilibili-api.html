@@ -58,11 +58,21 @@
       },
       "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/bilibili-api",
       "keywords": "bilibili api, bilibili api python, bilibili api key, bilibili api documentation, bilibili api 352, bilibili api 412, bilibili api request was banned, w_rid",
+      "timeRequired": "PT4M",
       "about": [
         {
           "@type": "SoftwareApplication",
           "name": "Bilibili Scraper",
           "url": "https://apify.com/molded_mountainpass/bilibili-scraper",
+          "image": "https://scrapers.practicemysql.com/images/bilibili-scraper.webp",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Bilibili Danmaku Scraper",
+          "url": "https://apify.com/molded_mountainpass/bilibili-danmaku-scraper",
+          "image": "https://scrapers.practicemysql.com/images/bilibili-danmaku-scraper.webp",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web"
         }
@@ -173,8 +183,9 @@
   <header class="hero post-hero" id="top">
     <div class="wrap">
       <p class="crumbs"><a href="/">Home</a> › <a href="/blog/">Blog</a></p>
+      <div class="post-logos"><img src="/images/bilibili-scraper.webp" alt="" width="40" height="40"><img src="/images/bilibili-danmaku-scraper.webp" alt="" width="40" height="40"><span>Bilibili · 哔哩哔哩 · B站</span></div>
       <h1>Bilibili API in 2026: Is There an Official API? 5 Ways to Get Bilibili Data (Compared)</h1>
-      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time></p>
+      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time> · 4 min read</p>
       <div class="cta">
         <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
         <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">Danmaku-only scraper</a>
@@ -183,10 +194,13 @@
   </header>
   <main>
     <section>
-      <div class="wrap">
+      <div class="wrap post-layout">
         <article class="post">
           <img class="post-cover" src="/images/blog/bilibili-api.webp" alt="Is there an official Bilibili API? Fix -352 and -412 errors" width="1000" height="420">
+          <div class="takeaways"><p class="takeaways-h">⚡ Key takeaways</p><ul><li>There is <strong>no official Bilibili API</strong> (and no API key) for comments, danmaku, video stats or UP主 data.</li><li><code>-352</code> = missing/stale <strong>WBI signature</strong> (<code>w_rid</code>, <code>wts</code>); <code>-412</code> = your IP was <strong>rate-limited</strong>.</li><li>Tutorials from before 2023 use unsigned endpoints, which is why they fail today.</li><li>Fastest fix: an open-source scraper with signing built in, or the hosted one from <strong>$1 per 1,000 comments</strong>.</li></ul></div>
 <p><strong>Short answer:</strong> Bilibili (哔哩哔哩, B站) has <strong>no official public API</strong> for comments, danmaku, video stats or creator data. The endpoints that bilibili.com itself uses are undocumented, require <strong>WBI signing</strong> (<code>w_rid</code> and <code>wts</code> parameters), and block unsigned or fast requests with errors like <code>-352</code> and <code>-412</code>. To get Bilibili data in 2026 you either handle that yourself or use a scraper that already does.</p>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
+
 <h2 id="is-there-an-official-bilibili-api">Is there an official Bilibili API?</h2>
 <p><strong>No, not for public data.</strong> There is no self-serve Bilibili API key that gives you comments, danmaku, video stats or creator profiles. What developers call "the Bilibili API" is the set of internal web endpoints under <code>api.bilibili.com</code> that the website calls in your browser. They're undocumented and they change without notice.</p>
 <h2 id="is-there-a-bilibili-api-key-or-documentation">Is there a Bilibili API key or documentation?</h2>
@@ -221,7 +235,7 @@
 <p>Most tutorials written before 2023 use old unsigned endpoints, which is why they now fail with these errors.</p>
 <h2 id="how-do-you-get-the-w_rid-parameter">How do you get the w_rid parameter?</h2>
 <p><code>w_rid</code> is an MD5 signature that Bilibili calls <strong>WBI</strong>. Your client fetches two keys (<code>img_key</code> and <code>sub_key</code>) from the nav endpoint, mixes them into a "mixin key", sorts the request parameters, adds a timestamp (<code>wts</code>) and hashes everything. The keys rotate, so they have to be refreshed when a signature is rejected.</p>
-<p>You can implement it yourself, or use a library or scraper that already does it.</p>
+<p>You can implement it yourself, or use a library or scraper that already does it. A full Python walkthrough is in <a href="/blog/scrape-bilibili-comments-python">how to scrape Bilibili comments</a>.</p>
 <h2 id="5-ways-to-get-bilibili-data-compared">5 ways to get Bilibili data (compared)</h2>
 <table>
 <thead>
@@ -343,9 +357,30 @@ bili search &quot;原神&quot; --order click --limit 200 -o search.csv
 <li>Paste links or type keywords, then click <strong>Start</strong>.</li>
 <li>Export to <strong>Excel, CSV or JSON</strong>, or call it over Apify's REST API, Make, Zapier or MCP for AI agents.</li>
 </ol>
-<p><strong>Price:</strong> pay per result, no subscription. $0.005 per comment, video or creator profile and $0.001 per danmaku, so about $5 per 1,000 comments.</p>
-<p>For bullet comments only, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline.</p>
+<p><strong>Price:</strong> pay per result, no subscription: <strong>$1 per 1,000 comments</strong>, $2 per 1,000 videos or UP主 profiles and $0.05 per 1,000 danmaku.</p>
+<p>For danmaku analysis, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline. Comparing tools? See the <a href="/blog/best-bilibili-scraper-apify">Bilibili scraper comparison</a>.</p>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
         </article>
+        <aside class="post-toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#is-there-an-official-bilibili-api">Is there an official Bilibili API?</a></li>
+              <li><a href="#is-there-a-bilibili-api-key-or-documentation">Is there a Bilibili API key or documentation?</a></li>
+              <li><a href="#why-does-the-bilibili-api-return-352-or-412">Why does the Bilibili API return -352 or -412?</a></li>
+              <li><a href="#how-do-you-get-the-w_rid-parameter">How do you get the w_rid parameter?</a></li>
+              <li><a href="#5-ways-to-get-bilibili-data-compared">5 ways to get Bilibili data (compared)</a></li>
+              <li><a href="#what-data-can-you-get-without-a-login">What data can you get without a login?</a></li>
+              <li><a href="#bilibili-api-in-python-a-working-example">Bilibili API in Python: a working example</a></li>
+              <li><a href="#no-code-the-bilibili-api-as-a-hosted-tool">No-code: the Bilibili API as a hosted tool</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+          </details>
+          <a class="toc-card" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">
+            <img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="48" height="48" loading="lazy">
+            <span><strong>Bilibili Scraper</strong>Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span>
+          </a>
+        </aside>
       </div>
     </section>
     <section id="faq">
@@ -384,5 +419,24 @@ bili search &quot;原神&quot; --order click --limit 200 -o search.csv
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var toc = document.querySelector('.post-toc details');
+    if (toc && window.matchMedia('(max-width: 960px)').matches) toc.removeAttribute('open');
+    var links = document.querySelectorAll('.post-toc a[href^="#"]');
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+  </script>
 </body>
 </html>

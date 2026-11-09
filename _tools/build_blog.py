@@ -1,15 +1,25 @@
 """Build /blog/ pages from _blog-src/*.md.
 
 Each source starts with an HTML comment holding JSON front matter (slug, lang, title,
-seo_title, description, date, updated, cover, cover_alt, keywords, faq), then Markdown.
-Writes blog/<slug>.html, blog/index.html and refreshes the blog entries in sitemap.xml.
+seo_title, description, date, updated, cover, cover_alt, keywords, takeaways, faq), then
+Markdown. Writes blog/<slug>.html, blog/index.html and refreshes the blog entries in
+sitemap.xml.
+
+In the Markdown (and front matter text):
+  {{scraper.comment}}      price per event, e.g. "$0.001"
+  {{scraper.comment@1k}}   price per 1,000 events, e.g. "$1"
+  [[card:scraper]]         on its own line: an Actor card with logo, price and button
+Prices come live from the Apify Store, so posts follow price changes on the next build;
+_blog-src/prices.json caches the last fetch for offline builds.
 
     pip install markdown
     python3 _tools/build_blog.py
 """
 import html
 import json
+import math
 import re
+import urllib.request
 from pathlib import Path
 
 import markdown
@@ -18,8 +28,15 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_blog-src"
 OUT = ROOT / "blog"
 SITE = "https://scrapers.practicemysql.com"
-SCRAPER = "https://apify.com/molded_mountainpass/bilibili-scraper"
-DANMAKU = "https://apify.com/molded_mountainpass/bilibili-danmaku-scraper"
+
+ACTORS = {
+    "scraper": {"id": "molded_mountainpass~bilibili-scraper", "name": "Bilibili Scraper",
+                "url": "https://apify.com/molded_mountainpass/bilibili-scraper", "logo": "/images/bilibili-scraper.webp"},
+    "danmaku": {"id": "molded_mountainpass~bilibili-danmaku-scraper", "name": "Bilibili Danmaku Scraper",
+                "url": "https://apify.com/molded_mountainpass/bilibili-danmaku-scraper", "logo": "/images/bilibili-danmaku-scraper.webp"},
+}
+SCRAPER = ACTORS["scraper"]["url"]
+DANMAKU = ACTORS["danmaku"]["url"]
 
 HEAD_TAGS = """  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -66,20 +83,87 @@ FOOTER = """  <footer>
     </div>
   </footer>"""
 
+# Highlights the TOC entry of the section being read; collapses the TOC on small screens.
+TOC_JS = """  <script>
+  (function () {
+    var toc = document.querySelector('.post-toc details');
+    if (toc && window.matchMedia('(max-width: 960px)').matches) toc.removeAttribute('open');
+    var links = document.querySelectorAll('.post-toc a[href^="#"]');
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+  </script>"""
+
 AUTHOR = {"@type": "Person", "name": "Divya Raj", "url": SITE + "/"}
 
 LABELS = {
     "en": {"home": "Home", "blog": "Blog", "updated": "Updated", "faq": "FAQ", "faq_h": "Frequently asked questions",
            "try": "Try the Bilibili Scraper", "danmaku": "Danmaku-only scraper", "more": "More Bilibili guides",
-           "cta": "<strong>Want the data without writing code?</strong> The Bilibili Scraper exports comments, danmaku, videos and UP主 profiles to Excel, CSV or JSON. Pay per result, no login."},
+           "toc": "On this page", "takeaways": "Key takeaways", "read": "min read", "try_free": "Try it free",
+           "cta": "<strong>Want the data without writing code?</strong> The Bilibili Scraper exports comments, danmaku, videos and UP主 profiles to Excel, CSV or JSON. Pay per result, no login.",
+           "cards": {
+               "scraper": ("Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.",
+                           "Comments {scraper.comment@1k} / 1,000 · Danmaku {scraper.danmaku@1k} / 1,000 · Open source"),
+               "danmaku": ("Bullet comments with timestamps, a keyword filter and free per-video highlight summaries.",
+                           "Danmaku {danmaku.danmaku@1k} / 1,000 · Summary rows free"),
+           }},
     "zh-CN": {"home": "首页", "blog": "博客", "updated": "更新于", "faq": "常见问题", "faq_h": "常见问题",
               "try": "免费试用 Bilibili Scraper", "danmaku": "弹幕专用版", "more": "更多 B站 数据教程",
-              "cta": "<strong>不想写代码？</strong> Bilibili Scraper 可一键导出 B站评论、弹幕、视频和 UP主 数据到 Excel / CSV / JSON，按结果计费，无需登录。"},
+              "toc": "本文目录", "takeaways": "要点速览", "read": "分钟阅读", "try_free": "免费试用",
+              "cta": "<strong>不想写代码？</strong> Bilibili Scraper 可一键导出 B站评论、弹幕、视频和 UP主 数据到 Excel / CSV / JSON，按结果计费，无需登录。",
+              "cards": {
+                  "scraper": ("评论（含楼中楼）、弹幕、视频、UP主、字幕，一个工具全搞定，无需登录。",
+                              "评论 {scraper.comment@1k} / 千条 · 弹幕 {scraper.danmaku@1k} / 千条 · 开源"),
+                  "danmaku": ("带时间轴的弹幕，支持关键词过滤和免费的高能时刻统计。",
+                              "弹幕 {danmaku.danmaku@1k} / 千条 · 统计行免费"),
+              }},
 }
 
 
-def load(path):
-    text = path.read_text(encoding="utf-8")
+def fetch_prices():
+    """Current per-event USD prices of both Actors, from the public Apify Store."""
+    cache = SRC / "prices.json"
+    prices = {}
+    try:
+        for key, a in ACTORS.items():
+            q = a["name"].lower().replace(" ", "%20")
+            items = json.load(urllib.request.urlopen(f"https://api.apify.com/v2/store?limit=50&search={q}", timeout=20))["data"]["items"]
+            item = next(x for x in items if f"{x['username']}~{x['name']}" == a["id"])
+            events = (item.get("currentPricingInfo") or {}).get("pricingPerEvent", {}).get("actorChargeEvents", {})
+            prices[key] = {k: v["eventPriceUsd"] for k, v in events.items() if v.get("eventPriceUsd") is not None}
+        cache.write_text(json.dumps(prices, indent=2) + "\n", encoding="utf-8")
+    except Exception as e:  # offline or the Store changed shape: use the last good fetch
+        print(f"price fetch failed ({e}); using {cache.name}")
+        prices = json.loads(cache.read_text(encoding="utf-8"))
+    return prices
+
+
+def money(x):
+    if x >= 1:
+        return f"${x:,.2f}".replace(".00", "")
+    return "$" + f"{x:.6f}".rstrip("0").rstrip(".")
+
+
+def fill_prices(text, prices):
+    def sub(m):
+        actor, event, per1k = m.group(1), m.group(2), m.group(3)
+        price = prices[actor][event]
+        return money(price * 1000) if per1k else money(price)
+    return re.sub(r"\{\{?(scraper|danmaku)\.([a-z-]+)(@1k)?\}?\}", sub, text)
+
+
+def load(path, prices):
+    text = fill_prices(path.read_text(encoding="utf-8"), prices)
     m = re.match(r"<!--\s*(\{.*?\})\s*-->\s*", text, re.S)
     meta = json.loads(m.group(1))
     meta["body_md"] = text[m.end():]
@@ -90,18 +174,48 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def render_post(p, posts):
+def actor_card(key, lang, prices):
+    a = ACTORS[key]
+    lab = LABELS[lang]
+    tagline, price = lab["cards"][key]
+    return (f'<div class="actor-card">'
+            f'<img src="{a["logo"]}" alt="{esc(a["name"])} logo" width="64" height="64" loading="lazy">'
+            f'<div class="actor-info"><strong>{esc(a["name"])}</strong><span>{esc(tagline)}</span>'
+            f'<span class="actor-price">{esc(fill_prices(price, prices))}</span></div>'
+            f'<a class="btn" href="{a["url"]}" rel="noopener">{lab["try_free"]} →</a></div>')
+
+
+def reading_minutes(md_text, lang):
+    plain = re.sub(r"```.*?```", "", md_text, flags=re.S)
+    if lang.startswith("zh"):
+        return max(1, math.ceil(len(re.findall(r"[一-鿿]", plain)) / 400 + len(plain.split()) / 600))
+    return max(1, math.ceil(len(plain.split()) / 220))
+
+
+def render_post(p, posts, prices):
     lab = LABELS[p["lang"]]
     url = f"{SITE}/blog/{p['slug']}"
     img = f"{SITE}/images/blog/{p['cover']}"
-    body = markdown.markdown(p["body_md"], extensions=["tables", "fenced_code", "toc"])
-    body = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" rel="noopener"', body)
+    md_src = re.sub(r"^\[\[card:(scraper|danmaku)\]\]$", lambda m: actor_card(m.group(1), p["lang"], prices),
+                    p["body_md"], flags=re.M)
+    md = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
+    body = md.convert(md_src)
+    body = re.sub(r'<a href="(https?://[^"]+)"(?! rel)', r'<a href="\1" rel="noopener"', body)
+    toc_items = "\n".join(f'              <li><a href="#{t["id"]}">{esc(html.unescape(t["name"]))}</a></li>'
+                          for t in md.toc_tokens if t["level"] == 2)
+    if p.get("faq"):
+        toc_items += f'\n              <li><a href="#faq">{lab["faq_h"]}</a></li>'
+    takeaways = ""
+    if p.get("takeaways"):
+        lis = "".join(f"<li>{markdown.markdown(t)[3:-4]}</li>" for t in p["takeaways"])
+        takeaways = f'<div class="takeaways"><p class="takeaways-h">⚡ {lab["takeaways"]}</p><ul>{lis}</ul></div>'
+    minutes = reading_minutes(p["body_md"], p["lang"])
     graph = [
         {"@type": "BlogPosting", "headline": p["title"], "description": p["description"], "image": img,
          "datePublished": p["date"], "dateModified": p["updated"], "inLanguage": p["lang"], "author": AUTHOR,
-         "publisher": AUTHOR, "mainEntityOfPage": url, "keywords": p["keywords"],
-         "about": [{"@type": "SoftwareApplication", "name": "Bilibili Scraper", "url": SCRAPER,
-                    "applicationCategory": "BusinessApplication", "operatingSystem": "Web"}]},
+         "publisher": AUTHOR, "mainEntityOfPage": url, "keywords": p["keywords"], "timeRequired": f"PT{minutes}M",
+         "about": [{"@type": "SoftwareApplication", "name": a["name"], "url": a["url"], "image": SITE + a["logo"],
+                    "applicationCategory": "BusinessApplication", "operatingSystem": "Web"} for a in ACTORS.values()]},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": lab["home"], "item": SITE + "/"},
             {"@type": "ListItem", "position": 2, "name": lab["blog"], "item": SITE + "/blog/"},
@@ -115,6 +229,7 @@ def render_post(p, posts):
         f'          <details class="reveal"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in p.get("faq", []))
     related = "\n".join(
         f'          <li><a href="/blog/{o["slug"]}">{esc(o["title"])}</a></li>' for o in posts if o["slug"] != p["slug"])
+    s = ACTORS["scraper"]
     return f"""<!doctype html>
 <html lang="{p['lang']}">
 <head>
@@ -148,8 +263,9 @@ def render_post(p, posts):
   <header class="hero post-hero" id="top">
     <div class="wrap">
       <p class="crumbs"><a href="/">{lab['home']}</a> › <a href="/blog/">{lab['blog']}</a></p>
+      <div class="post-logos"><img src="{s['logo']}" alt="" width="40" height="40"><img src="{ACTORS['danmaku']['logo']}" alt="" width="40" height="40"><span>Bilibili · 哔哩哔哩 · B站</span></div>
       <h1>{esc(p['title'])}</h1>
-      <p class="post-meta">Divya Raj · {lab['updated']} <time datetime="{p['updated']}">{p['updated']}</time></p>
+      <p class="post-meta">Divya Raj · {lab['updated']} <time datetime="{p['updated']}">{p['updated']}</time> · {minutes} {lab['read']}</p>
       <div class="cta">
         <a class="btn big" href="{SCRAPER}">{lab['try']}</a>
         <a class="btn ghost" href="{DANMAKU}">{lab['danmaku']}</a>
@@ -158,11 +274,24 @@ def render_post(p, posts):
   </header>
   <main>
     <section>
-      <div class="wrap">
+      <div class="wrap post-layout">
         <article class="post">
           <img class="post-cover" src="/images/blog/{p['cover']}" alt="{esc(p['cover_alt'])}" width="1000" height="420">
+          {takeaways}
 {body}
         </article>
+        <aside class="post-toc">
+          <details open>
+            <summary>{lab['toc']}</summary>
+            <ol>
+{toc_items}
+            </ol>
+          </details>
+          <a class="toc-card" href="{s['url']}" rel="noopener">
+            <img src="{s['logo']}" alt="{esc(s['name'])} logo" width="48" height="48" loading="lazy">
+            <span><strong>{esc(s['name'])}</strong>{esc(fill_prices(lab['cards']['scraper'][1], prices))}</span>
+          </a>
+        </aside>
       </div>
     </section>
     <section id="faq">
@@ -188,12 +317,13 @@ def render_post(p, posts):
     </section>
   </main>
 {FOOTER}
+{TOC_JS}
 </body>
 </html>
 """
 
 
-def render_index(posts):
+def render_index(posts, prices):
     url = SITE + "/blog/"
     items = "\n".join(f"""          <article class="card reveal">
             <a href="/blog/{p['slug']}"><img class="post-thumb" src="/images/blog/{p['cover']}" alt="{esc(p['cover_alt'])}" width="1000" height="420" loading="lazy"></a>
@@ -205,6 +335,7 @@ def render_index(posts):
                      "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": f"{SITE}/blog/{p['slug']}",
                                    "datePublished": p["date"], "inLanguage": p["lang"]} for p in posts]},
                     ensure_ascii=False, indent=2)
+    cards = actor_card("scraper", "en", prices) + "\n" + actor_card("danmaku", "en", prices)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -233,6 +364,9 @@ def render_index(posts):
       <p class="crumbs"><a href="/">Home</a> › Blog</p>
       <h1>Bilibili scraping guides</h1>
       <p>How to get Bilibili (哔哩哔哩, B站) comments, danmaku bullet comments, UP主 creator data and video stats, with Python or no code, and without a login.</p>
+      <div class="index-cards">
+{cards}
+      </div>
     </div>
   </header>
   <main>
@@ -261,13 +395,14 @@ def update_sitemap(posts):
 
 
 def main():
-    posts = sorted((load(p) for p in SRC.glob("*.md")), key=lambda p: (p["date"], p["lang"] != "en", p["slug"]))
+    prices = fetch_prices()
+    posts = sorted((load(p, prices) for p in SRC.glob("*.md")), key=lambda p: (p["date"], p["lang"] != "en", p["slug"]))
     OUT.mkdir(exist_ok=True)
     for p in posts:
-        (OUT / f"{p['slug']}.html").write_text(render_post(p, posts), encoding="utf-8")
-    (OUT / "index.html").write_text(render_index(posts), encoding="utf-8")
+        (OUT / f"{p['slug']}.html").write_text(render_post(p, posts, prices), encoding="utf-8")
+    (OUT / "index.html").write_text(render_index(posts, prices), encoding="utf-8")
     update_sitemap(posts)
-    print(f"built {len(posts)} posts")
+    print(f"built {len(posts)} posts with prices {prices}")
 
 
 if __name__ == "__main__":

@@ -10,6 +10,12 @@
   "cover": "bilibili-api.webp",
   "cover_alt": "Is there an official Bilibili API? Fix -352 and -412 errors",
   "keywords": "bilibili api, bilibili api python, bilibili api key, bilibili api documentation, bilibili api 352, bilibili api 412, bilibili api request was banned, w_rid",
+  "takeaways": [
+    "There is **no official Bilibili API** (and no API key) for comments, danmaku, video stats or UP主 data.",
+    "`-352` = missing/stale **WBI signature** (`w_rid`, `wts`); `-412` = your IP was **rate-limited**.",
+    "Tutorials from before 2023 use unsigned endpoints, which is why they fail today.",
+    "Fastest fix: an open-source scraper with signing built in, or the hosted one from **{{scraper.comment@1k}} per 1,000 comments**."
+  ],
   "faq": [
     ["Does Bilibili have an official API?", "Not for public data such as comments, danmaku, video stats or creator profiles. Developers use the website's internal endpoints instead."],
     ["How do I get a Bilibili API key?", "There isn't one for this data. The internal endpoints need WBI signing and device cookies, not an API key."],
@@ -21,6 +27,8 @@
 }
 -->
 **Short answer:** Bilibili (哔哩哔哩, B站) has **no official public API** for comments, danmaku, video stats or creator data. The endpoints that bilibili.com itself uses are undocumented, require **WBI signing** (`w_rid` and `wts` parameters), and block unsigned or fast requests with errors like `-352` and `-412`. To get Bilibili data in 2026 you either handle that yourself or use a scraper that already does.
+
+[[card:scraper]]
 
 ## Is there an official Bilibili API?
 
@@ -44,7 +52,7 @@ Most tutorials written before 2023 use old unsigned endpoints, which is why they
 
 `w_rid` is an MD5 signature that Bilibili calls **WBI**. Your client fetches two keys (`img_key` and `sub_key`) from the nav endpoint, mixes them into a "mixin key", sorts the request parameters, adds a timestamp (`wts`) and hashes everything. The keys rotate, so they have to be refreshed when a signature is rejected.
 
-You can implement it yourself, or use a library or scraper that already does it.
+You can implement it yourself, or use a library or scraper that already does it. A full Python walkthrough is in [how to scrape Bilibili comments](/blog/scrape-bilibili-comments-python).
 
 ## 5 ways to get Bilibili data (compared)
 
@@ -115,6 +123,8 @@ If you don't want to run Python, the hosted version works like an API you call f
 3. Paste links or type keywords, then click **Start**.
 4. Export to **Excel, CSV or JSON**, or call it over Apify's REST API, Make, Zapier or MCP for AI agents.
 
-**Price:** pay per result, no subscription. $0.005 per comment, video or creator profile and $0.001 per danmaku, so about $5 per 1,000 comments.
+**Price:** pay per result, no subscription: **{{scraper.comment@1k}} per 1,000 comments**, {{scraper.video@1k}} per 1,000 videos or UP主 profiles and {{scraper.danmaku@1k}} per 1,000 danmaku.
 
-For bullet comments only, the [Bilibili Danmaku Scraper](https://apify.com/molded_mountainpass/bilibili-danmaku-scraper) adds a keyword filter and a free per-video highlight timeline.
+For danmaku analysis, the [Bilibili Danmaku Scraper](https://apify.com/molded_mountainpass/bilibili-danmaku-scraper) adds a keyword filter and a free per-video highlight timeline. Comparing tools? See the [Bilibili scraper comparison](/blog/best-bilibili-scraper-apify).
+
+[[card:scraper]]

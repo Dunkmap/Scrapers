@@ -24,6 +24,10 @@
       "可以。Apify 上点 Export → Excel；本地用 -o xxx.csv。"
     ],
     [
+      "采集 1000 条 B站评论要多少钱？",
+      "在 Apify 上用 Bilibili Scraper 约 {{scraper.comment@1k}}，无月费；本地运行开源版免费。"
+    ],
+    [
       "能采集 UP主 粉丝数吗？",
       "可以，用 users 模式，每个 UP主 一行。"
     ],
@@ -31,6 +35,12 @@
       "合规吗？",
       "只读取公开数据，和 bilibili.com 网页本身调用的接口一致。请遵守 B站 用户协议，控制请求频率，不要传播个人信息。"
     ]
+  ],
+  "takeaways": [
+    "B站 **没有官方公开 API**，旧教程大多卡在 `w_rid` 签名和风控上。",
+    "开源的 **Bilibili Scraper** 自动处理 WBI 签名和风控，**无需登录**。",
+    "评论（含楼中楼）**{{scraper.comment@1k}} / 千条**，弹幕 **{{scraper.danmaku@1k}} / 千条**；本地自建免费。",
+    "一键导出 **Excel / CSV / JSON**，也可以当 Python 库调用。"
   ]
 }
 -->
@@ -49,8 +59,8 @@
 
 全程 **不需要登录 B站 账号，也不需要 Cookie**（只有字幕需要）。
 
-- 👉 在线使用（免代码）：https://apify.com/molded_mountainpass/bilibili-scraper
-- 👉 只要弹幕：https://apify.com/molded_mountainpass/bilibili-danmaku-scraper
+[[card:scraper]]
+
 - 👉 开源代码（MIT）：https://github.com/Dunkmap/Bilibili-Scraper
 
 ## 一、能采集哪些数据
@@ -97,7 +107,14 @@
 
 输出字段：`name`（昵称）、`sign`（签名）、`level`（等级）、`verified`（认证）、`vip`、`followers`（粉丝数）、`following`（关注数）、`videos`（视频数）、`likes`（获赞数）、`url`。想要 UP主 的投稿列表，用 `mode: "videos"` 加同样的 `userIds` 即可。
 
-**价格**：按结果计费，无月费。评论 / 视频 / UP主 每条 $0.005，弹幕每条 $0.001，1000 条评论约 $5。
+**价格**：按结果计费，无月费。
+
+| 采集内容 | 每千条价格 |
+|---|---|
+| 评论（含楼中楼） | **{{scraper.comment@1k}}** |
+| 弹幕 | **{{scraper.danmaku@1k}}** |
+| 视频 / UP主 | **{{scraper.video@1k}}** |
+| 字幕 | **{{scraper.subtitle@1k}}** |
 
 ## 三、Python 用法
 
@@ -149,4 +166,6 @@ asyncio.run(main())
 
 - **情感分析**：用你自己的 Groq API Key（有免费额度），把每条评论 / 弹幕标注为正面、中性、负面；
 - **增量模式**：定时任务只返回上次之后的新数据，适合长期舆情监控；
-- **弹幕专用版**：只需要弹幕的话，可以用 [Bilibili Danmaku Scraper](https://apify.com/molded_mountainpass/bilibili-danmaku-scraper)，支持关键词过滤和免费的弹幕密度 / 高能时刻分析。
+- **弹幕分析版**：需要按关键词过滤弹幕、或免费获取每个视频的弹幕密度 / 高能时刻，可以用 [Bilibili Danmaku Scraper](https://apify.com/molded_mountainpass/bilibili-danmaku-scraper)（{{danmaku.danmaku@1k}} / 千条，统计行免费）。
+
+[[card:scraper]]

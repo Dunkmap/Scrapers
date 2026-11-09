@@ -58,11 +58,21 @@
       },
       "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/what-is-danmaku",
       "keywords": "what is danmaku, danmaku meaning, bilibili bullet comments, bilibili danmaku, download danmaku, danmaku comments, 弹幕",
+      "timeRequired": "PT4M",
       "about": [
         {
           "@type": "SoftwareApplication",
           "name": "Bilibili Scraper",
           "url": "https://apify.com/molded_mountainpass/bilibili-scraper",
+          "image": "https://scrapers.practicemysql.com/images/bilibili-scraper.webp",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Bilibili Danmaku Scraper",
+          "url": "https://apify.com/molded_mountainpass/bilibili-danmaku-scraper",
+          "image": "https://scrapers.practicemysql.com/images/bilibili-danmaku-scraper.webp",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web"
         }
@@ -120,6 +130,14 @@
         },
         {
           "@type": "Question",
+          "name": "How much does it cost to download Bilibili danmaku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$0.05 per 1,000 danmaku with the Bilibili Scraper on Apify. The Bilibili Danmaku Scraper costs $1 per 1,000 and adds a keyword filter and free per-video summaries."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Can I export danmaku to Excel?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -165,8 +183,9 @@
   <header class="hero post-hero" id="top">
     <div class="wrap">
       <p class="crumbs"><a href="/">Home</a> › <a href="/blog/">Blog</a></p>
+      <div class="post-logos"><img src="/images/bilibili-scraper.webp" alt="" width="40" height="40"><img src="/images/bilibili-danmaku-scraper.webp" alt="" width="40" height="40"><span>Bilibili · 哔哩哔哩 · B站</span></div>
       <h1>What Is Danmaku? How to Download Bilibili Bullet Comments and Find Any Video&#x27;s Highlight</h1>
-      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time></p>
+      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time> · 4 min read</p>
       <div class="cta">
         <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
         <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">Danmaku-only scraper</a>
@@ -175,12 +194,13 @@
   </header>
   <main>
     <section>
-      <div class="wrap">
+      <div class="wrap post-layout">
         <article class="post">
           <img class="post-cover" src="/images/blog/bilibili-danmaku.webp" alt="Find any Bilibili video&#x27;s highlight with danmaku density" width="1000" height="420">
-<p>If you've ever opened a video on Bilibili (哔哩哔哩, B站), you've seen them: comments flying across the screen, right on top of the video. Those are <strong>danmaku</strong> (弹幕, "bullet comments"), and they're one of the most interesting datasets on the Chinese internet.</p>
+          <div class="takeaways"><p class="takeaways-h">⚡ Key takeaways</p><ul><li><strong>Danmaku (弹幕)</strong> are comments that fly across a Bilibili video at the exact second they were posted.</li><li>Because every danmaku has a timestamp, a spike in danmaku = the video's <strong>highlight</strong>.</li><li>Download them <strong>without a login</strong> for <strong>$0.05 per 1,000</strong> with the Bilibili Scraper.</li><li>Need a keyword filter and free per-video highlight summaries? Use the <strong>Bilibili Danmaku Scraper</strong>.</li></ul></div>
+<p>You open a Bilibili (哔哩哔哩, B站) video and the screen explodes with text: <strong>前方高能!!</strong>, <strong>awsl</strong>, <strong>2333</strong>, flying right over the picture. Those are <strong>danmaku</strong> (弹幕, "bullet comments"), and they're one of the most fascinating datasets on the Chinese internet. Every single one is pinned to <strong>the exact second</strong> a viewer reacted.</p>
 <h2 id="what-is-danmaku">What is danmaku (弹幕)?</h2>
-<p>Danmaku literally means "bullet curtain". On Bilibili, each danmaku is a short comment that viewers post <strong>at a specific second of the video</strong>. Everyone who watches later sees it fly across the screen at that same moment.</p>
+<p>Danmaku literally means "bullet curtain". On Bilibili, each danmaku is a short comment that viewers post <strong>at a specific second of the video</strong>. Everyone who watches later sees it fly across the screen at that same moment, so watching feels like watching <em>with</em> thousands of people.</p>
 <p>Some you'll see everywhere:</p>
 <table>
 <thead>
@@ -212,27 +232,52 @@
 </tr>
 </tbody>
 </table>
-<p>Unlike normal comments, <strong>every danmaku has a timestamp</strong>. That makes it unusually good data:</p>
+<h2 id="why-is-danmaku-such-good-data">Why is danmaku such good data?</h2>
+<p>Unlike normal comments, <strong>every danmaku has a timestamp</strong>:</p>
 <ul>
 <li><strong>Highlight detection:</strong> where danmaku spike, something happened.</li>
 <li><strong>Second-by-second audience reaction:</strong> for trailers, ads, product launches or game reveals.</li>
 <li><strong>Sentiment over time:</strong> when do viewers love it, and when do they complain?</li>
 <li><strong>Clip finding:</strong> creators use spikes to decide which moments to cut into shorts.</li>
 </ul>
-<h2 id="how-to-download-bilibili-bullet-comments-no-login">How to download Bilibili bullet comments (no login)</h2>
+<h2 id="how-do-you-download-bilibili-bullet-comments-without-a-login">How do you download Bilibili bullet comments without a login?</h2>
 <p>Bilibili has no public API for danmaku, and there's a catch: logged out, Bilibili serves danmaku from <strong>two different endpoints</strong>. One gives a sample across the video's whole lifetime, the other the most recent few thousand. They barely overlap, so most simple scripts miss a lot.</p>
-<p>The <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> merges both. On a 34-minute video that gave <strong>5,416 danmaku rows</strong> without logging in.</p>
+<p>Both of my scrapers merge the two sources. On a 34-minute video that gave <strong>5,416 danmaku rows</strong> without logging in.</p>
+<h3 id="which-tool-should-you-pick">Which tool should you pick?</h3>
+<table>
+<thead>
+<tr>
+<th>You want…</th>
+<th>Use</th>
+<th>Price per 1,000 danmaku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Every danmaku, as cheaply as possible</strong> (plus comments, videos, UP主 if you need them)</td>
+<td><a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a> in <code>danmaku</code> mode</td>
+<td><strong>$0.05</strong></td>
+</tr>
+<tr>
+<td><strong>Only danmaku that mention a keyword</strong>, plus a <strong>free highlight summary row per video</strong></td>
+<td><a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a></td>
+<td>$1 (summary rows free)</td>
+</tr>
+</tbody>
+</table>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
+
 <h3 id="option-1-no-code">Option 1: No code</h3>
 <ol>
-<li>Open the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> and click <strong>Try for free</strong>.</li>
-<li>Paste video links, or give it search keywords, UP主 (creator) IDs or the popular/ranking feed.</li>
+<li>Open the <a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a> and click <strong>Try for free</strong>.</li>
+<li>Set <strong>What to scrape</strong> to <code>danmaku</code>, then paste video links, or give it search keywords, UP主 (creator) IDs or the popular/ranking feed.</li>
 <li>Click <strong>Start</strong>, then <strong>Export</strong> to Excel, CSV or JSON.</li>
 </ol>
-<p>Example input: the danmaku of the top 10 search results for a keyword, plus a free summary per video:</p>
+<p>Example input: the danmaku of the top 10 search results for a keyword:</p>
 <pre><code class="language-json">{
+  &quot;mode&quot;: &quot;danmaku&quot;,
   &quot;searchQueries&quot;: [&quot;原神&quot;],
-  &quot;maxVideosPerSource&quot;: 10,
-  &quot;videoSummary&quot;: true
+  &quot;maxVideosPerSource&quot;: 10
 }
 </code></pre>
 <p>Each row is one bullet comment:</p>
@@ -266,16 +311,15 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Pricing:</strong> $1 per 1,000 danmaku, no subscription. The per-video summary rows are free.</p>
 <h3 id="option-2-python">Option 2: Python</h3>
-<pre><code class="language-bash">git clone https://github.com/Dunkmap/Bilibili-Danmaku-Scraper
-cd Bilibili-Danmaku-Scraper
+<pre><code class="language-bash">git clone https://github.com/Dunkmap/Bilibili-Scraper
+cd Bilibili-Scraper
 pip install -e .
 bili danmaku BV1xx411c7mD -o danmaku.csv
 </code></pre>
-<h2 id="find-a-videos-highlight-from-danmaku">Find a video's highlight from danmaku</h2>
-<h3 id="the-quick-way-the-free-summary-row">The quick way: the free summary row</h3>
-<p>With <code>videoSummary: true</code>, every video gets one extra <strong>free</strong> row before its danmaku, with:</p>
+<h2 id="how-do-you-find-a-videos-highlight-from-danmaku">How do you find a video's highlight from danmaku?</h2>
+<h3 id="the-quick-way-a-free-summary-per-video">The quick way: a free summary per video</h3>
+<p>The <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> with <code>videoSummary: true</code> adds one extra <strong>free</strong> row before each video's danmaku, with:</p>
 <ul>
 <li><code>count</code>: how many danmaku</li>
 <li><code>density</code>: a 20-slice timeline of how busy each part of the video is</li>
@@ -283,7 +327,9 @@ bili danmaku BV1xx411c7mD -o danmaku.csv
 <li><code>top_phrases</code>: the most repeated phrases</li>
 <li><code>samples</code>: a handful of distinct texts</li>
 </ul>
-<p>So you can find the highlight of 100 videos without paying for a single danmaku row. Just read <code>peak_time</code>.</p>
+<p>Add <code>keywords</code> and you only pay for danmaku that mention them, for example a brand or product name. Filtering happens <strong>before</strong> charging.</p>
+<div class="actor-card"><img src="/images/bilibili-danmaku-scraper.webp" alt="Bilibili Danmaku Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Danmaku Scraper</strong><span>Bullet comments with timestamps, a keyword filter and free per-video highlight summaries.</span><span class="actor-price">Danmaku $1 / 1,000 · Summary rows free</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Try it free →</a></div>
+
 <h3 id="the-diy-way-pandas">The DIY way: pandas</h3>
 <p>If you exported the full danmaku as CSV:</p>
 <pre><code class="language-python">import pandas as pd
@@ -305,14 +351,30 @@ print(at_peak.value_counts().head(10))
 per_window.plot(kind=&quot;bar&quot;, figsize=(12, 4), title=&quot;Danmaku per 30 s&quot;)
 </code></pre>
 <p>At the peak you'll typically see a burst of 前方高能, 名场面 or 哈哈哈.</p>
-<h2 id="useful-extras">Useful extras</h2>
+<h2 id="what-else-can-you-do-with-danmaku">What else can you do with danmaku?</h2>
 <ul>
-<li><strong>Keyword filter</strong> (<code>keywords</code>): keep only danmaku containing certain words, for example a brand or product name. Filtering happens <strong>before</strong> charging, so you only pay for matches.</li>
 <li><strong>Sentiment analysis:</strong> label each danmaku positive, neutral or negative.</li>
 <li><strong>Delta mode:</strong> for scheduled monitoring, return only danmaku that are new since the last run.</li>
+<li><strong>Combine with comments:</strong> the <a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a> also gets comments with reply threads and UP主 profiles. See <a href="/blog/scrape-bilibili-comments-python">how to scrape Bilibili comments</a>.</li>
 </ul>
-<p>Need comments, video stats or UP主 profiles too? Use the full <a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a>.</p>
         </article>
+        <aside class="post-toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#what-is-danmaku">What is danmaku (弹幕)?</a></li>
+              <li><a href="#why-is-danmaku-such-good-data">Why is danmaku such good data?</a></li>
+              <li><a href="#how-do-you-download-bilibili-bullet-comments-without-a-login">How do you download Bilibili bullet comments without a login?</a></li>
+              <li><a href="#how-do-you-find-a-videos-highlight-from-danmaku">How do you find a video&#x27;s highlight from danmaku?</a></li>
+              <li><a href="#what-else-can-you-do-with-danmaku">What else can you do with danmaku?</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+          </details>
+          <a class="toc-card" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">
+            <img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="48" height="48" loading="lazy">
+            <span><strong>Bilibili Scraper</strong>Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span>
+          </a>
+        </aside>
       </div>
     </section>
     <section id="faq">
@@ -323,6 +385,7 @@ per_window.plot(kind=&quot;bar&quot;, figsize=(12, 4), title=&quot;Danmaku per 3
           <details class="reveal"><summary>What does danmaku mean?</summary><p>弹幕 (danmaku) means &quot;bullet curtain&quot;: short comments that fly across a video at the second they were posted.</p></details>
           <details class="reveal"><summary>What is the difference between danmaku and comments?</summary><p>Comments sit below the video. Danmaku are tied to a playback second and appear on top of the video.</p></details>
           <details class="reveal"><summary>Can I download Bilibili danmaku without an account?</summary><p>Yes. No login or cookie is needed.</p></details>
+          <details class="reveal"><summary>How much does it cost to download Bilibili danmaku?</summary><p>$0.05 per 1,000 danmaku with the Bilibili Scraper on Apify. The Bilibili Danmaku Scraper costs $1 per 1,000 and adds a keyword filter and free per-video summaries.</p></details>
           <details class="reveal"><summary>Can I export danmaku to Excel?</summary><p>Yes. On Apify, click Export and choose Excel. Locally, use -o danmaku.csv.</p></details>
           <details class="reveal"><summary>How do I hide danmaku on Bilibili?</summary><p>Click the 弹 toggle under the video player.</p></details>
         </div>
@@ -350,5 +413,24 @@ per_window.plot(kind=&quot;bar&quot;, figsize=(12, 4), title=&quot;Danmaku per 3
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var toc = document.querySelector('.post-toc details');
+    if (toc && window.matchMedia('(max-width: 960px)').matches) toc.removeAttribute('open');
+    var links = document.querySelectorAll('.post-toc a[href^="#"]');
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+  </script>
 </body>
 </html>

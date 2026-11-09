@@ -10,25 +10,31 @@
   "cover": "bilibili-comments-scraper.webp",
   "cover_alt": "Scrape Bilibili comments, danmaku and UP主 data in Python",
   "keywords": "bilibili comments, scrape bilibili comments, bilibili scraper, bilibili danmaku, bilibili api python, UP主, export bilibili comments to excel",
+  "takeaways": [
+    "Bilibili has **no official API** for comments; old tutorials break on the new `w_rid` signing.",
+    "The open-source **Bilibili Scraper** handles signing and risk control, so it works **without a login**.",
+    "1,000 comments with full reply threads cost **{{scraper.comment@1k}}** on Apify, or nothing if you self-host.",
+    "Export to **Excel, CSV or JSON** in one click, or use it as a Python library."
+  ],
   "faq": [
     ["Is there an official Bilibili API?", "No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you."],
     ["Can I read Bilibili comments without an account?", "Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie."],
+    ["How much does it cost to scrape 1,000 Bilibili comments?", "{{scraper.comment@1k}} on Apify with the Bilibili Scraper, with no subscription. Self-hosting the open-source version is free."],
     ["How do I generate the w_rid parameter?", "You don't have to. The scraper signs every request itself with Bilibili's WBI keys."],
     ["Can I export Bilibili comments to Excel?", "Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel."],
     ["Is scraping Bilibili legal?", "It reads public data the same way the bilibili.com website does. Follow Bilibili's terms of service, keep the request rate reasonable and don't republish personal data."]
   ]
 }
 -->
-Bilibili (哔哩哔哩, B站) is China's biggest video platform for anime, gaming, tech and lifestyle. Its comment sections and **danmaku** (弹幕, the bullet comments that fly across the video) are a goldmine for market research, sentiment analysis and influencer discovery.
+Bilibili (哔哩哔哩, B站) is where China's Gen Z watches anime, gaming, tech and lifestyle videos, and **its comment sections are brutally honest**. Add **danmaku** (弹幕), the bullet comments that fly across the video at the exact second something happens, and you have one of the richest audience-reaction datasets on the internet.
 
-The problem: Bilibili has **no official public API** for this data. Its web endpoints now need a **`w_rid` / `wts` signature (WBI signing)**, they throw silent risk-control errors (`-352`, `-412`) and they rate-limit you. Most tutorials from before 2023 use old unsigned endpoints and simply don't work anymore.
+Getting it out is the hard part. Bilibili has **no official public API**, its endpoints now demand a **`w_rid` / `wts` signature (WBI signing)**, and it answers fast or unsigned requests with silent risk-control errors (`-352`, `-412`). Most tutorials from before 2023 simply don't work anymore.
 
-This guide shows two ways to get the data **without a Bilibili account**:
+Here are two ways that do work in 2026, **without a Bilibili account**.
 
-1. **No code:** a ready-made Bilibili scraper on Apify, with a 1-click export to Excel.
-2. **Python:** the same open-source library, run locally.
+[[card:scraper]]
 
-## What you can scrape
+## What can you scrape from Bilibili?
 
 | Data | What you get |
 |---|---|
@@ -40,7 +46,7 @@ This guide shows two ways to get the data **without a Bilibili account**:
 | **Search & trending** | Keyword search (sort by views, date, danmaku…), the popular feed and the top-100 ranking |
 | **Subtitles / transcripts** | Including AI captions. This is the one thing that needs a login cookie |
 
-## Option 1: No code (Apify)
+## Option 1: No code, in 4 clicks (Apify)
 
 1. Open the **[Bilibili Scraper](https://apify.com/molded_mountainpass/bilibili-scraper)** and click **Try for free**. A free Apify account includes monthly credit.
 2. Pick **What to scrape**: `videos`, `comments`, `danmaku`, `subtitles` or `users`.
@@ -59,7 +65,7 @@ Example: the comments, with replies, on the top 20 search results for a keyword:
 }
 ```
 
-### Scraping UP主 (creator) profiles
+### How do you scrape UP主 (creator) profiles?
 
 Set `mode` to `users` and pass creator IDs (the number in `space.bilibili.com/<UID>`):
 
@@ -72,9 +78,18 @@ Set `mode` to `users` and pass creator IDs (the number in `space.bilibili.com/<U
 
 Each row has `name`, `sign` (bio), `level`, `verified`, `vip`, `followers`, `following`, `videos`, `likes` and the profile `url`. To get a creator's videos instead, use `mode: "videos"` with the same `userIds`.
 
-**Pricing:** pay per result, no subscription. $0.005 per comment, video or creator profile and $0.001 per danmaku, so 1,000 comments cost about $5.
+### What does it cost?
 
-## Option 2: Python
+Pay per result, no subscription:
+
+| You scrape | Price per 1,000 |
+|---|---|
+| Comments (incl. replies) | **{{scraper.comment@1k}}** |
+| Danmaku | **{{scraper.danmaku@1k}}** |
+| Videos or UP主 profiles | **{{scraper.video@1k}}** |
+| Subtitles | **{{scraper.subtitle@1k}}** |
+
+## Option 2: Python (free, open source)
 
 The scraper is open source (MIT):
 
@@ -115,15 +130,21 @@ async def main():
 asyncio.run(main())
 ```
 
-## How it handles w_rid signing and risk control
+## How does it get past w_rid signing and risk control?
 
 - **WBI signing:** fetches `img_key` / `sub_key`, generates `w_rid` and `wts`, caches the keys and refreshes them when Bilibili rejects a signature (`-352`).
 - **Silent risk control:** Bilibili sometimes answers `code: 0` with only a `v_voucher` and no data. The scraper detects this and retries instead of treating it as an empty page.
 - **Device cookies:** generates a `buvid` itself, so no account is needed.
 - **Rate limits:** jittered delays and backoff retries on `-412`. The cloud version also switches to a proxy when it gets blocked.
 
-## Extras
+Want the details? Read [how the Bilibili API works](/blog/bilibili-api).
 
-- **Sentiment analysis:** label every comment and danmaku positive, neutral or negative, using your own free Groq API key.
+## What else can it do?
+
+- **Sentiment analysis:** label every comment and danmaku positive, neutral or negative ({{scraper.sentiment@1k}} per 1,000 labels, using your own free Groq API key).
 - **Delta mode:** scheduled runs return only items that are new since the last run, which is handy for brand monitoring.
-- **Danmaku-only version:** if you only need bullet comments, the [Bilibili Danmaku Scraper](https://apify.com/molded_mountainpass/bilibili-danmaku-scraper) adds a keyword filter and a free per-video highlight timeline.
+- **Danmaku highlights:** if you analyse bullet comments, the [Bilibili Danmaku Scraper](https://apify.com/molded_mountainpass/bilibili-danmaku-scraper) adds a keyword filter and a free per-video highlight timeline. New to danmaku? Start with [what is danmaku](/blog/what-is-danmaku).
+
+Not sure which tool fits? See the [comparison of Bilibili scrapers on Apify](/blog/best-bilibili-scraper-apify).
+
+[[card:scraper]]

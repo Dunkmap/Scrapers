@@ -58,11 +58,21 @@
       },
       "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python",
       "keywords": "bilibili comments, scrape bilibili comments, bilibili scraper, bilibili danmaku, bilibili api python, UP主, export bilibili comments to excel",
+      "timeRequired": "PT4M",
       "about": [
         {
           "@type": "SoftwareApplication",
           "name": "Bilibili Scraper",
           "url": "https://apify.com/molded_mountainpass/bilibili-scraper",
+          "image": "https://scrapers.practicemysql.com/images/bilibili-scraper.webp",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Bilibili Danmaku Scraper",
+          "url": "https://apify.com/molded_mountainpass/bilibili-danmaku-scraper",
+          "image": "https://scrapers.practicemysql.com/images/bilibili-danmaku-scraper.webp",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web"
         }
@@ -108,6 +118,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to scrape 1,000 Bilibili comments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$1 on Apify with the Bilibili Scraper, with no subscription. Self-hosting the open-source version is free."
           }
         },
         {
@@ -165,8 +183,9 @@
   <header class="hero post-hero" id="top">
     <div class="wrap">
       <p class="crumbs"><a href="/">Home</a> › <a href="/blog/">Blog</a></p>
+      <div class="post-logos"><img src="/images/bilibili-scraper.webp" alt="" width="40" height="40"><img src="/images/bilibili-danmaku-scraper.webp" alt="" width="40" height="40"><span>Bilibili · 哔哩哔哩 · B站</span></div>
       <h1>How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)</h1>
-      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time></p>
+      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time> · 4 min read</p>
       <div class="cta">
         <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
         <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">Danmaku-only scraper</a>
@@ -175,17 +194,16 @@
   </header>
   <main>
     <section>
-      <div class="wrap">
+      <div class="wrap post-layout">
         <article class="post">
           <img class="post-cover" src="/images/blog/bilibili-comments-scraper.webp" alt="Scrape Bilibili comments, danmaku and UP主 data in Python" width="1000" height="420">
-<p>Bilibili (哔哩哔哩, B站) is China's biggest video platform for anime, gaming, tech and lifestyle. Its comment sections and <strong>danmaku</strong> (弹幕, the bullet comments that fly across the video) are a goldmine for market research, sentiment analysis and influencer discovery.</p>
-<p>The problem: Bilibili has <strong>no official public API</strong> for this data. Its web endpoints now need a <strong><code>w_rid</code> / <code>wts</code> signature (WBI signing)</strong>, they throw silent risk-control errors (<code>-352</code>, <code>-412</code>) and they rate-limit you. Most tutorials from before 2023 use old unsigned endpoints and simply don't work anymore.</p>
-<p>This guide shows two ways to get the data <strong>without a Bilibili account</strong>:</p>
-<ol>
-<li><strong>No code:</strong> a ready-made Bilibili scraper on Apify, with a 1-click export to Excel.</li>
-<li><strong>Python:</strong> the same open-source library, run locally.</li>
-</ol>
-<h2 id="what-you-can-scrape">What you can scrape</h2>
+          <div class="takeaways"><p class="takeaways-h">⚡ Key takeaways</p><ul><li>Bilibili has <strong>no official API</strong> for comments; old tutorials break on the new <code>w_rid</code> signing.</li><li>The open-source <strong>Bilibili Scraper</strong> handles signing and risk control, so it works <strong>without a login</strong>.</li><li>1,000 comments with full reply threads cost <strong>$1</strong> on Apify, or nothing if you self-host.</li><li>Export to <strong>Excel, CSV or JSON</strong> in one click, or use it as a Python library.</li></ul></div>
+<p>Bilibili (哔哩哔哩, B站) is where China's Gen Z watches anime, gaming, tech and lifestyle videos, and <strong>its comment sections are brutally honest</strong>. Add <strong>danmaku</strong> (弹幕), the bullet comments that fly across the video at the exact second something happens, and you have one of the richest audience-reaction datasets on the internet.</p>
+<p>Getting it out is the hard part. Bilibili has <strong>no official public API</strong>, its endpoints now demand a <strong><code>w_rid</code> / <code>wts</code> signature (WBI signing)</strong>, and it answers fast or unsigned requests with silent risk-control errors (<code>-352</code>, <code>-412</code>). Most tutorials from before 2023 simply don't work anymore.</p>
+<p>Here are two ways that do work in 2026, <strong>without a Bilibili account</strong>.</p>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
+
+<h2 id="what-can-you-scrape-from-bilibili">What can you scrape from Bilibili?</h2>
 <table>
 <thead>
 <tr>
@@ -224,7 +242,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="option-1-no-code-apify">Option 1: No code (Apify)</h2>
+<h2 id="option-1-no-code-in-4-clicks-apify">Option 1: No code, in 4 clicks (Apify)</h2>
 <ol>
 <li>Open the <strong><a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a></strong> and click <strong>Try for free</strong>. A free Apify account includes monthly credit.</li>
 <li>Pick <strong>What to scrape</strong>: <code>videos</code>, <code>comments</code>, <code>danmaku</code>, <code>subtitles</code> or <code>users</code>.</li>
@@ -240,7 +258,7 @@
   &quot;includeReplies&quot;: true
 }
 </code></pre>
-<h3 id="scraping-up-creator-profiles">Scraping UP主 (creator) profiles</h3>
+<h3 id="how-do-you-scrape-up-creator-profiles">How do you scrape UP主 (creator) profiles?</h3>
 <p>Set <code>mode</code> to <code>users</code> and pass creator IDs (the number in <code>space.bilibili.com/&lt;UID&gt;</code>):</p>
 <pre><code class="language-json">{
   &quot;mode&quot;: &quot;users&quot;,
@@ -248,8 +266,35 @@
 }
 </code></pre>
 <p>Each row has <code>name</code>, <code>sign</code> (bio), <code>level</code>, <code>verified</code>, <code>vip</code>, <code>followers</code>, <code>following</code>, <code>videos</code>, <code>likes</code> and the profile <code>url</code>. To get a creator's videos instead, use <code>mode: "videos"</code> with the same <code>userIds</code>.</p>
-<p><strong>Pricing:</strong> pay per result, no subscription. $0.005 per comment, video or creator profile and $0.001 per danmaku, so 1,000 comments cost about $5.</p>
-<h2 id="option-2-python">Option 2: Python</h2>
+<h3 id="what-does-it-cost">What does it cost?</h3>
+<p>Pay per result, no subscription:</p>
+<table>
+<thead>
+<tr>
+<th>You scrape</th>
+<th>Price per 1,000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comments (incl. replies)</td>
+<td><strong>$1</strong></td>
+</tr>
+<tr>
+<td>Danmaku</td>
+<td><strong>$0.05</strong></td>
+</tr>
+<tr>
+<td>Videos or UP主 profiles</td>
+<td><strong>$2</strong></td>
+</tr>
+<tr>
+<td>Subtitles</td>
+<td><strong>$3</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="option-2-python-free-open-source">Option 2: Python (free, open source)</h2>
 <p>The scraper is open source (MIT):</p>
 <pre><code class="language-bash">git clone https://github.com/Dunkmap/Bilibili-Scraper
 cd Bilibili-Scraper
@@ -280,20 +325,40 @@ async def main():
 
 asyncio.run(main())
 </code></pre>
-<h2 id="how-it-handles-w_rid-signing-and-risk-control">How it handles w_rid signing and risk control</h2>
+<h2 id="how-does-it-get-past-w_rid-signing-and-risk-control">How does it get past w_rid signing and risk control?</h2>
 <ul>
 <li><strong>WBI signing:</strong> fetches <code>img_key</code> / <code>sub_key</code>, generates <code>w_rid</code> and <code>wts</code>, caches the keys and refreshes them when Bilibili rejects a signature (<code>-352</code>).</li>
 <li><strong>Silent risk control:</strong> Bilibili sometimes answers <code>code: 0</code> with only a <code>v_voucher</code> and no data. The scraper detects this and retries instead of treating it as an empty page.</li>
 <li><strong>Device cookies:</strong> generates a <code>buvid</code> itself, so no account is needed.</li>
 <li><strong>Rate limits:</strong> jittered delays and backoff retries on <code>-412</code>. The cloud version also switches to a proxy when it gets blocked.</li>
 </ul>
-<h2 id="extras">Extras</h2>
+<p>Want the details? Read <a href="/blog/bilibili-api">how the Bilibili API works</a>.</p>
+<h2 id="what-else-can-it-do">What else can it do?</h2>
 <ul>
-<li><strong>Sentiment analysis:</strong> label every comment and danmaku positive, neutral or negative, using your own free Groq API key.</li>
+<li><strong>Sentiment analysis:</strong> label every comment and danmaku positive, neutral or negative ($2 per 1,000 labels, using your own free Groq API key).</li>
 <li><strong>Delta mode:</strong> scheduled runs return only items that are new since the last run, which is handy for brand monitoring.</li>
-<li><strong>Danmaku-only version:</strong> if you only need bullet comments, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline.</li>
+<li><strong>Danmaku highlights:</strong> if you analyse bullet comments, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline. New to danmaku? Start with <a href="/blog/what-is-danmaku">what is danmaku</a>.</li>
 </ul>
+<p>Not sure which tool fits? See the <a href="/blog/best-bilibili-scraper-apify">comparison of Bilibili scrapers on Apify</a>.</p>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
         </article>
+        <aside class="post-toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#what-can-you-scrape-from-bilibili">What can you scrape from Bilibili?</a></li>
+              <li><a href="#option-1-no-code-in-4-clicks-apify">Option 1: No code, in 4 clicks (Apify)</a></li>
+              <li><a href="#option-2-python-free-open-source">Option 2: Python (free, open source)</a></li>
+              <li><a href="#how-does-it-get-past-w_rid-signing-and-risk-control">How does it get past w_rid signing and risk control?</a></li>
+              <li><a href="#what-else-can-it-do">What else can it do?</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+          </details>
+          <a class="toc-card" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">
+            <img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="48" height="48" loading="lazy">
+            <span><strong>Bilibili Scraper</strong>Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span>
+          </a>
+        </aside>
       </div>
     </section>
     <section id="faq">
@@ -303,6 +368,7 @@ asyncio.run(main())
         <div class="faq">
           <details class="reveal"><summary>Is there an official Bilibili API?</summary><p>No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you.</p></details>
           <details class="reveal"><summary>Can I read Bilibili comments without an account?</summary><p>Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie.</p></details>
+          <details class="reveal"><summary>How much does it cost to scrape 1,000 Bilibili comments?</summary><p>$1 on Apify with the Bilibili Scraper, with no subscription. Self-hosting the open-source version is free.</p></details>
           <details class="reveal"><summary>How do I generate the w_rid parameter?</summary><p>You don&#x27;t have to. The scraper signs every request itself with Bilibili&#x27;s WBI keys.</p></details>
           <details class="reveal"><summary>Can I export Bilibili comments to Excel?</summary><p>Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel.</p></details>
           <details class="reveal"><summary>Is scraping Bilibili legal?</summary><p>It reads public data the same way the bilibili.com website does. Follow Bilibili&#x27;s terms of service, keep the request rate reasonable and don&#x27;t republish personal data.</p></details>
@@ -331,5 +397,24 @@ asyncio.run(main())
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var toc = document.querySelector('.post-toc details');
+    if (toc && window.matchMedia('(max-width: 960px)').matches) toc.removeAttribute('open');
+    var links = document.querySelectorAll('.post-toc a[href^="#"]');
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{
+  "scraper": {
+    "apify-actor-start": 0.001,
+    "video": 0.002,
+    "comment": 0.001,
+    "user": 0.002,
+    "subtitle": 0.003,
+    "danmaku": 5e-05,
+    "sentiment": 0.002
+  },
+  "danmaku": {
+    "apify-actor-start": 0.001,
+    "danmaku": 0.001,
+    "sentiment": 0.005
+  }
+}
