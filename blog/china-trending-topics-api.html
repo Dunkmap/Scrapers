@@ -138,7 +138,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=20261109c">
   <script src="/script.js"></script>
 </head>
 <body>
@@ -187,24 +187,41 @@
       <p>This chart compares the dedicated Douyin hot-search scrapers on the Apify Store, <a href="https://apify.com/zen-studio/douyin-hot-search-scraper">zen-studio</a> and <a href="https://apify.com/automation-lab/douyin-analytics-scraper">automation-lab</a>, which each cover Douyin only.</p>
       <figure class="chart reveal" id="c1">
 <figcaption><strong>Price per 1,000 trending topics</strong><span>USD per 1,000 topics, free tier</span></figcaption>
-<svg viewBox="0 0 680 136" role="img" aria-labelledby="c1-t" class="bars">
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="c1-t" class="bars" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif">
 <title id="c1-t">Price per 1,000 trending topics. China Trending Topics API (this): $2.00; zen-studio Douyin hot search: $7.99; automation-lab Douyin trending: $17.30</title>
-<line x1="250" y1="4" x2="250" y2="132" class="axis"/>
-<g class="row ours"><title>China Trending Topics API (this): $2.00 (7 platforms)</title>
-<rect x="0" y="10.0" width="680" height="36" class="hit"/>
-<text x="238" y="33.0" text-anchor="end" class="lbl">China Trending Topics API (this)</text>
-<path d="M250,18.0 h35.30635838150289 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-35.30635838150289 z" fill="#6250d6"/>
-<text x="297.3063583815029" y="33.0" class="val">$2.00</text></g>
-<g class="row"><title>zen-studio Douyin hot search: $7.99 (Douyin only; plus $0.05 per run)</title>
-<rect x="0" y="50.0" width="680" height="36" class="hit"/>
-<text x="238" y="73.0" text-anchor="end" class="lbl">zen-studio Douyin hot search</text>
-<path d="M250,58.0 h153.02890173410404 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-153.02890173410404 z" fill="#8a8297"/>
-<text x="415.028901734104" y="73.0" class="val">$7.99</text></g>
-<g class="row"><title>automation-lab Douyin trending: $17.30 (Douyin only; plus $0.05 per run)</title>
-<rect x="0" y="90.0" width="680" height="36" class="hit"/>
-<text x="238" y="113.0" text-anchor="end" class="lbl">automation-lab Douyin trending</text>
-<path d="M250,98.0 h336.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-336.0 z" fill="#8a8297"/>
-<text x="598.0" y="113.0" class="val">$17.30</text></g>
+<defs><linearGradient id="c1-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ddd3f7"/><stop offset="1" stop-color="#c7e0f2"/></linearGradient></defs>
+<rect x="0" y="0" width="236" height="300" rx="26" fill="url(#c1-g)"/>
+<circle cx="206" cy="34" r="54" fill="#ffffff" opacity=".28"/>
+<rect x="22" y="22" width="68" height="68" rx="20" fill="#ffffff"/>
+<image href="/images/china-trending-scraper.webp" x="28" y="28" width="56" height="56"/>
+<rect x="22" y="104" width="87" height="22" rx="11" fill="#2a2433"/><text x="65" y="119" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#fbf7f1">75% cheaper</text>
+<text x="22" y="176" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2a2433">$2.00</text>
+<text x="22" y="198" font-size="13" fill="#4d4556">per 1,000 topics</text>
+<circle cx="31" cy="226" r="9" fill="#bfdcc8"/><path d="M26.5 226 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="230" font-size="12.5" font-weight="600" fill="#2a2433">7 platforms in one run</text>
+<circle cx="31" cy="250" r="9" fill="#bfdcc8"/><path d="M26.5 250 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="254" font-size="12.5" font-weight="600" fill="#2a2433">Rank &amp; heat changes</text>
+<circle cx="31" cy="274" r="9" fill="#bfdcc8"/><path d="M26.5 274 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="278" font-size="12.5" font-weight="600" fill="#2a2433">Keyword alerts</text>
+<text x="266" y="22" font-size="11" font-weight="700" letter-spacing="1.3" fill="#7a5bb5">WHAT YOU PAY</text>
+<g><title>China Trending Topics API (this): $2.00 (7 platforms)</title>
+<text x="266" y="58" font-size="13" font-weight="700" fill="#2a2433">China Trending Topics API (this)</text>
+<rect x="266" y="66" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,66 h24.90173410404624 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-24.90173410404624 z" fill="#6250d6"/>
+<text x="526" y="78" font-size="14" font-weight="700" fill="#2a2433">$2.00</text>
+<rect x="588" y="62" width="80" height="22" rx="11" fill="#d2c6f1"/><text x="628" y="77" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#2a2433">This actor</text>
+</g>
+<g><title>zen-studio Douyin hot search: $7.99 (Douyin only; plus $0.05 per run)</title>
+<text x="266" y="108" font-size="13" font-weight="500" fill="#6e6676">zen-studio Douyin hot search</text>
+<rect x="266" y="116" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,116 h111.46242774566474 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-111.46242774566474 z" fill="#8a8297"/>
+<text x="526" y="128" font-size="14" font-weight="700" fill="#2a2433">$7.99</text>
+<rect x="588" y="112" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="127" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#2a2433">4.0× the price</text>
+</g>
+<g><title>automation-lab Douyin trending: $17.30 (Douyin only; plus $0.05 per run)</title>
+<text x="266" y="158" font-size="13" font-weight="500" fill="#6e6676">automation-lab Douyin trending</text>
+<rect x="266" y="166" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,166 h246.0 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-246.0 z" fill="#8a8297"/>
+<text x="526" y="178" font-size="14" font-weight="700" fill="#2a2433">$17.30</text>
+<rect x="588" y="162" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="177" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#2a2433">8.7× the price</text>
+</g>
 </svg>
 <details class="table-view"><summary>Show as a table</summary><table><thead><tr><th>Scraper</th><th>USD per 1,000 topics, free tier</th><th>Note</th></tr></thead><tbody>
 <tr class=ours><td>China Trending Topics API (this)</td><td>$2.00</td><td>7 platforms</td></tr>
@@ -213,24 +230,41 @@
 </tbody></table></details></figure>
       <figure class="chart reveal" id="c2">
 <figcaption><strong>Platforms covered in one run</strong><span>Number of platforms</span></figcaption>
-<svg viewBox="0 0 680 136" role="img" aria-labelledby="c2-t" class="bars">
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="c2-t" class="bars" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif">
 <title id="c2-t">Platforms covered in one run. China Trending Topics API (this): 7; zen-studio Douyin hot search: 1; automation-lab Douyin trending: 1</title>
-<line x1="250" y1="4" x2="250" y2="132" class="axis"/>
-<g class="row ours"><title>China Trending Topics API (this): 7 (Baidu, Douyin, Zhihu, Bilibili, Toutiao, Tieba, The Paper)</title>
-<rect x="0" y="10.0" width="680" height="36" class="hit"/>
-<text x="238" y="33.0" text-anchor="end" class="lbl">China Trending Topics API (this)</text>
-<path d="M250,18.0 h336.0 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-336.0 z" fill="#6250d6"/>
-<text x="598.0" y="33.0" class="val">7</text></g>
-<g class="row"><title>zen-studio Douyin hot search: 1 (Douyin)</title>
-<rect x="0" y="50.0" width="680" height="36" class="hit"/>
-<text x="238" y="73.0" text-anchor="end" class="lbl">zen-studio Douyin hot search</text>
-<path d="M250,58.0 h44.57142857142857 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-44.57142857142857 z" fill="#8a8297"/>
-<text x="306.57142857142856" y="73.0" class="val">1</text></g>
-<g class="row"><title>automation-lab Douyin trending: 1 (Douyin)</title>
-<rect x="0" y="90.0" width="680" height="36" class="hit"/>
-<text x="238" y="113.0" text-anchor="end" class="lbl">automation-lab Douyin trending</text>
-<path d="M250,98.0 h44.57142857142857 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-44.57142857142857 z" fill="#8a8297"/>
-<text x="306.57142857142856" y="113.0" class="val">1</text></g>
+<defs><linearGradient id="c2-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ddd3f7"/><stop offset="1" stop-color="#c7e0f2"/></linearGradient></defs>
+<rect x="0" y="0" width="236" height="300" rx="26" fill="url(#c2-g)"/>
+<circle cx="206" cy="34" r="54" fill="#ffffff" opacity=".28"/>
+<rect x="22" y="22" width="68" height="68" rx="20" fill="#ffffff"/>
+<image href="/images/china-trending-scraper.webp" x="28" y="28" width="56" height="56"/>
+<rect x="22" y="104" width="113" height="22" rx="11" fill="#2a2433"/><text x="78" y="119" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#fbf7f1">7× the coverage</text>
+<text x="22" y="176" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2a2433">7</text>
+<text x="22" y="198" font-size="13" fill="#4d4556">platforms in one run</text>
+<circle cx="31" cy="226" r="9" fill="#bfdcc8"/><path d="M26.5 226 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="230" font-size="12.5" font-weight="600" fill="#2a2433">Baidu &amp; Douyin</text>
+<circle cx="31" cy="250" r="9" fill="#bfdcc8"/><path d="M26.5 250 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="254" font-size="12.5" font-weight="600" fill="#2a2433">Zhihu, Bilibili, Toutiao</text>
+<circle cx="31" cy="274" r="9" fill="#bfdcc8"/><path d="M26.5 274 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="278" font-size="12.5" font-weight="600" fill="#2a2433">Tieba &amp; The Paper</text>
+<text x="266" y="22" font-size="11" font-weight="700" letter-spacing="1.3" fill="#7a5bb5">HOW IT COMPARES</text>
+<g><title>China Trending Topics API (this): 7 (Baidu, Douyin, Zhihu, Bilibili, Toutiao, Tieba, The Paper)</title>
+<text x="266" y="58" font-size="13" font-weight="700" fill="#2a2433">China Trending Topics API (this)</text>
+<rect x="266" y="66" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,66 h246.0 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-246.0 z" fill="#6250d6"/>
+<text x="526" y="78" font-size="14" font-weight="700" fill="#2a2433">7</text>
+<rect x="588" y="62" width="80" height="22" rx="11" fill="#d2c6f1"/><text x="628" y="77" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#2a2433">This actor</text>
+</g>
+<g><title>zen-studio Douyin hot search: 1 (Douyin)</title>
+<text x="266" y="108" font-size="13" font-weight="500" fill="#6e6676">zen-studio Douyin hot search</text>
+<rect x="266" y="116" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,116 h31.714285714285715 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-31.714285714285715 z" fill="#8a8297"/>
+<text x="526" y="128" font-size="14" font-weight="700" fill="#2a2433">1</text>
+<rect x="588" y="112" width="60" height="22" rx="11" fill="#f4c3ad"/><text x="618" y="127" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#2a2433">6 fewer</text>
+</g>
+<g><title>automation-lab Douyin trending: 1 (Douyin)</title>
+<text x="266" y="158" font-size="13" font-weight="500" fill="#6e6676">automation-lab Douyin trending</text>
+<rect x="266" y="166" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,166 h31.714285714285715 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-31.714285714285715 z" fill="#8a8297"/>
+<text x="526" y="178" font-size="14" font-weight="700" fill="#2a2433">1</text>
+<rect x="588" y="162" width="60" height="22" rx="11" fill="#f4c3ad"/><text x="618" y="177" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#2a2433">6 fewer</text>
+</g>
 </svg>
 <details class="table-view"><summary>Show as a table</summary><table><thead><tr><th>Scraper</th><th>Number of platforms</th><th>Note</th></tr></thead><tbody>
 <tr class=ours><td>China Trending Topics API (this)</td><td>7</td><td>Baidu, Douyin, Zhihu, Bilibili, Toutiao, Tieba, The Paper</td></tr>

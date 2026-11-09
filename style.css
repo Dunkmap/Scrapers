@@ -322,4 +322,4 @@ main.cmp h2 { font: 500 clamp(1.5rem, 3vw, 2rem)/1.2 var(--serif); margin: 56px 
   .bars .lbl, .bars .val { font-size: 16px; }
 }
 main.cmp .steps { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); }
-@media (max-width: 640px) { .chart { overflow-x: auto; } .bars { min-width: 560px; } }
+@media (max-width: 640px) { .chart { overflow-x: auto; } .bars { min-width: 640px; } }
