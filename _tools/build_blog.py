@@ -79,7 +79,7 @@ BODY_TOP = """  <!-- Google Tag Manager (noscript) -->
 FOOTER = """  <footer>
     <div class="wrap">
       <p>All scrapers read public data only. Bilibili is a trademark of its owner; these tools are independent and not affiliated with Bilibili.</p>
-      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyarajvt752@gmail.com">divyarajvt752@gmail.com</a></p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
     </div>
   </footer>"""
 
