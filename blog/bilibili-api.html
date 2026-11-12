@@ -187,8 +187,8 @@
       <h1>Bilibili API in 2026: Is There an Official API? 5 Ways to Get Bilibili Data (Compared)</h1>
       <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time> · 4 min read</p>
       <div class="cta">
-        <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
-        <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper">Danmaku-only scraper</a>
+        <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw">Try the Bilibili Scraper</a>
+        <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper?fpr=2untzw">Danmaku-only scraper</a>
       </div>
     </div>
   </header>
@@ -199,7 +199,7 @@
           <img class="post-cover" src="/images/blog/bilibili-api.webp" alt="Is there an official Bilibili API? Fix -352 and -412 errors" width="1000" height="420">
           <div class="takeaways"><p class="takeaways-h">⚡ Key takeaways</p><ul><li>There is <strong>no official Bilibili API</strong> (and no API key) for comments, danmaku, video stats or UP主 data.</li><li><code>-352</code> = missing/stale <strong>WBI signature</strong> (<code>w_rid</code>, <code>wts</code>); <code>-412</code> = your IP was <strong>rate-limited</strong>.</li><li>Tutorials from before 2023 use unsigned endpoints, which is why they fail today.</li><li>Fastest fix: an open-source scraper with signing built in, or the hosted one from <strong>$1 per 1,000 comments</strong>.</li></ul></div>
 <p><strong>Short answer:</strong> Bilibili (哔哩哔哩, B站) has <strong>no official public API</strong> for comments, danmaku, video stats or creator data. The endpoints that bilibili.com itself uses are undocumented, require <strong>WBI signing</strong> (<code>w_rid</code> and <code>wts</code> parameters), and block unsigned or fast requests with errors like <code>-352</code> and <code>-412</code>. To get Bilibili data in 2026 you either handle that yourself or use a scraper that already does.</p>
-<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw" rel="noopener">Try it free →</a></div>
 
 <h2 id="is-there-an-official-bilibili-api">Is there an official Bilibili API?</h2>
 <p><strong>No, not for public data.</strong> There is no self-serve Bilibili API key that gives you comments, danmaku, video stats or creator profiles. What developers call "the Bilibili API" is the set of internal web endpoints under <code>api.bilibili.com</code> that the website calls in your browser. They're undocumented and they change without notice.</p>
@@ -285,7 +285,7 @@
 </tr>
 </tbody>
 </table>
-<p>Options 4 and 5 can be the same tool. The <a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a> is open source (<a href="https://github.com/Dunkmap/Bilibili-Scraper" rel="noopener">GitHub</a>, MIT) and also runs as a hosted, no-code tool on Apify.</p>
+<p>Options 4 and 5 can be the same tool. The <a href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw" rel="noopener">Bilibili Scraper</a> is open source (<a href="https://github.com/Dunkmap/Bilibili-Scraper" rel="noopener">GitHub</a>, MIT) and also runs as a hosted, no-code tool on Apify.</p>
 <h2 id="what-data-can-you-get-without-a-login">What data can you get without a login?</h2>
 <table>
 <thead>
@@ -352,14 +352,14 @@ bili search &quot;原神&quot; --order click --limit 200 -o search.csv
 <h2 id="no-code-the-bilibili-api-as-a-hosted-tool">No-code: the Bilibili API as a hosted tool</h2>
 <p>If you don't want to run Python, the hosted version works like an API you call from a form, a schedule, or code:</p>
 <ol>
-<li>Open the <a href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Bilibili Scraper</a> and click <strong>Try for free</strong>.</li>
+<li>Open the <a href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw" rel="noopener">Bilibili Scraper</a> and click <strong>Try for free</strong>.</li>
 <li>Choose <code>videos</code>, <code>comments</code>, <code>danmaku</code>, <code>subtitles</code> or <code>users</code> (UP主).</li>
 <li>Paste links or type keywords, then click <strong>Start</strong>.</li>
 <li>Export to <strong>Excel, CSV or JSON</strong>, or call it over Apify's REST API, Make, Zapier or MCP for AI agents.</li>
 </ol>
 <p><strong>Price:</strong> pay per result, no subscription: <strong>$1 per 1,000 comments</strong>, $2 per 1,000 videos or UP主 profiles and $0.05 per 1,000 danmaku.</p>
-<p>For danmaku analysis, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline. Comparing tools? See the <a href="/blog/best-bilibili-scraper-apify">Bilibili scraper comparison</a>.</p>
-<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">Try it free →</a></div>
+<p>For danmaku analysis, the <a href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper?fpr=2untzw" rel="noopener">Bilibili Danmaku Scraper</a> adds a keyword filter and a free per-video highlight timeline. Comparing tools? See the <a href="/blog/best-bilibili-scraper-apify">Bilibili scraper comparison</a>.</p>
+<div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw" rel="noopener">Try it free →</a></div>
         </article>
         <aside class="post-toc">
           <details open>
@@ -376,7 +376,7 @@ bili search &quot;原神&quot; --order click --limit 200 -o search.csv
               <li><a href="#faq">Frequently asked questions</a></li>
             </ol>
           </details>
-          <a class="toc-card" href="https://apify.com/molded_mountainpass/bilibili-scraper" rel="noopener">
+          <a class="toc-card" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw" rel="noopener">
             <img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="48" height="48" loading="lazy">
             <span><strong>Bilibili Scraper</strong>Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span>
           </a>
@@ -397,7 +397,7 @@ bili search &quot;原神&quot; --order click --limit 200 -o search.csv
         </div>
         <div class="note reveal"><strong>Want the data without writing code?</strong> The Bilibili Scraper exports comments, danmaku, videos and UP主 profiles to Excel, CSV or JSON. Pay per result, no login.</div>
         <div class="cta center reveal">
-          <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper">Try the Bilibili Scraper</a>
+          <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw">Try the Bilibili Scraper</a>
         </div>
       </div>
     </section>
@@ -416,6 +416,7 @@ bili search &quot;原神&quot; --order click --limit 200 -o search.csv
   <footer>
     <div class="wrap">
       <p>All scrapers read public data only. Bilibili is a trademark of its owner; these tools are independent and not affiliated with Bilibili.</p>
+      <p>Apify links on this site are referral links: if you sign up and later choose a paid Apify plan, I may earn a reward, at no extra cost to you.</p>
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
     </div>
   </footer>

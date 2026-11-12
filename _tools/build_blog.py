@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_blog-src"
 OUT = ROOT / "blog"
 SITE = "https://scrapers.practicemysql.com"
+REFERRAL = "fpr=2untzw"  # Apify referral ID, added to every link to our own Actors
 
 ACTORS = {
     "scraper": {"id": "molded_mountainpass~bilibili-scraper", "name": "Bilibili Scraper",
@@ -79,6 +80,7 @@ BODY_TOP = """  <!-- Google Tag Manager (noscript) -->
 FOOTER = """  <footer>
     <div class="wrap">
       <p>All scrapers read public data only. Bilibili is a trademark of its owner; these tools are independent and not affiliated with Bilibili.</p>
+      <p>Apify links on this site are referral links: if you sign up and later choose a paid Apify plan, I may earn a reward, at no extra cost to you.</p>
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
     </div>
   </footer>"""
@@ -394,13 +396,25 @@ def update_sitemap(posts):
     path.write_text(text, encoding="utf-8")
 
 
+def add_referral(page):
+    """Add the Apify referral ID to every link to our own Actors (hrefs only, not JSON-LD)."""
+    def sub(m):
+        url = m.group(1)
+        if REFERRAL in url:
+            return m.group(0)
+        base, _, frag = url.partition("#")
+        base += ("&" if "?" in base else "?") + REFERRAL
+        return f'href="{base}#{frag}"' if frag else f'href="{base}"'
+    return re.sub(r'href="(https://apify\.com/molded_mountainpass[^"]*)"', sub, page)
+
+
 def main():
     prices = fetch_prices()
     posts = sorted((load(p, prices) for p in SRC.glob("*.md")), key=lambda p: (p["date"], p["lang"] != "en", p["slug"]))
     OUT.mkdir(exist_ok=True)
     for p in posts:
-        (OUT / f"{p['slug']}.html").write_text(render_post(p, posts, prices), encoding="utf-8")
-    (OUT / "index.html").write_text(render_index(posts, prices), encoding="utf-8")
+        (OUT / f"{p['slug']}.html").write_text(add_referral(render_post(p, posts, prices)), encoding="utf-8")
+    (OUT / "index.html").write_text(add_referral(render_index(posts, prices)), encoding="utf-8")
     update_sitemap(posts)
     print(f"built {len(posts)} posts with prices {prices}")
 
