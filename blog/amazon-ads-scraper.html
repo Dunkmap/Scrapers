@@ -130,7 +130,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20261109c">
+  <link rel="stylesheet" href="/style.css?v=20261112">
   <script src="/script.js"></script>
 </head>
 <body>
@@ -165,17 +165,35 @@
   </header>
 
   <main class="cmp">
-    <div class="wrap">
-      <section class="answer reveal" aria-label="Quick answer">
+    <div class="wrap post-layout">
+      <aside class="post-toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#quick-answer">Quick answer</a></li>
+              <li><a href="#why-choose-amazon-ads-scraper">Why choose Amazon Ads Scraper?</a></li>
+              <li><a href="#what-do-other-scrapers-charge-to-collect-amazon-ads">What do other scrapers charge to collect Amazon ads?</a></li>
+              <li><a href="#what-you-get-in-every-row">What you get in every row</a></li>
+              <li><a href="#how-to-use-it">How to use it</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+          </details>
+          <a class="toc-card" href="https://apify.com/molded_mountainpass/amazon-ads-scraper?fpr=2untzw" rel="noopener">
+            <img src="/images/amazon-ads-scraper.webp" alt="Amazon Ads Scraper logo" width="48" height="48" loading="lazy">
+            <span><strong>Amazon Ads Scraper</strong>Try it free on Apify</span>
+          </a>
+        </aside>
+        <article class="cmp-body">
+      <section class="answer reveal" id="quick-answer" aria-label="Quick answer">
         <p class="kicker">Quick answer</p>
         <p>Amazon Ads Scraper collects the ads on Amazon search pages: brand banners with their headline and featured ASINs, sponsored video ads and sponsored products, each with keyword, page, placement, price and rating. It works on about 20 Amazon marketplaces and has <strong>no per-result fee</strong>: you pay only for the Apify platform usage of each run.</p>
         <a class="btn big" href="https://apify.com/molded_mountainpass/amazon-ads-scraper?fpr=2untzw">Try Amazon Ads Scraper on Apify</a>
       </section>
 
-      <h2>Why choose Amazon Ads Scraper?</h2>
+      <h2 id="why-choose-amazon-ads-scraper">Why choose Amazon Ads Scraper?</h2>
       <ol class="reasons"><li class="reveal"><b>Built only for ads</b><span>Every row is an ad, so you don't pay for, or filter out, organic listings.</span></li><li class="reveal"><b>All three ad formats</b><span>Brand banners (headline, brand and featured ASINs), sponsored video ads and sponsored products in one dataset.</span></li><li class="reveal"><b>No per-result fee</b><span>Search scrapers that flag sponsored listings charge $1 to $2 per 1,000 rows. This actor charges nothing per row; only Apify platform usage applies.</span></li><li class="reveal"><b>Placement detail</b><span>Each ad records its placement type, such as top-of-page brand banner, sponsored video row or inline sponsored product.</span></li><li class="reveal"><b>20 marketplaces</b><span>Compare who advertises on the same keyword in the US, UK, Germany, India, Japan and more.</span></li></ol>
 
-      <h2>What do other scrapers charge to collect Amazon ads?</h2>
+      <h2 id="what-do-other-scrapers-charge-to-collect-amazon-ads">What do other scrapers charge to collect Amazon ads?</h2>
       <p>No other dedicated Amazon ads scraper turned up in the Apify Store. The closest alternatives are Amazon search scrapers that flag sponsored listings: <a href="https://apify.com/apt_marble/amazon-search-results-scraper">apt_marble</a>, <a href="https://apify.com/santamaria-automations/amazon-search-scraper">santamaria-automations</a> and <a href="https://apify.com/khadinakbar/amazon-product-search-scraper">khadinakbar</a>.</p>
       <figure class="chart reveal" id="c1">
 <figcaption><strong>Per-result fee for 1,000 rows</strong><span>USD per 1,000 rows, free tier</span></figcaption>
@@ -230,19 +248,20 @@
 </tbody></table></details></figure>
       
 
-      <h2>What you get in every row</h2>
+      <h2 id="what-you-get-in-every-row">What you get in every row</h2>
       <p>One row per ad:</p>
       <ul class="fact-tiles reveal"><li><b>Search</b><span>keyword, marketplace, page</span></li><li><b>Ad type</b><span>brand banner, video ad or sponsored product</span></li><li><b>Products</b><span>ASIN or featured ASINs, brand storefront</span></li><li><b>Creative</b><span>headline, title or video label</span></li><li><b>Offer</b><span>displayed price, rating, review count</span></li><li><b>Time</b><span>scrape timestamp</span></li></ul>
 
-      <h2>How to use it</h2>
+      <h2 id="how-to-use-it">How to use it</h2>
       <ol class="steps"><li class="reveal"><b>1</b><span>Open the actor on Apify.</span></li><li class="reveal"><b>2</b><span>Enter the keywords you want to watch and pick a marketplace.</span></li><li class="reveal"><b>3</b><span>Use residential proxies for the most consistent ad detection.</span></li><li class="reveal"><b>4</b><span>Run it on a schedule to track ad activity over time.</span></li></ol>
 
-      <h2>Frequently asked questions</h2>
+      <h2 id="faq">Frequently asked questions</h2>
       <div class="faq"><details class="reveal"><summary>Is Amazon Ads Scraper free?</summary><p>It has no per-result fee. You pay only Apify platform usage for each run, which the Apify free plan&#x27;s monthly credit covers for light use.</p></details><details class="reveal"><summary>Which ad types does it collect?</summary><p>Brand banners with their featured ASINs, sponsored video ads and sponsored products.</p></details><details class="reveal"><summary>Can I track competitors&#x27; ads over time?</summary><p>Yes. Schedule it daily or weekly on the same keywords and compare the datasets.</p></details><details class="reveal"><summary>Does it need an Amazon Ads account?</summary><p>No. It reads public search pages and needs no login.</p></details></div>
 
       <div class="note reveal">Want organic results and ads together? <a href="/blog/amazon-search-scraper">Amazon Search Scraper</a> returns both in one run.</div>
       <div class="cta center reveal"><a class="btn big" href="https://apify.com/molded_mountainpass/amazon-ads-scraper?fpr=2untzw">Try Amazon Ads Scraper on Apify</a></div>
       <p class="more-posts">More articles: <a href="/blog/linkedin-jobs-scraper-with-glassdoor">LinkedIn Jobs Scraper + Glassdoor</a> · <a href="/blog/glassdoor-jobs-scraper">Glassdoor Jobs Scraper</a> · <a href="/blog/amazon-search-scraper">Amazon Search Scraper</a> · <a href="/blog/amazon-keyword-rank-tracker">Amazon Keyword Rank Tracker</a> · <a href="/blog/zhihu-scraper">Zhihu Scraper</a> · <a href="/blog/china-trending-topics-api">China Trending Topics API</a></p>
+      </article>
     </div>
   </main>
 
@@ -253,5 +272,24 @@
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var toc = document.querySelector('.post-toc details');
+    if (toc && window.matchMedia('(max-width: 960px)').matches) toc.removeAttribute('open');
+    var links = document.querySelectorAll('.post-toc a[href^="#"]');
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+  </script>
 </body>
 </html>
