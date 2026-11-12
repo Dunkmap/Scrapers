@@ -387,13 +387,31 @@ def render_index(posts, prices):
 
 
 def update_sitemap(posts):
+    """Set the lastmod of the built posts (and of /blog/), adding any that are missing.
+
+    Entries for other pages, including hand-written posts in blog/, are left as they are.
+    """
     path = ROOT / "sitemap.xml"
     text = path.read_text(encoding="utf-8")
-    text = re.sub(r"\s*<url><loc>[^<]*/blog/[^<]*</loc>.*?</url>", "", text)
-    entries = [f"  <url><loc>{SITE}/blog/</loc><lastmod>{max(p['updated'] for p in posts)}</lastmod></url>"]
-    entries += [f"  <url><loc>{SITE}/blog/{p['slug']}</loc><lastmod>{p['updated']}</lastmod></url>" for p in posts]
-    text = text.replace("</urlset>", "\n".join(entries) + "\n</urlset>")
+    pages = [("", max(p["updated"] for p in posts))] + [(p["slug"], p["updated"]) for p in posts]
+    for slug, day in pages:
+        loc = f"{SITE}/blog/{slug}"
+        entry = f"<url><loc>{loc}</loc><lastmod>{day}</lastmod></url>"
+        pattern = rf"<url><loc>{re.escape(loc)}</loc>.*?</url>"
+        if re.search(pattern, text):
+            if slug == "":  # /blog/ may list newer hand-written posts: never move its date back
+                old = re.search(rf"{re.escape(loc)}</loc><lastmod>([^<]+)", text)
+                if old and old.group(1) > day:
+                    continue
+            text = re.sub(pattern, entry, text)
+        else:
+            text = text.replace("</urlset>", f"  {entry}\n</urlset>")
     path.write_text(text, encoding="utf-8")
+
+
+def has_handwritten_posts(posts):
+    built = {f"{p['slug']}.html" for p in posts} | {"index.html"}
+    return any(f.name not in built for f in OUT.glob("*.html"))
 
 
 def add_referral(page):
@@ -414,7 +432,10 @@ def main():
     OUT.mkdir(exist_ok=True)
     for p in posts:
         (OUT / f"{p['slug']}.html").write_text(add_referral(render_post(p, posts, prices)), encoding="utf-8")
-    (OUT / "index.html").write_text(add_referral(render_index(posts, prices)), encoding="utf-8")
+    if has_handwritten_posts(posts):
+        print("blog/ has hand-written posts too: left blog/index.html as it is")
+    else:
+        (OUT / "index.html").write_text(add_referral(render_index(posts, prices)), encoding="utf-8")
     update_sitemap(posts)
     print(f"built {len(posts)} posts with prices {prices}")
 
