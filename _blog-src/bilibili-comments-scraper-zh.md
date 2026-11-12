@@ -6,7 +6,7 @@
   "seo_title": "2026 B站评论爬虫：无需登录采集评论、弹幕、UP主数据",
   "description": "2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。",
   "date": "2026-11-09",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "cover": "bilibili-comments-scraper-zh.webp",
   "cover_alt": "B站评论爬虫：评论、弹幕、UP主数据",
   "keywords": "B站爬虫, B站评论爬取, B站弹幕下载, UP主数据采集, w_rid, WBI 签名, 哔哩哔哩爬虫, Python 爬虫",
@@ -14,6 +14,10 @@
     [
       "B站 评论爬虫需要登录或 Cookie 吗？",
       "不需要，只有字幕需要 Cookie。"
+    ],
+    [
+      "为什么不登录只能看到 3 条 B站评论？",
+      "未登录的浏览器带上 B站 设备 Cookie 后，评论接口只返回最前面几条评论。Bilibili Scraper 请求评论时不带这个 Cookie，因此可以正常翻页，采集完整评论和楼中楼回复，无需登录。"
     ],
     [
       "w_rid 参数怎么生成？",

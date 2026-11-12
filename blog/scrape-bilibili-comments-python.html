@@ -31,7 +31,7 @@
   <meta property="og:url" content="https://scrapers.practicemysql.com/blog/scrape-bilibili-comments-python">
   <meta property="og:image" content="https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper.webp">
   <meta property="article:published_time" content="2026-11-09">
-  <meta property="article:modified_time" content="2026-11-09">
+  <meta property="article:modified_time" content="2026-11-12">
   <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
@@ -44,7 +44,7 @@
       "description": "Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.",
       "image": "https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper.webp",
       "datePublished": "2026-11-09",
-      "dateModified": "2026-11-09",
+      "dateModified": "2026-11-12",
       "inLanguage": "en",
       "author": {
         "@type": "Person",
@@ -122,6 +122,14 @@
         },
         {
           "@type": "Question",
+          "name": "Why does Bilibili only show 3 comments when I'm not logged in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once a logged-out browser has Bilibili's device cookie, the comment API returns only the top few comments. The Bilibili Scraper requests comment pages without that cookie, so it pages through the full list, replies included, without a login."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "How much does it cost to scrape 1,000 Bilibili comments?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -185,7 +193,7 @@
       <p class="crumbs"><a href="/">Home</a> › <a href="/blog/">Blog</a></p>
       <div class="post-logos"><img src="/images/bilibili-scraper.webp" alt="" width="40" height="40"><img src="/images/bilibili-danmaku-scraper.webp" alt="" width="40" height="40"><span>Bilibili · 哔哩哔哩 · B站</span></div>
       <h1>How to Scrape Bilibili Comments, Danmaku and UP主 Data in Python (2026, No Login)</h1>
-      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-09">2026-11-09</time> · 4 min read</p>
+      <p class="post-meta">Divya Raj · Updated <time datetime="2026-11-12">2026-11-12</time> · 4 min read</p>
       <div class="cta">
         <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw">Try the Bilibili Scraper</a>
         <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper?fpr=2untzw">Danmaku-only scraper</a>
@@ -368,6 +376,7 @@ asyncio.run(main())
         <div class="faq">
           <details class="reveal"><summary>Is there an official Bilibili API?</summary><p>No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you.</p></details>
           <details class="reveal"><summary>Can I read Bilibili comments without an account?</summary><p>Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie.</p></details>
+          <details class="reveal"><summary>Why does Bilibili only show 3 comments when I&#x27;m not logged in?</summary><p>Once a logged-out browser has Bilibili&#x27;s device cookie, the comment API returns only the top few comments. The Bilibili Scraper requests comment pages without that cookie, so it pages through the full list, replies included, without a login.</p></details>
           <details class="reveal"><summary>How much does it cost to scrape 1,000 Bilibili comments?</summary><p>$1 on Apify with the Bilibili Scraper, with no subscription. Self-hosting the open-source version is free.</p></details>
           <details class="reveal"><summary>How do I generate the w_rid parameter?</summary><p>You don&#x27;t have to. The scraper signs every request itself with Bilibili&#x27;s WBI keys.</p></details>
           <details class="reveal"><summary>Can I export Bilibili comments to Excel?</summary><p>Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel.</p></details>

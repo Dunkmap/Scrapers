@@ -6,7 +6,7 @@
   "seo_title": "Scrape Bilibili Comments, Danmaku & UP主 Data in Python (2026)",
   "description": "Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.",
   "date": "2026-11-09",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "cover": "bilibili-comments-scraper.webp",
   "cover_alt": "Scrape Bilibili comments, danmaku and UP主 data in Python",
   "keywords": "bilibili comments, scrape bilibili comments, bilibili scraper, bilibili danmaku, bilibili api python, UP主, export bilibili comments to excel",
@@ -17,12 +17,34 @@
     "Export to **Excel, CSV or JSON** in one click, or use it as a Python library."
   ],
   "faq": [
-    ["Is there an official Bilibili API?", "No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you."],
-    ["Can I read Bilibili comments without an account?", "Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie."],
-    ["How much does it cost to scrape 1,000 Bilibili comments?", "{{scraper.comment@1k}} on Apify with the Bilibili Scraper, with no subscription. Self-hosting the open-source version is free."],
-    ["How do I generate the w_rid parameter?", "You don't have to. The scraper signs every request itself with Bilibili's WBI keys."],
-    ["Can I export Bilibili comments to Excel?", "Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel."],
-    ["Is scraping Bilibili legal?", "It reads public data the same way the bilibili.com website does. Follow Bilibili's terms of service, keep the request rate reasonable and don't republish personal data."]
+    [
+      "Is there an official Bilibili API?",
+      "No public one for comments or danmaku. This scraper uses the same web endpoints bilibili.com uses and handles their WBI signing for you."
+    ],
+    [
+      "Can I read Bilibili comments without an account?",
+      "Yes. Comments, danmaku, videos, search, creators and trending all work logged out. Only subtitles need a login cookie."
+    ],
+    [
+      "Why does Bilibili only show 3 comments when I'm not logged in?",
+      "Once a logged-out browser has Bilibili's device cookie, the comment API returns only the top few comments. The Bilibili Scraper requests comment pages without that cookie, so it pages through the full list, replies included, without a login."
+    ],
+    [
+      "How much does it cost to scrape 1,000 Bilibili comments?",
+      "{{scraper.comment@1k}} on Apify with the Bilibili Scraper, with no subscription. Self-hosting the open-source version is free."
+    ],
+    [
+      "How do I generate the w_rid parameter?",
+      "You don't have to. The scraper signs every request itself with Bilibili's WBI keys."
+    ],
+    [
+      "Can I export Bilibili comments to Excel?",
+      "Yes. On Apify, click Export and choose Excel. Locally, use -o comments.csv and open the file in Excel."
+    ],
+    [
+      "Is scraping Bilibili legal?",
+      "It reads public data the same way the bilibili.com website does. Follow Bilibili's terms of service, keep the request rate reasonable and don't republish personal data."
+    ]
   ]
 }
 -->

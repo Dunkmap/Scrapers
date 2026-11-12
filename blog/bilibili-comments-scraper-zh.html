@@ -31,7 +31,7 @@
   <meta property="og:url" content="https://scrapers.practicemysql.com/blog/bilibili-comments-scraper-zh">
   <meta property="og:image" content="https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper-zh.webp">
   <meta property="article:published_time" content="2026-11-09">
-  <meta property="article:modified_time" content="2026-11-09">
+  <meta property="article:modified_time" content="2026-11-12">
   <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
@@ -44,7 +44,7 @@
       "description": "2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。",
       "image": "https://scrapers.practicemysql.com/images/blog/bilibili-comments-scraper-zh.webp",
       "datePublished": "2026-11-09",
-      "dateModified": "2026-11-09",
+      "dateModified": "2026-11-12",
       "inLanguage": "zh-CN",
       "author": {
         "@type": "Person",
@@ -110,6 +110,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "不需要，只有字幕需要 Cookie。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么不登录只能看到 3 条 B站评论？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "未登录的浏览器带上 B站 设备 Cookie 后，评论接口只返回最前面几条评论。Bilibili Scraper 请求评论时不带这个 Cookie，因此可以正常翻页，采集完整评论和楼中楼回复，无需登录。"
           }
         },
         {
@@ -185,7 +193,7 @@
       <p class="crumbs"><a href="/">首页</a> › <a href="/blog/">博客</a></p>
       <div class="post-logos"><img src="/images/bilibili-scraper.webp" alt="" width="40" height="40"><img src="/images/bilibili-danmaku-scraper.webp" alt="" width="40" height="40"><span>Bilibili · 哔哩哔哩 · B站</span></div>
       <h1>2026 B站评论爬虫：Python 无需登录采集评论、弹幕、UP主数据（自动处理 w_rid 签名，一键导出 Excel）</h1>
-      <p class="post-meta">Divya Raj · 更新于 <time datetime="2026-11-09">2026-11-09</time> · 3 分钟阅读</p>
+      <p class="post-meta">Divya Raj · 更新于 <time datetime="2026-11-12">2026-11-12</time> · 3 分钟阅读</p>
       <div class="cta">
         <a class="btn big" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw">免费试用 Bilibili Scraper</a>
         <a class="btn ghost" href="https://apify.com/molded_mountainpass/bilibili-danmaku-scraper?fpr=2untzw">弹幕专用版</a>
@@ -376,6 +384,7 @@ asyncio.run(main())
         <h2>常见问题</h2>
         <div class="faq">
           <details class="reveal"><summary>B站 评论爬虫需要登录或 Cookie 吗？</summary><p>不需要，只有字幕需要 Cookie。</p></details>
+          <details class="reveal"><summary>为什么不登录只能看到 3 条 B站评论？</summary><p>未登录的浏览器带上 B站 设备 Cookie 后，评论接口只返回最前面几条评论。Bilibili Scraper 请求评论时不带这个 Cookie，因此可以正常翻页，采集完整评论和楼中楼回复，无需登录。</p></details>
           <details class="reveal"><summary>w_rid 参数怎么生成？</summary><p>它来自 B站 的 WBI 签名，本项目已经内置，不用自己算。</p></details>
           <details class="reveal"><summary>能导出 Excel 吗？</summary><p>可以。Apify 上点 Export → Excel；本地用 -o xxx.csv。</p></details>
           <details class="reveal"><summary>采集 1000 条 B站评论要多少钱？</summary><p>在 Apify 上用 Bilibili Scraper 约 $1，无月费；本地运行开源版免费。</p></details>
