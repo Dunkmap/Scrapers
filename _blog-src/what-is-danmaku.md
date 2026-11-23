@@ -4,7 +4,7 @@
   "lang": "en",
   "title": "What Is Danmaku? How to Download Bilibili Bullet Comments and Find Any Video's Highlight",
   "seo_title": "What Is Danmaku? Download Bilibili Bullet Comments (弹幕)",
-  "description": "Danmaku (弹幕) are Bilibili's bullet comments, tied to a playback second. Learn what they mean, how to download them without a login, and how to find a video's highlight.",
+  "description": "Danmaku (弹幕) are Bilibili's bullet comments, pinned to a playback second. What they mean, how to download them without a login, and how to find a video's peak.",
   "date": "2026-11-09",
   "updated": "2026-11-09",
   "cover": "bilibili-danmaku.webp",

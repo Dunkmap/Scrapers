@@ -39,6 +39,13 @@ ACTORS = {
 SCRAPER = ACTORS["scraper"]["url"]
 DANMAKU = ACTORS["danmaku"]["url"]
 
+# Translation pairs: slugs that are the same article in another language.
+# Each gets reciprocal hreflang alternates so Google serves the right one per locale.
+ALT_GROUPS = [
+    {"en": "scrape-bilibili-comments-python", "zh-Hans": "bilibili-comments-scraper-zh"},
+]
+
+
 HEAD_TAGS = """  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -194,10 +201,26 @@ def reading_minutes(md_text, lang):
     return max(1, math.ceil(len(plain.split()) / 220))
 
 
+def hreflang_tags(slug):
+    """Reciprocal hreflang <link>s for a post that exists in several languages."""
+    for group in ALT_GROUPS:
+        if slug not in group.values():
+            continue
+        out = []
+        for lang, other in sorted(group.items()):
+            out.append(f'  <link rel="alternate" hreflang="{lang}" '
+                       f'href="{SITE}/blog/{other}">')
+        out.append(f'  <link rel="alternate" hreflang="x-default" '
+                   f'href="{SITE}/blog/{group["en"]}">')
+        return chr(10).join(out) + chr(10)
+    return ""
+
+
 def render_post(p, posts, prices):
     lab = LABELS[p["lang"]]
     url = f"{SITE}/blog/{p['slug']}"
     img = f"{SITE}/images/blog/{p['cover']}"
+    hreflang = hreflang_tags(p["slug"])
     md_src = re.sub(r"^\[\[card:(scraper|danmaku)\]\]$", lambda m: actor_card(m.group(1), p["lang"], prices),
                     p["body_md"], flags=re.M)
     md = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
@@ -243,7 +266,7 @@ def render_post(p, posts, prices):
   <meta name="keywords" content="{esc(p['keywords'])}">
   <meta name="author" content="Divya Raj">
   <link rel="canonical" href="{url}">
-
+{hreflang}
   <meta property="og:type" content="article">
   <meta property="og:title" content="{esc(p['title'])}">
   <meta property="og:description" content="{esc(p['description'])}">
