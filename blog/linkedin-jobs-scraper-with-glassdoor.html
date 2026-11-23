@@ -103,28 +103,28 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Run a small test",
-          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#step-1-run-a-small-test",
           "text": "Open the Actor on Apify, enter a job title such as Data Analyst and a location such as Bangalore, leave max jobs per site at 100, and click Start. A location is required, because Glassdoor needs one."
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Choose settings for your goal",
-          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#step-2-choose-settings-for-your-goal",
           "text": "To find a job, filter to the last 24 hours and early-applicant jobs. To build a company list, turn on full job details, a minimum company size and one job per company."
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Stay out of duplicates",
-          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#step-3-stay-out-of-duplicates",
           "text": "Only new jobs remembers jobs you already received for 60 days, only new companies remembers companies for 30 days, and duplicates across both sites are removed by default."
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Run it every day and send it to a sheet",
-          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#step-4-run-it-every-day",
           "text": "Save the run as a task, add a schedule, then add the Google Sheets Import and Export integration in Append mode so new jobs land in the same sheet every day."
         }
       ]
@@ -384,7 +384,7 @@
       </section>
 
       <h2 id="step-1-run-a-small-test">Step 1 &mdash; Run a small test</h2>
-      <ol class="steps"><li class="reveal"><b>1</b><span>Open the <a href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper?fpr=2untzw" rel="noopener">Actor on Apify</a>.</span></li><li class="reveal"><b>2</b><span>Under <b>Job titles or keywords</b>, type a role, for example <code>Data Analyst</code>.</span></li><li class="reveal"><b>3</b><span>Under <b>Locations</b>, type a place, for example <code>Bangalore</code>. Always add a location &mdash; Glassdoor needs one, and without it only LinkedIn runs.</span></li><li class="reveal"><b>4</b><span>Leave <b>Max jobs per site</b> at the default 100 and click <b>Start</b>.</span></li></ol>
+      <ol><li>Open the <a href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper?fpr=2untzw" rel="noopener">Actor on Apify</a>.</li><li>Under <strong>Job titles or keywords</strong>, type a role, for example <code>Data Analyst</code>.</li><li>Under <strong>Locations</strong>, type a place, for example <code>Bangalore</code>. Always add a location &mdash; Glassdoor needs one, and without it only LinkedIn runs.</li><li>Leave <strong>Max jobs per site</strong> at the default 100 and click <strong>Start</strong>.</li></ol>
       <p>Jobs begin appearing in the Output tab within a minute. Starting small lets you check the results before you spend more.</p>
 
       <h2 id="step-2-choose-settings-for-your-goal">Step 2 &mdash; Choose settings for your goal</h2>
@@ -412,7 +412,7 @@
       </ul>
 
       <h2 id="step-4-run-it-every-day">Step 4 &mdash; Run it every day and send it to a sheet</h2>
-      <ol class="steps"><li class="reveal"><b>1</b><span>Click <b>Save as a new task</b>.</span></li><li class="reveal"><b>2</b><span>Add a <b>Schedule</b>, for example every morning.</span></li><li class="reveal"><b>3</b><span>In the task&rsquo;s <b>Integrations</b> tab, add <b>Google Sheets Import &amp; Export</b>, choose <b>Append</b> mode, and paste your sheet&rsquo;s ID.</span></li></ol>
+      <ol><li>Click <strong>Save as a new task</strong>.</li><li>Add a <strong>Schedule</strong>, for example every morning.</li><li>In the task&rsquo;s <strong>Integrations</strong> tab, add <strong>Google Sheets Import &amp; Export</strong>, choose <strong>Append</strong> mode, and paste your sheet&rsquo;s ID.</li></ol>
       <p>New jobs now land in the same sheet every day. You can also use the Actor from n8n or Make, or from Claude and ChatGPT through the Apify MCP server.</p>
 
       <h2 id="what-it-costs">What it costs</h2>
@@ -451,6 +451,67 @@
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll('.tabbar [role="tab"]'));
+    if (!tabs.length) return;
+    var tocLists = {
+      'panel-article': document.querySelector('[data-toc="article"]'),
+      'panel-howto': document.querySelector('[data-toc="howto"]')
+    };
+
+    function select(tab, opts) {
+      opts = opts || {};
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        if (panel) panel.hidden = !on;
+        var list = tocLists[t.getAttribute('aria-controls')];
+        if (list) list.hidden = !on;
+      });
+      if (opts.focus) tab.focus();
+      if (opts.scroll) {
+        var bar = document.querySelector('.tabbar');
+        if (bar) bar.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      }
+      document.dispatchEvent(new CustomEvent('tabchange'));
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () {
+        if (tab.getAttribute('aria-selected') === 'true') return;
+        select(tab, { scroll: true });
+        var slug = tab.id === 'tb-howto' ? '#how-to-use-it' : '#article';
+        if (history.replaceState) history.replaceState(null, '', slug);
+      });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (!next) return;
+        e.preventDefault();
+        select(next, { focus: true });
+      });
+    });
+
+    // A link or a shared URL pointing into the guide opens the guide tab.
+    function fromHash() {
+      var h = location.hash;
+      if (!h || h === '#article') return;
+      var inHowto = h === '#how-to-use-it' ||
+        (tocLists['panel-howto'] &&
+         tocLists['panel-howto'].querySelector('a[href="' + h + '"]'));
+      if (!inHowto) return;
+      select(document.getElementById('tb-howto'));
+      var target = h === '#how-to-use-it' ? null : document.querySelector(h);
+      if (target) target.scrollIntoView({ block: 'start' });
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  })();
+  </script>
   <script>
   (function () {
     var toc = document.querySelector('.post-toc details');
