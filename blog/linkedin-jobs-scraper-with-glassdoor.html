@@ -88,6 +88,48 @@
       ]
     },
     {
+      "@type": "HowTo",
+      "name": "How to scrape LinkedIn and Glassdoor jobs in one run",
+      "description": "Run the LinkedIn Jobs Scraper + Glassdoor Actor on Apify to collect jobs from both sites in one deduplicated dataset, with no login and no code.",
+      "totalTime": "PT2M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "An Apify account (the free plan is enough)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Run a small test",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "text": "Open the Actor on Apify, enter a job title such as Data Analyst and a location such as Bangalore, leave max jobs per site at 100, and click Start. A location is required, because Glassdoor needs one."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Choose settings for your goal",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "text": "To find a job, filter to the last 24 hours and early-applicant jobs. To build a company list, turn on full job details, a minimum company size and one job per company."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Stay out of duplicates",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "text": "Only new jobs remembers jobs you already received for 60 days, only new companies remembers companies for 30 days, and duplicates across both sites are removed by default."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Run it every day and send it to a sheet",
+          "url": "https://scrapers.practicemysql.com/blog/linkedin-jobs-scraper-with-glassdoor#how-to-use-it",
+          "text": "Save the run as a task, add a schedule, then add the Google Sheets Import and Export integration in Append mode so new jobs land in the same sheet every day."
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -146,7 +188,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20261113">
+  <link rel="stylesheet" href="/style.css?v=20261123">
   <script src="/script.js"></script>
 </head>
 <body>
@@ -187,10 +229,10 @@
             <summary>On this page</summary>
             <ol>
               <li><a href="#quick-answer">Quick answer</a></li>
+              <li><a href="#how-to-use-it">How to use it</a></li>
               <li><a href="#why-choose-linkedin-jobs-scraper-glassdoor">Why choose LinkedIn Jobs Scraper + Glassdoor?</a></li>
               <li><a href="#how-does-the-price-compare-with-other-linkedin-job-scrapers">How does the price compare with other LinkedIn job scrapers?</a></li>
               <li><a href="#what-you-get-in-every-row">What you get in every row</a></li>
-              <li><a href="#how-to-use-it">How to use it</a></li>
               <li><a href="#faq">Frequently asked questions</a></li>
             </ol>
           </details>
@@ -204,6 +246,118 @@
         <p class="kicker">Quick answer</p>
         <p>LinkedIn Jobs Scraper + Glassdoor searches LinkedIn and Glassdoor in one run and returns one deduplicated dataset with salaries, skills and company ratings. It costs <strong>$0.40 per 1,000 jobs</strong> on Apify's free plan, with full job details included at no extra charge, and it needs no LinkedIn login or cookies.</p>
         <a class="btn big" href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper?fpr=2untzw">Try LinkedIn Jobs Scraper + Glassdoor on Apify</a>
+      </section>
+
+      <section class="howto reveal" id="how-to-use-it">
+        <h2 class="sr-only">How to use it</h2>
+        <button class="howto-toggle" type="button" aria-expanded="false" aria-controls="howto-panel">
+          <span class="howto-label">
+            <b>How to use it</b>
+            <span>Open the step-by-step guide &mdash; first run in about two minutes</span>
+          </span>
+          <span class="howto-chev" aria-hidden="true"></span>
+        </button>
+        <div class="howto-panel" id="howto-panel" hidden>
+          <div class="howto-inner">
+          <p class="howto-intro">Prefer video? Watch the <a href="https://youtube.com/shorts/kXacj7g7itw" rel="noopener">90-second walkthrough</a>.</p>
+          <div class="howto-grid">
+            <div class="howto-nav" role="tablist" aria-orientation="vertical" aria-label="How to use it">
+              <button role="tab" type="button" id="ht-t1" aria-controls="ht-p1" aria-selected="true" tabindex="0"><b>1</b><span>Run a small test</span></button>
+              <button role="tab" type="button" id="ht-t2" aria-controls="ht-p2" aria-selected="false" tabindex="-1"><b>2</b><span>Settings for your goal</span></button>
+              <button role="tab" type="button" id="ht-t3" aria-controls="ht-p3" aria-selected="false" tabindex="-1"><b>3</b><span>How the filters work</span></button>
+              <button role="tab" type="button" id="ht-t4" aria-controls="ht-p4" aria-selected="false" tabindex="-1"><b>4</b><span>Stay out of duplicates</span></button>
+              <button role="tab" type="button" id="ht-t5" aria-controls="ht-p5" aria-selected="false" tabindex="-1"><b>5</b><span>Run it daily to a sheet</span></button>
+              <button role="tab" type="button" id="ht-t6" aria-controls="ht-p6" aria-selected="false" tabindex="-1"><b>$</b><span>What it costs</span></button>
+              <button role="tab" type="button" id="ht-t7" aria-controls="ht-p7" aria-selected="false" tabindex="-1"><b>?</b><span>Too few results</span></button>
+            </div>
+            <div class="howto-panes">
+
+              <div class="howto-pane" role="tabpanel" id="ht-p1" aria-labelledby="ht-t1" tabindex="0">
+                <h3>Step 1 &mdash; Run a small test</h3>
+                <ol>
+                  <li>Open the <a href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper?fpr=2untzw" rel="noopener">Actor on Apify</a>.</li>
+                  <li>Under <b>Job titles or keywords</b>, type a role, for example <code>Data Analyst</code>.</li>
+                  <li>Under <b>Locations</b>, type a place, for example <code>Bangalore</code>. <b>Always add a location</b> &mdash; Glassdoor needs one, and without it only LinkedIn runs.</li>
+                  <li>Leave <b>Max jobs per site</b> at the default 100 and click <b>Start</b>.</li>
+                </ol>
+                <p>Jobs begin appearing in the Output tab within a minute. Starting small lets you check the results before you spend more.</p>
+              </div>
+
+              <div class="howto-pane" role="tabpanel" id="ht-p2" aria-labelledby="ht-t2" tabindex="0" hidden>
+                <h3>Step 2 &mdash; Choose settings for your goal</h3>
+                <table>
+                  <thead><tr><th>Your goal</th><th>Turn on</th></tr></thead>
+                  <tbody>
+                    <tr><td>Find a job</td><td><b>Posted within:</b> Last 24 hours &middot; <b>Only early-applicant jobs</b> (LinkedIn jobs with fewer than 10 applicants) &middot; <b>Match titles to my keywords</b></td></tr>
+                    <tr><td>Build a company list (sales, recruiting)</td><td><b>Get full job details</b> &middot; <b>Minimum company size</b> &middot; <b>Exclude recruiting agencies</b> &middot; <b>One job per company</b></td></tr>
+                    <tr><td>Get daily alerts</td><td><b>Only new jobs</b>, then schedule the run (Step 4)</td></tr>
+                    <tr><td>Skip roles you don&rsquo;t want</td><td><b>Exclude title words</b> (for example Sales, Manager) and <b>Exclude internships</b></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="howto-pane" role="tabpanel" id="ht-p3" aria-labelledby="ht-t3" tabindex="0" hidden>
+                <h3>How the filters work</h3>
+                <p>Filters run from cheapest to most expensive, and <b>a job that is removed early is never charged</b>.</p>
+                <ul>
+                  <li><b>Applied by the site itself:</b> Posted within (last hour, 24 hours, week or month), early applicants (LinkedIn), and company rating, company size and search radius (Glassdoor). Glassdoor also applies work type, job type and experience level &mdash; LinkedIn ignores those three, and the run warns you.</li>
+                  <li><b>Applied on the job card:</b> Only new jobs, One job per company, Only new companies, Match titles to my keywords, Exclude title words and Exclude internships.</li>
+                  <li><b>Need the company page:</b> Minimum company size and Exclude industries. They work exactly on LinkedIn with <b>Get full job details</b> on. On Glassdoor, industries are matched on the company name (&ldquo;Staffing&rdquo;, &ldquo;Recruitment&rdquo;, &ldquo;Foundation&rdquo;), which catches most but not all.</li>
+                </ul>
+                <h4>Full job details</h4>
+                <p><b>Get full job details</b> opens each job and company page. You get the full description, applicant count, seniority, industry, skills, pay found in the description, company size, employee count and website. With <b>Include job poster</b> on, you also get the recruiter&rsquo;s name and profile link when LinkedIn shows them, and emails written in the posting. These appear on a minority of jobs, never as a promise.</p>
+              </div>
+
+              <div class="howto-pane" role="tabpanel" id="ht-p4" aria-labelledby="ht-t4" tabindex="0" hidden>
+                <h3>Step 3 &mdash; Stay out of duplicates</h3>
+                <ul>
+                  <li><b>Only new jobs</b> remembers the jobs you already received for 60 days.</li>
+                  <li><b>Only new companies</b> remembers companies for 30 days by default. Change <b>Company history</b> to 7, 90 days or never. &ldquo;Never&rdquo; gives every company once, ever, but a daily schedule then runs out of new companies.</li>
+                  <li><b>Remove duplicates across sites</b> is on by default.</li>
+                </ul>
+              </div>
+
+              <div class="howto-pane" role="tabpanel" id="ht-p5" aria-labelledby="ht-t5" tabindex="0" hidden>
+                <h3>Step 4 &mdash; Run it every day and send it to a sheet</h3>
+                <ol>
+                  <li>Click <b>Save as a new task</b>.</li>
+                  <li>Add a <b>Schedule</b>, for example every morning.</li>
+                  <li>In the task&rsquo;s <b>Integrations</b> tab, add <b>Google Sheets Import &amp; Export</b>, choose <b>Append</b> mode, and paste your sheet&rsquo;s ID.</li>
+                </ol>
+                <p>New jobs now land in the same sheet every day. You can also use the Actor from n8n or Make, or from Claude and ChatGPT through the Apify MCP server.</p>
+              </div>
+
+              <div class="howto-pane" role="tabpanel" id="ht-p6" aria-labelledby="ht-t6" tabindex="0" hidden>
+                <h3>What it costs</h3>
+                <p>You pay per job you receive. Jobs removed by your filters are never charged.</p>
+                <table>
+                  <thead><tr><th>Per 1,000 jobs</th><th>Free plan</th><th>Starter</th><th>Gold</th></tr></thead>
+                  <tbody>
+                    <tr><td>Basic job</td><td>$0.40</td><td>$0.36</td><td>$0.30</td></tr>
+                    <tr><td>Job with full details</td><td>$0.60</td><td>$0.50</td><td>$0.33</td></tr>
+                  </tbody>
+                </table>
+                <p>There is also a tiny start fee per run. Apify&rsquo;s free plan includes monthly credit, enough for testing. Check the Actor page for current prices, since they can change.</p>
+              </div>
+
+              <div class="howto-pane" role="tabpanel" id="ht-p7" aria-labelledby="ht-t7" tabindex="0" hidden>
+                <h3>If you get too few results</h3>
+                <ul>
+                  <li>Add a location, or remove some filters. The run log names the filter that removed the most jobs.</li>
+                  <li>With many filters on, most jobs are removed. Loosen <b>Posted within</b> first, then <b>Only new companies</b>, then the company size.</li>
+                  <li>Add other names for the same role as extra keywords, for example &ldquo;Full Stack Developer&rdquo; and &ldquo;Full Stack Engineer&rdquo;, because the title match is strict.</li>
+                  <li>LinkedIn returns roughly 850 to 1,000 jobs per keyword and location. Use more keywords or locations to go wider.</li>
+                  <li>For very large keyword lists, split them into runs of about 100 keywords, because Apify stops runs after one hour by default.</li>
+                </ul>
+                <h4>Is it legal?</h4>
+                <p>The Actor reads publicly visible job postings and never collects candidate profiles or resumes. As with any data collection, use the results lawfully and follow the sites&rsquo; terms and your local laws.</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="howto-cta"><a class="btn" href="https://apify.com/molded_mountainpass/linkedin-glassdoor-jobs-scraper?fpr=2untzw" rel="noopener">Run your first search on Apify</a></div>
+          </div>
+        </div>
       </section>
 
       <h2 id="why-choose-linkedin-jobs-scraper-glassdoor">Why choose LinkedIn Jobs Scraper + Glassdoor?</h2>
@@ -310,8 +464,6 @@
       <p>Each job is one row in a JSON, CSV or Excel export. With details turned on, a row holds:</p>
       <ul class="fact-tiles reveal"><li><b>Job</b><span>title, job type, remote / hybrid / on-site, posted time</span></li><li><b>Pay</b><span>salary range and its source</span></li><li><b>Skills</b><span>skills pulled from the posting</span></li><li><b>Company</b><span>name, size, industry, website, address</span></li><li><b>Ratings</b><span>Glassdoor company rating</span></li><li><b>People</b><span>recruiter contact when shown, applicant count and early-applicant flag</span></li></ul>
 
-      <h2 id="how-to-use-it">How to use it</h2>
-      <ol class="steps"><li class="reveal"><b>1</b><span>Open the actor on Apify and sign in to your free account.</span></li><li class="reveal"><b>2</b><span>Enter keywords and locations, and pick LinkedIn, Glassdoor or both.</span></li><li class="reveal"><b>3</b><span>Turn on full details or "only new jobs" if you need them.</span></li><li class="reveal"><b>4</b><span>Click Start, then export the dataset to Excel, CSV or JSON, or pull it through the API.</span></li></ol>
 
       <h2 id="faq">Frequently asked questions</h2>
       <div class="faq"><details class="reveal"><summary>How much does it cost to scrape 10,000 LinkedIn jobs?</summary><p>On the Apify free plan it costs $4.00 for 10,000 jobs ($0.40 per 1,000), with full details included. Higher Apify plans pay less, down to $0.30 per 1,000 jobs.</p></details><details class="reveal"><summary>Do I need a LinkedIn account or cookies?</summary><p>No. The scraper reads public job listings over plain HTTP, with no login, no cookies and no browser.</p></details><details class="reveal"><summary>Does it remove duplicates between LinkedIn and Glassdoor?</summary><p>Yes. When the same job appears on both sites, it is kept once, so your dataset has one row per job.</p></details><details class="reveal"><summary>Can it collect only new jobs every day?</summary><p>Yes. Turn on &quot;only new jobs&quot; and schedule a daily run. Jobs collected in earlier runs are skipped and not charged.</p></details><details class="reveal"><summary>Which formats can I export?</summary><p>JSON, CSV and Excel from the Apify console, or the same data through the Apify API, n8n, Make or Zapier.</p></details><details class="reveal"><summary>Can AI agents use it?</summary><p>Yes. It works in ChatGPT, Claude and n8n, and as an MCP server, so AI agents can run job searches and get structured results back.</p></details></div>
@@ -330,6 +482,76 @@
       <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var toggle = document.querySelector('.howto-toggle');
+    var panel = document.getElementById('howto-panel');
+    var inner = panel && panel.querySelector('.howto-inner');
+    if (!toggle || !panel || !inner) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function slide(open) {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (reduce) { panel.hidden = !open; panel.style.height = ''; return; }
+      if (open) {
+        panel.hidden = false;
+        panel.style.height = '0px';
+        panel.classList.add('is-animating');
+        requestAnimationFrame(function () { panel.style.height = inner.offsetHeight + 'px'; });
+      } else {
+        panel.style.height = inner.offsetHeight + 'px';
+        panel.classList.add('is-animating');
+        requestAnimationFrame(function () { panel.style.height = '0px'; });
+      }
+    }
+    panel.addEventListener('transitionend', function (e) {
+      if (e.propertyName !== 'height') return;
+      panel.classList.remove('is-animating');
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      panel.style.height = open ? 'auto' : '';
+      panel.hidden = !open;
+    });
+    toggle.addEventListener('click', function () {
+      slide(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Open automatically when someone lands on #how-to-use-it or clicks it in the TOC.
+    function openFromHash() {
+      if (location.hash !== '#how-to-use-it') return;
+      if (toggle.getAttribute('aria-expanded') !== 'true') slide(true);
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+
+    // Vertical tabs: left list drives the pane on the right.
+    var tabs = [].slice.call(panel.querySelectorAll('[role="tab"]'));
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+      if (!reduce && panel.style.height && panel.style.height !== 'auto') {
+        panel.style.height = inner.offsetHeight + 'px';
+      }
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { select(tab); });
+      tab.addEventListener('keydown', function (e) {
+        var k = e.key, next = null;
+        if (k === 'ArrowDown' || k === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        else if (k === 'ArrowUp' || k === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (k === 'Home') next = tabs[0];
+        else if (k === 'End') next = tabs[tabs.length - 1];
+        if (!next) return;
+        e.preventDefault();
+        select(next, true);
+      });
+    });
+  })();
+  </script>
   <script>
   (function () {
     var toc = document.querySelector('.post-toc details');
