@@ -7,6 +7,11 @@
   "description": "Bilibili has no official public API for comments, danmaku or video stats. Learn what -352 and -412 mean, how w_rid signing works, and 5 ways to get Bilibili data.",
   "date": "2026-11-09",
   "updated": "2026-11-09",
+  "video": {
+    "id": "mUK5Tn8sU5o",
+    "poster": "bilibili-short-poster.webp",
+    "alt": "Bilibili comment count demo video"
+  },
   "cover": "bilibili-api.webp",
   "cover_alt": "Is there an official Bilibili API? Fix -352 and -412 errors",
   "keywords": "bilibili api, bilibili api python, bilibili api key, bilibili api documentation, bilibili api 352, bilibili api 412, bilibili api request was banned, w_rid",

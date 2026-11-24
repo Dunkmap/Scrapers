@@ -7,6 +7,11 @@
   "description": "An honest comparison of 8 Bilibili scrapers on the Apify Store: price per 1,000 comments and danmaku, reply threads, UP主 profiles, subtitles and open source.",
   "date": "2026-11-09",
   "updated": "2026-11-09",
+  "video": {
+    "id": "mUK5Tn8sU5o",
+    "poster": "bilibili-short-poster.webp",
+    "alt": "Bilibili comment count demo video"
+  },
   "cover": "best-bilibili-scraper.webp",
   "cover_alt": "Best Bilibili scraper on Apify: 8 scrapers compared",
   "keywords": "best bilibili scraper, bilibili scraper apify, bilibili scraper comparison, cheapest bilibili scraper, bilibili comments scraper, bilibili danmaku scraper",

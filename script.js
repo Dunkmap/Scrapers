@@ -33,3 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gtag === 'function') gtag('event', 'link_click', params);
   });
 });
+
+// Click-to-load YouTube Shorts.
+// The page ships only a local poster image; the first press swaps in the
+// privacy-enhanced (youtube-nocookie) player, already playing. Nothing
+// reaches YouTube before that press.
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.shortvid-play');
+  if (!btn) return;
+  const id = btn.dataset.yt;
+  if (!id) return;
+  const frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+    '?autoplay=1&rel=0&playsinline=1';
+  frame.title = btn.getAttribute('aria-label') || 'Video';
+  frame.loading = 'lazy';
+  frame.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  frame.allowFullscreen = true;
+  btn.replaceWith(frame);
+});

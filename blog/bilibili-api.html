@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f3ede4">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -198,6 +203,15 @@
         <article class="post">
           <img class="post-cover" src="/images/blog/bilibili-api.webp" alt="Is there an official Bilibili API? Fix -352 and -412 errors" width="1000" height="420">
           <div class="takeaways"><p class="takeaways-h">⚡ Key takeaways</p><ul><li>There is <strong>no official Bilibili API</strong> (and no API key) for comments, danmaku, video stats or UP主 data.</li><li><code>-352</code> = missing/stale <strong>WBI signature</strong> (<code>w_rid</code>, <code>wts</code>); <code>-412</code> = your IP was <strong>rate-limited</strong>.</li><li>Tutorials from before 2023 use unsigned endpoints, which is why they fail today.</li><li>Fastest fix: an open-source scraper with signing built in, or the hosted one from <strong>$1 per 1,000 comments</strong>.</li></ul></div>
+          <figure class="shortvid reveal">
+            <button class="shortvid-play" type="button" data-yt="mUK5Tn8sU5o" aria-label="See it in action">
+              <img src="/images/blog/bilibili-short-poster.webp" alt="Bilibili comment count demo video"
+                   width="405" height="720" loading="lazy" decoding="async">
+              <span class="shortvid-btn" aria-hidden="true"></span>
+            </button>
+            <figcaption><strong>See it in action</strong><span>Plays right here — nothing is loaded from YouTube until you press play.</span></figcaption>
+          </figure>
+
 <p><strong>Short answer:</strong> Bilibili (哔哩哔哩, B站) has <strong>no official public API</strong> for comments, danmaku, video stats or creator data. The endpoints that bilibili.com itself uses are undocumented, require <strong>WBI signing</strong> (<code>w_rid</code> and <code>wts</code> parameters), and block unsigned or fast requests with errors like <code>-352</code> and <code>-412</code>. To get Bilibili data in 2026 you either handle that yourself or use a scraper that already does.</p>
 <div class="actor-card"><img src="/images/bilibili-scraper.webp" alt="Bilibili Scraper logo" width="64" height="64" loading="lazy"><div class="actor-info"><strong>Bilibili Scraper</strong><span>Comments with replies, danmaku, videos, UP主 profiles and subtitles in one tool. No login.</span><span class="actor-price">Comments $1 / 1,000 · Danmaku $0.05 / 1,000 · Open source</span></div><a class="btn" href="https://apify.com/molded_mountainpass/bilibili-scraper?fpr=2untzw" rel="noopener">Try it free →</a></div>
 

@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f3ede4">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -209,6 +214,15 @@
         <article class="post">
           <img class="post-cover" src="/images/blog/bilibili-comments-scraper.webp" alt="Scrape Bilibili comments, danmaku and UP主 data in Python" width="1000" height="420">
           <div class="takeaways"><p class="takeaways-h">⚡ Key takeaways</p><ul><li>Bilibili has <strong>no official API</strong> for comments; old tutorials break on the new <code>w_rid</code> signing.</li><li>The open-source <strong>Bilibili Scraper</strong> handles signing and risk control, so it works <strong>without a login</strong>.</li><li>1,000 comments with full reply threads cost <strong>$1</strong> on Apify, or nothing if you self-host.</li><li>Export to <strong>Excel, CSV or JSON</strong> in one click, or use it as a Python library.</li></ul></div>
+          <figure class="shortvid reveal">
+            <button class="shortvid-play" type="button" data-yt="mUK5Tn8sU5o" aria-label="See it in action">
+              <img src="/images/blog/bilibili-short-poster.webp" alt="Bilibili comment count demo video"
+                   width="405" height="720" loading="lazy" decoding="async">
+              <span class="shortvid-btn" aria-hidden="true"></span>
+            </button>
+            <figcaption><strong>See it in action</strong><span>Plays right here — nothing is loaded from YouTube until you press play.</span></figcaption>
+          </figure>
+
 <p>Bilibili (哔哩哔哩, B站) is where China's Gen Z watches anime, gaming, tech and lifestyle videos, and <strong>its comment sections are brutally honest</strong>. Add <strong>danmaku</strong> (弹幕), the bullet comments that fly across the video at the exact second something happens, and you have one of the richest audience-reaction datasets on the internet.</p>
 <p>Getting it out is the hard part. Bilibili has <strong>no official public API</strong>, its endpoints now demand a <strong><code>w_rid</code> / <code>wts</code> signature (WBI signing)</strong>, and it answers fast or unsigned requests with silent risk-control errors (<code>-352</code>, <code>-412</code>). Most tutorials from before 2023 simply don't work anymore.</p>
 <p>Here are two ways that do work in 2026, <strong>without a Bilibili account</strong>.</p>

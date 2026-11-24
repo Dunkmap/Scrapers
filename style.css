@@ -370,3 +370,33 @@ main.cmp .steps { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%
 }
 .cmp-body > .tabpanel > ol { padding-left: 1.35em; }
 .cmp-body > .tabpanel > ol li { margin: 8px 0; }
+
+/* ---- Click-to-load YouTube Short ---- */
+.shortvid { margin: 26px 0; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  padding: 20px 22px; border-radius: 28px; background: var(--surface); box-shadow: var(--clay); }
+.shortvid-play { flex: none; position: relative; width: 203px; padding: 0; border: 0; cursor: pointer;
+  background: none; border-radius: 20px; overflow: hidden; line-height: 0; box-shadow: var(--clay-sm);
+  transition: transform .18s ease; }
+.shortvid-play:hover { transform: translateY(-2px); }
+.shortvid-play:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
+.shortvid-play img { width: 100%; height: auto; display: block; }
+.shortvid-btn { position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(251, 247, 241, .92); box-shadow: 0 6px 18px rgba(42, 36, 51, .35);
+  transition: transform .18s ease; }
+.shortvid-btn::before { content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0;
+  border-left: 17px solid var(--plum); border-top: 11px solid transparent; border-bottom: 11px solid transparent;
+  transform: translateX(3px); }
+.shortvid-play:hover .shortvid-btn { transform: scale(1.07); }
+.shortvid iframe { flex: none; width: 203px; height: 361px; border: 0; border-radius: 20px; box-shadow: var(--clay-sm); }
+.shortvid figcaption { flex: 1; min-width: 190px; }
+.shortvid figcaption strong { display: block; font: 600 1.1rem/1.3 var(--serif); margin-bottom: 6px; }
+.shortvid figcaption span { color: var(--muted); font-size: .92rem; }
+
+@media (max-width: 560px) {
+  .shortvid { flex-direction: column; align-items: stretch; padding: 16px; }
+  .shortvid-play, .shortvid iframe { width: 100%; max-width: 260px; margin: 0 auto; }
+  .shortvid iframe { height: 462px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shortvid-play, .shortvid-btn { transition: none; }
+}

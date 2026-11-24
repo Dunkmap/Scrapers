@@ -7,6 +7,11 @@
   "description": "Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.",
   "date": "2026-11-09",
   "updated": "2026-11-12",
+  "video": {
+    "id": "mUK5Tn8sU5o",
+    "poster": "bilibili-short-poster.webp",
+    "alt": "Bilibili comment count demo video"
+  },
   "cover": "bilibili-comments-scraper.webp",
   "cover_alt": "Scrape Bilibili comments, danmaku and UP主 data in Python",
   "keywords": "bilibili comments, scrape bilibili comments, bilibili scraper, bilibili danmaku, bilibili api python, UP主, export bilibili comments to excel",

@@ -46,7 +46,12 @@ ALT_GROUPS = [
 ]
 
 
-HEAD_TAGS = """  <!-- Google Tag Manager -->
+HEAD_TAGS = """  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f3ede4">
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -114,6 +119,30 @@ TOC_JS = """  <script>
   </script>"""
 
 AUTHOR = {"@type": "Person", "name": "Divya Raj", "url": SITE + "/"}
+
+VIDEO_LABEL = {
+    "en": ("See it in action", "Plays right here — nothing is loaded from YouTube until you press play."),
+    "zh-CN": ("看看实际效果", "在本页直接播放。按下播放键之前，不会向 YouTube 发送任何请求。"),
+}
+
+
+def video_block(p):
+    """Click-to-load YouTube facade: a local poster, and no third-party
+    request until the visitor actually presses play."""
+    v = p.get("video")
+    if not v:
+        return ""
+    title, note = VIDEO_LABEL.get(p["lang"], VIDEO_LABEL["en"])
+    return f'''          <figure class="shortvid reveal">
+            <button class="shortvid-play" type="button" data-yt="{v["id"]}" aria-label="{esc(title)}">
+              <img src="/images/blog/{v["poster"]}" alt="{esc(v.get("alt", title))}"
+                   width="405" height="720" loading="lazy" decoding="async">
+              <span class="shortvid-btn" aria-hidden="true"></span>
+            </button>
+            <figcaption><strong>{esc(title)}</strong><span>{esc(note)}</span></figcaption>
+          </figure>
+'''
+
 
 LABELS = {
     "en": {"home": "Home", "blog": "Blog", "updated": "Updated", "faq": "FAQ", "faq_h": "Frequently asked questions",
@@ -221,6 +250,7 @@ def render_post(p, posts, prices):
     url = f"{SITE}/blog/{p['slug']}"
     img = f"{SITE}/images/blog/{p['cover']}"
     hreflang = hreflang_tags(p["slug"])
+    video = video_block(p)
     md_src = re.sub(r"^\[\[card:(scraper|danmaku)\]\]$", lambda m: actor_card(m.group(1), p["lang"], prices),
                     p["body_md"], flags=re.M)
     md = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
@@ -303,6 +333,7 @@ def render_post(p, posts, prices):
         <article class="post">
           <img class="post-cover" src="/images/blog/{p['cover']}" alt="{esc(p['cover_alt'])}" width="1000" height="420">
           {takeaways}
+{video}
 {body}
         </article>
         <aside class="post-toc">

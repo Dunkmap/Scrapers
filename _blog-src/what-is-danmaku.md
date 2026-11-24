@@ -7,6 +7,11 @@
   "description": "Danmaku (弹幕) are Bilibili's bullet comments, pinned to a playback second. What they mean, how to download them without a login, and how to find a video's peak.",
   "date": "2026-11-09",
   "updated": "2026-11-09",
+  "video": {
+    "id": "mUK5Tn8sU5o",
+    "poster": "bilibili-short-poster.webp",
+    "alt": "Bilibili comment count demo video"
+  },
   "cover": "bilibili-danmaku.webp",
   "cover_alt": "Find any Bilibili video's highlight with danmaku density",
   "keywords": "what is danmaku, danmaku meaning, bilibili bullet comments, bilibili danmaku, download danmaku, danmaku comments, 弹幕",

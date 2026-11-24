@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f3ede4">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -209,6 +214,15 @@
         <article class="post">
           <img class="post-cover" src="/images/blog/bilibili-comments-scraper-zh.webp" alt="B站评论爬虫：评论、弹幕、UP主数据" width="1000" height="420">
           <div class="takeaways"><p class="takeaways-h">⚡ 要点速览</p><ul><li>B站 <strong>没有官方公开 API</strong>，旧教程大多卡在 <code>w_rid</code> 签名和风控上。</li><li>开源的 <strong>Bilibili Scraper</strong> 自动处理 WBI 签名和风控，<strong>无需登录</strong>。</li><li>评论（含楼中楼）<strong>$1 / 千条</strong>，弹幕 <strong>$0.05 / 千条</strong>；本地自建免费。</li><li>一键导出 <strong>Excel / CSV / JSON</strong>，也可以当 Python 库调用。</li></ul></div>
+          <figure class="shortvid reveal">
+            <button class="shortvid-play" type="button" data-yt="mUK5Tn8sU5o" aria-label="看看实际效果">
+              <img src="/images/blog/bilibili-short-poster.webp" alt="B站评论数量演示视频"
+                   width="405" height="720" loading="lazy" decoding="async">
+              <span class="shortvid-btn" aria-hidden="true"></span>
+            </button>
+            <figcaption><strong>看看实际效果</strong><span>在本页直接播放。按下播放键之前，不会向 YouTube 发送任何请求。</span></figcaption>
+          </figure>
+
 <p>做舆情分析、竞品调研、找 UP主 合作，最常见的需求就是批量拿到 <strong>B站评论、弹幕和 UP主 数据</strong>。但很多人照着网上的旧教程写爬虫，很快就会遇到这些问题：</p>
 <ul>
 <li>评论接口多了 <code>w_rid</code> 和 <code>wts</code> 参数，不知道怎么生成；</li>
