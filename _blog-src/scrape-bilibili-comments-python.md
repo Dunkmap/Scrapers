@@ -6,7 +6,7 @@
   "seo_title": "Scrape Bilibili Comments, Danmaku & UP主 Data in Python (2026)",
   "description": "Download Bilibili comments with replies, danmaku bullet comments, video stats and UP主 creator profiles to Excel, CSV or JSON without a login. Python or no code.",
   "date": "2026-11-09",
-  "updated": "2026-11-12",
+  "updated": "2026-11-24",
   "video": {
     "id": "mUK5Tn8sU5o",
     "poster": "bilibili-short-poster.webp",

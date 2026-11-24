@@ -6,7 +6,7 @@
   "seo_title": "Best Bilibili Scraper on Apify (2026): 8 Compared",
   "description": "An honest comparison of 8 Bilibili scrapers on the Apify Store: price per 1,000 comments and danmaku, reply threads, UP主 profiles, subtitles and open source.",
   "date": "2026-11-09",
-  "updated": "2026-11-09",
+  "updated": "2026-11-24",
   "video": {
     "id": "mUK5Tn8sU5o",
     "poster": "bilibili-short-poster.webp",

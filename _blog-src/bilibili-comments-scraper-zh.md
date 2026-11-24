@@ -6,7 +6,7 @@
   "seo_title": "2026 B站评论爬虫：无需登录采集评论、弹幕、UP主数据",
   "description": "2026 最新 B站评论爬虫，自动处理 w_rid 签名和风控，无需登录采集 B站评论、弹幕、UP主 数据，一键导出 Excel / CSV / JSON。开源 Python + 免代码两种用法。",
   "date": "2026-11-09",
-  "updated": "2026-11-12",
+  "updated": "2026-11-24",
   "video": {
     "id": "mUK5Tn8sU5o",
     "poster": "bilibili-short-poster.webp",

@@ -6,7 +6,7 @@
   "seo_title": "Bilibili API in 2026: Official API? 5 Ways to Get Data",
   "description": "Bilibili has no official public API for comments, danmaku or video stats. Learn what -352 and -412 mean, how w_rid signing works, and 5 ways to get Bilibili data.",
   "date": "2026-11-09",
-  "updated": "2026-11-09",
+  "updated": "2026-11-24",
   "video": {
     "id": "mUK5Tn8sU5o",
     "poster": "bilibili-short-poster.webp",
