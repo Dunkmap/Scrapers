@@ -24,177 +24,181 @@
 
     gtag('config', 'G-MH5BEL56V4');
   </script>
-  <title>Amazon Product Scraper on Apify: Prices, ASINs, $1/1,000</title>
-  <meta name="description" content="An Apify Actor for Amazon product data without the Amazon API: prices, ASINs, ratings, bestseller ranks, sellers and variants on 24 marketplaces, $1 per 1K.">
+  <title>Amazon Product Scraper on Apify: 55 Fields, 24 Marketplaces</title>
+  <meta name="description" content="An Apify Actor for Amazon product data without the Amazon API: 55 fields per product, with sellers, offers, variants and review insight on 24 marketplaces.">
   <link rel="canonical" href="https://scrapers.practicemysql.com/blog/amazon-product-scraper">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Amazon product data with 55 fields per product, for $1 per 1,000">
-  <meta property="og:description" content="An Apify Actor for Amazon product data without the Amazon API: prices, ASINs, ratings, bestseller ranks, sellers and variants on 24 marketplaces, $1 per 1K.">
+  <meta property="og:title" content="Amazon product data with 55 fields per product, across 24 marketplaces">
+  <meta property="og:description" content="An Apify Actor for Amazon product data without the Amazon API: 55 fields per product, with sellers, offers, variants and review insight on 24 marketplaces.">
   <meta property="og:url" content="https://scrapers.practicemysql.com/blog/amazon-product-scraper">
   <meta property="og:image" content="https://scrapers.practicemysql.com/images/amazon-product-scraper.webp">
   <meta name="twitter:card" content="summary">
   <meta property="article:published_time" content="2026-11-13">
   <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "headline": "Amazon product data with 55 fields per product, for $1 per 1,000",
-      "description": "An Apify Actor for Amazon product data without the Amazon API: prices, ASINs, ratings, bestseller ranks, sellers and variants on 24 marketplaces, $1 per 1K.",
-      "image": "https://scrapers.practicemysql.com/images/amazon-product-scraper.webp",
-      "datePublished": "2026-11-13",
-      "dateModified": "2026-11-13",
-      "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/amazon-product-scraper",
-      "author": {
-        "@type": "Person",
-        "name": "Divya Raj",
-        "url": "https://scrapers.practicemysql.com/"
-      },
-      "publisher": {
-        "@type": "Person",
-        "name": "Divya Raj"
-      },
-      "about": {
-        "@type": "SoftwareApplication",
-        "name": "Amazon Product Scraper",
-        "url": "https://apify.com/molded_mountainpass/amazon-product-scraper",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "1.00",
-          "priceCurrency": "USD",
-          "description": "Per 1,000 full product records on the Apify free plan"
-        }
-      }
-    },
-    {
-      "@type": "HowTo",
-      "name": "How to scrape Amazon product data",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Open the Actor",
-          "text": "Open Amazon Product Scraper on Apify and sign in to a free account."
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Amazon product data with 55 fields per product, across 24 marketplaces",
+        "description": "An Apify Actor for Amazon product data without the Amazon API: 55 fields per product, with sellers, offers, variants and review insight on 24 marketplaces.",
+        "image": "https://scrapers.practicemysql.com/images/amazon-product-scraper.webp",
+        "datePublished": "2026-11-13",
+        "dateModified": "2026-11-13",
+        "mainEntityOfPage": "https://scrapers.practicemysql.com/blog/amazon-product-scraper",
+        "author": {
+          "@type": "Person",
+          "name": "Divya Raj",
+          "url": "https://scrapers.practicemysql.com/"
         },
-        {
-          "@type": "HowToStep",
-          "name": "Paste Amazon URLs",
-          "text": "Paste search, category or product URLs from any of the 24 supported Amazon marketplaces."
+        "publisher": {
+          "@type": "Person",
+          "name": "Divya Raj"
         },
-        {
-          "@type": "HowToStep",
-          "name": "Set limits and options",
-          "text": "Set the maximum results per URL, and optionally a delivery postcode, sellers or variant prices."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Run and export",
-          "text": "Start the run and export the products as JSON, CSV, Excel or XML, or read them through the Apify API."
-        }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://scrapers.practicemysql.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "item": "https://scrapers.practicemysql.com/blog/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
+        "about": {
+          "@type": "SoftwareApplication",
           "name": "Amazon Product Scraper",
-          "item": "https://scrapers.practicemysql.com/blog/amazon-product-scraper"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is there an Amazon product API I can use without a key?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The official Amazon Product Advertising API needs an approved affiliate account and a key. Amazon Product Scraper reads the public product pages instead, so it needs no key, no login and no cookies, and it returns fields the official API does not, such as bestseller ranks, the AI review summary and seller business details."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does it cost to scrape 1,000 Amazon products?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "$1 for 1,000 full product records with all 55 fields, plus $0.00005 per run. With product details switched off you get the search-grid fields for $0.20 per 1,000. Error rows are never charged."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which Amazon marketplaces does it support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "24: amazon.com, .co.uk, .de, .fr, .it, .es, .nl, .se, .pl, .com.be, .ie, .com.tr, .ae, .sa, .eg, .in, .sg, .co.jp, .com.au, .ca, .com.mx, .com.br, .cl and .co.za. Each returns its own language, currency and delivery dates."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I scrape Amazon products with Python?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Start a run with the apify-client package and read the results as JSON, as shown above. JavaScript and plain HTTP work the same way."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can it scrape a whole Amazon category?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Paste the category URL and raise the result limit. Amazon caps some bare search terms at 7 pages; a category URL, or a category combined with a search term, goes deeper."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I get prices for a specific postcode?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Set a ZIP or postal code and the prices, stock and delivery dates are the ones that address sees, at no extra charge."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does it scrape Amazon reviews?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It returns review insights: the star breakdown, review count and Amazon's own AI review summary with sentiment per aspect and the quoted reviews behind it. Review-by-review scraping is not included."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is scraping Amazon product data legal?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Actor reads publicly visible product pages, needs no login and collects no personal data. How you use the data is your responsibility, so check the rules that apply to you before republishing it."
+          "url": "https://apify.com/molded_mountainpass/amazon-product-scraper",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "1.00",
+            "priceCurrency": "USD",
+            "description": "Per 1,000 full product records on the Apify free plan"
           }
         }
-      ]
-    }
-  ]
-}
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to scrape Amazon product data",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Open the Actor",
+            "text": "Open Amazon Product Scraper on Apify and sign in to a free account.",
+            "url": "https://scrapers.practicemysql.com/blog/amazon-product-scraper#step-1-run-a-small-test"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Paste Amazon URLs",
+            "text": "Paste search, category or product URLs from any of the 24 supported Amazon marketplaces.",
+            "url": "https://scrapers.practicemysql.com/blog/amazon-product-scraper#step-2-pick-the-right-url"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set limits and options",
+            "text": "Set the maximum results per URL, and optionally a delivery postcode, sellers or variant prices.",
+            "url": "https://scrapers.practicemysql.com/blog/amazon-product-scraper#step-3-choose-what-to-collect"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Run and export",
+            "text": "Start the run and export the products as JSON, CSV, Excel or XML, or read them through the Apify API.",
+            "url": "https://scrapers.practicemysql.com/blog/amazon-product-scraper#step-4-set-the-delivery-location"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://scrapers.practicemysql.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://scrapers.practicemysql.com/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Amazon Product Scraper",
+            "item": "https://scrapers.practicemysql.com/blog/amazon-product-scraper"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is there an Amazon product API I can use without a key?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The official Amazon Product Advertising API needs an approved affiliate account and a key. Amazon Product Scraper reads the public product pages instead, so it needs no key, no login and no cookies, and it returns fields the official API does not, such as bestseller ranks, the AI review summary and seller business details."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost to scrape 1,000 Amazon products?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "$4.50 for 1,000 full product records with all 55 fields, plus $0.00005 per run. With product details switched off you get the search-grid fields for $0.50 per 1,000. Error rows are never charged."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Amazon marketplaces does it support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "24: amazon.com, .co.uk, .de, .fr, .it, .es, .nl, .se, .pl, .com.be, .ie, .com.tr, .ae, .sa, .eg, .in, .sg, .co.jp, .com.au, .ca, .com.mx, .com.br, .cl and .co.za. Each returns its own language, currency and delivery dates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I scrape Amazon products with Python?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Start a run with the apify-client package and read the results as JSON, as shown above. JavaScript and plain HTTP work the same way."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can it scrape a whole Amazon category?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste the category URL and raise the result limit. Amazon caps some bare search terms at 7 pages; a category URL, or a category combined with a search term, goes deeper."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get prices for a specific postcode?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Set a ZIP or postal code and the prices, stock and delivery dates are the ones that address sees, at no extra charge."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it scrape Amazon reviews?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It returns review insights: the star breakdown, review count and Amazon's own AI review summary with sentiment per aspect and the quoted reviews behind it. Review-by-review scraping is not included."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is scraping Amazon product data legal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Actor reads publicly visible product pages, needs no login and collects no personal data. How you use the data is your responsibility, so check the rules that apply to you before republishing it."
+            }
+          }
+        ]
+      }
+    ]
+  }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css?v=20261123">
-  <script src="/script.js"></script>
+  <script src="/script.js?v=20261128"></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -220,7 +224,7 @@
         <img src="/images/amazon-product-scraper.webp" alt="Amazon Product Scraper logo" width="96" height="96">
         <div>
           <span class="eyebrow">Amazon · Apify actor</span>
-          <h1>Amazon product data on Apify, <em>55 fields per product</em>, for $1 per 1,000</h1>
+          <h1>Amazon product data on Apify, <em>55 fields per product</em>, across 24 marketplaces</h1>
           <p class="byline">By Divya Raj · Updated 13 November 2026 · 7 min read</p>
         </div>
       </div>
@@ -232,178 +236,243 @@
       <aside class="post-toc">
           <details open>
             <summary>On this page</summary>
-            <ol>
+            <ol data-toc="article">
               <li><a href="#quick-answer">Quick answer</a></li>
               <li><a href="#why-choose-amazon-product-scraper">Why choose Amazon Product Scraper?</a></li>
               <li><a href="#how-does-the-price-compare">How does the price compare with other Amazon product scrapers?</a></li>
               <li><a href="#what-you-get-for-every-product">What you get for every product</a></li>
-              <li><a href="#how-to-scrape-amazon-product-data">How to scrape Amazon product data</a></li>
-              <li><a href="#scrape-amazon-products-with-python">Scrape Amazon products with Python</a></li>
-              <li><a href="#how-much-does-it-cost">How much does it cost?</a></li>
               <li><a href="#limits-worth-knowing">Limits worth knowing</a></li>
               <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+            <ol data-toc="howto" hidden>
+              <li><a href="#step-1-run-a-small-test">Step 1 &mdash; Run a small test</a></li>
+              <li><a href="#step-2-pick-the-right-url">Step 2 &mdash; Pick the right URL</a></li>
+              <li><a href="#step-3-choose-what-to-collect">Step 3 &mdash; Choose what to collect</a></li>
+              <li><a href="#step-4-set-the-delivery-location">Step 4 &mdash; Delivery location</a></li>
+              <li><a href="#run-it-from-python">Run it from Python or the API</a></li>
+              <li><a href="#what-a-run-costs">What a run costs</a></li>
+              <li><a href="#if-a-run-returns-too-little">If a run returns too little</a></li>
+              <li><a href="#is-it-legal">Is it legal?</a></li>
             </ol>
           </details>
           <a class="toc-card" href="https://apify.com/molded_mountainpass/amazon-product-scraper?fpr=2untzw" rel="noopener">
             <img src="/images/amazon-product-scraper.webp" alt="Amazon Product Scraper logo" width="48" height="48" loading="lazy">
-            <span><strong>Amazon Product Scraper</strong>$1 per 1,000 products · 24 marketplaces</span>
+            <span><strong>Amazon Product Scraper</strong>55 fields · 24 marketplaces</span>
           </a>
         </aside>
         <article class="cmp-body">
+          <div class="tabbar" role="tablist" aria-label="Page sections">
+            <button class="tabbar-btn" role="tab" type="button" id="tb-article" aria-controls="panel-article" aria-selected="true" tabindex="0">Article</button>
+            <button class="tabbar-btn" role="tab" type="button" id="tb-howto" aria-controls="panel-howto" aria-selected="false" tabindex="-1">How to use it</button>
+          </div>
+        <div class="tabpanel" id="panel-article" role="tabpanel" aria-labelledby="tb-article">
       <section class="answer reveal" id="quick-answer" aria-label="Quick answer">
         <p class="kicker">Quick answer</p>
-        <p>Amazon Product Scraper turns any Amazon search, category or product URL into full product records with <strong>55 fields</strong>: price and list price, ASIN, stars and star breakdown, bestseller ranks, sellers, variants, images and delivery dates. It works on <strong>24 Amazon marketplaces</strong> with no login and no Amazon API key, and costs <strong>$1 per 1,000 products</strong>, or $0.20 per 1,000 for search-grid data only. Error rows are never charged.</p>
+        <p>Amazon Product Scraper turns any Amazon search, category or product URL into full product records with <strong>55 fields</strong>: price and list price, ASIN, stars and star breakdown, bestseller ranks, sellers, variants, images and delivery dates. It works on <strong>24 Amazon marketplaces</strong> with no login and no Amazon API key. Full records cost <strong>$4.50 per 1,000</strong>; with details switched off, the search-grid fields cost $0.50 per 1,000. Error rows are never charged.</p>
         <a class="btn big" href="https://apify.com/molded_mountainpass/amazon-product-scraper?fpr=2untzw">Try Amazon Product Scraper on Apify</a>
       </section>
 
       <h2 id="why-choose-amazon-product-scraper">Why choose Amazon Product Scraper?</h2>
-      <ol class="reasons"><li class="reveal"><b>55 fields per product</b><span>Price, list price, stock, stars and star breakdown, bestseller ranks, monthly purchase volume, images, attributes, A+ content, delivery dates and more, in one row.</span></li><li class="reveal"><b>24 Amazon marketplaces</b><span>Every one was checked on a live run with its own currency, language and delivery address, from amazon.com and .co.uk to .co.jp, .com.br and .co.za.</span></li><li class="reveal"><b>Ties the lowest price</b><span>$1 per 1,000 full products matches the cheapest of the most-used Amazon product scrapers on the Apify Store. Need only the search grid? Switch details off and pay $0.20 per 1,000.</span></li><li class="reveal"><b>Sellers and variants</b><span>Get each seller&#x27;s registered business name, address and ratings, and a price for every variant from its own page, only when you switch them on.</span></li><li class="reveal"><b>Review insights built in</b><span>Amazon&#x27;s own AI review summary comes with the sentiment for each aspect, how many customers mentioned it and the quoted reviews behind it.</span></li><li class="reveal"><b>Local prices at no extra cost</b><span>Set a ZIP or postal code and get the prices, stock and delivery dates that address sees. Some scrapers charge extra for a delivery location; this one does not.</span></li></ol>
+      <ol class="reasons"><li class="reveal"><b>55 fields per product</b><span>Price, list price, stock, stars and star breakdown, bestseller ranks, monthly purchase volume, images, attributes, A+ content, delivery dates and more, in one row.</span></li><li class="reveal"><b>24 Amazon marketplaces</b><span>Every one was checked on a live run with its own currency, language and delivery address, from amazon.com and .co.uk to .co.jp, .com.br and .co.za.</span></li><li class="reveal"><b>You pay for what you switch on</b><span>Offers, seller profiles and per-variant prices are off by default and billed separately, so a plain run stays a plain run. Need only the search grid? Switch details off and pay $0.50 per 1,000 instead of $4.50. Error rows are never charged.</span></li><li class="reveal"><b>Sellers and variants</b><span>Get each seller&#x27;s registered business name, address and ratings, and a price for every variant from its own page, only when you switch them on.</span></li><li class="reveal"><b>Review insights built in</b><span>Amazon&#x27;s own AI review summary comes with the sentiment for each aspect, how many customers mentioned it and the quoted reviews behind it.</span></li><li class="reveal"><b>Local prices at no extra cost</b><span>Set a ZIP or postal code and get the prices, stock and delivery dates that address sees. Some scrapers charge extra for a delivery location; this one does not.</span></li></ol>
 
       <h2 id="how-does-the-price-compare">How does the price compare with other Amazon product scrapers?</h2>
-      <p>This chart compares the price of a full Amazon product record across the Amazon product scrapers on the Apify Store with 450+ users: <a href="https://apify.com/curious_coder/amazon-scraper">curious_coder</a>, <a href="https://apify.com/jaybird/amazon-product-data-scraper">jaybird</a>, <a href="https://apify.com/delicious_zebu/amazon-product-details-scraper">delicious_zebu</a>, <a href="https://apify.com/epctex/amazon-scraper">epctex</a>, <a href="https://apify.com/junglee/Amazon-crawler">junglee</a>, <a href="https://apify.com/automly/amazon-products-scraper---fast-efficient-with-sales-data">automly</a> and <a href="https://apify.com/logical_scrapers/amazon-product-scraper">logical_scrapers</a>. Prices were checked on 13 November 2026.</p>
+      <p>This chart compares the price of a full Amazon product record across the Amazon product scrapers on the Apify Store with 450+ users: <a href="https://apify.com/curious_coder/amazon-scraper">curious_coder</a>, <a href="https://apify.com/jaybird/amazon-product-data-scraper">jaybird</a>, <a href="https://apify.com/delicious_zebu/amazon-product-details-scraper">delicious_zebu</a>, <a href="https://apify.com/epctex/amazon-scraper">epctex</a>, <a href="https://apify.com/junglee/Amazon-crawler">junglee</a>, <a href="https://apify.com/automly/amazon-products-scraper---fast-efficient-with-sales-data">automly</a> and <a href="https://apify.com/logical_scrapers/amazon-product-scraper">logical_scrapers</a>. Their prices were checked on 13 November 2026; this Actor’s on 28 November 2026. At $4.50 per 1,000 it sits in the middle of the field, so the case for it is what a record contains rather than what it costs: 55 fields, offers and seller business details, per-variant prices and Amazon’s own review sentiment, from one run.</p>
       <figure class="chart reveal" id="c1">
-<figcaption><strong>Price per 1,000 Amazon product records</strong><span>USD per 1,000 full products, free tier</span></figcaption>
-<svg viewBox="0 0 760 448" role="img" aria-labelledby="c1-t" class="bars" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif">
-<title id="c1-t">Price per 1,000 Amazon product records. Amazon Product Scraper (this): $1.00; curious_coder: $1.00; jaybird: $2.00; delicious_zebu: $2.50; epctex: $3.90; junglee: $5.00; automly: $5.55; logical_scrapers: $9.99</title>
+<figcaption><strong>Price per 1,000 Amazon product records</strong><span>USD per 1,000 full products, free tier. This Actor checked 28 November 2026; the others 13 November 2026.</span></figcaption>
+<svg viewBox="0 0 760 468" role="img" aria-labelledby="c1-t" class="bars" font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif">
+<title id="c1-t">Price per 1,000 Amazon product records. curious_coder: $1.00; jaybird: $2.00; delicious_zebu: $2.50; epctex: $3.90; Amazon Product Scraper (this): $4.50; junglee: $5.00; automly: $5.55; logical_scrapers: $9.99</title>
 <defs><linearGradient id="c1-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ddd3f7"/><stop offset="1" stop-color="#c7e0f2"/></linearGradient></defs>
-<rect x="0" y="0" width="236" height="448" rx="26" fill="url(#c1-g)"/>
+<rect x="0" y="0" width="236" height="468" rx="26" fill="url(#c1-g)"/>
 <circle cx="206" cy="34" r="54" fill="#ffffff" opacity=".28"/>
 <rect x="22" y="22" width="68" height="68" rx="20" fill="#ffffff"/>
 <image href="/images/amazon-product-scraper.webp" x="28" y="28" width="56" height="56"/>
-<rect x="22" y="104" width="153" height="22" rx="11" fill="#2a2433"/><text x="98" y="119" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fbf7f1">Ties the lowest price</text>
-<text x="22" y="176" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2a2433">$1.00</text>
+<rect x="22" y="104" width="186" height="22" rx="11" fill="#2a2433"/><text x="115" y="119" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fbf7f1">Mid-priced, widest record</text>
+<text x="22" y="176" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2a2433">$4.50</text>
 <text x="22" y="198" font-size="13" fill="#4d4556">per 1,000 products, 55 fields</text>
 <circle cx="31" cy="226" r="9" fill="#bfdcc8"/><path d="M26.5 226 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="230" font-size="12.5" font-weight="600" fill="#2a2433">24 marketplaces</text>
-<circle cx="31" cy="250" r="9" fill="#bfdcc8"/><path d="M26.5 250 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="254" font-size="12.5" font-weight="600" fill="#2a2433">Seller business details</text>
+<circle cx="31" cy="250" r="9" fill="#bfdcc8"/><path d="M26.5 250 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="254" font-size="12.5" font-weight="600" fill="#2a2433">Offers and seller details</text>
 <circle cx="31" cy="274" r="9" fill="#bfdcc8"/><path d="M26.5 274 l3 3 l5.5 -6" stroke="#2f6b45" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="48" y="278" font-size="12.5" font-weight="600" fill="#2a2433">Error rows never charged</text>
 <text x="266" y="22" font-size="11" font-weight="700" letter-spacing="1.3" fill="#7a5bb5">WHAT YOU PAY</text>
-<g><title>Amazon Product Scraper (this): $1.00 (plus $0.00005 per run; error rows never charged)</title>
-<text x="266" y="58" font-size="13" font-weight="700" fill="#2a2433">Amazon Product Scraper (this)</text>
-<rect x="266" y="66" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,66 h20.62 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-20.62 z" fill="#6250d6"/>
-<text x="526" y="78" font-size="14" font-weight="700" fill="#2a2433">$1.00</text>
-<rect x="588" y="62" width="80" height="22" rx="11" fill="#d2c6f1"/><text x="628" y="77" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">This actor</text>
-</g>
 <g><title>curious_coder: $1.00 (plus $0.005 per run)</title>
-<text x="266" y="108" font-size="13" font-weight="500" fill="#6e6676">curious_coder</text>
-<rect x="266" y="116" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,116 h20.62 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-20.62 z" fill="#8a8297"/>
-<text x="526" y="128" font-size="14" font-weight="700" fill="#2a2433">$1.00</text>
-<rect x="588" y="112" width="80" height="22" rx="11" fill="#e6e0d6"/><text x="628" y="127" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">Same price</text>
+<text x="266" y="58" font-size="13" font-weight="500" fill="#6e6676">curious_coder</text>
+<rect x="266" y="66" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,66 h20.63 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-20.63 z" fill="#8a8297"/>
+<text x="526" y="78" font-size="14" font-weight="700" fill="#2a2433">$1.00</text>
 </g>
 <g><title>jaybird: $2.00 (plus $0.007 per run)</title>
-<text x="266" y="158" font-size="13" font-weight="500" fill="#6e6676">jaybird</text>
-<rect x="266" y="166" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,166 h45.25 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-45.25 z" fill="#8a8297"/>
-<text x="526" y="178" font-size="14" font-weight="700" fill="#2a2433">$2.00</text>
-<rect x="588" y="162" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="177" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">2.0× the price</text>
+<text x="266" y="108" font-size="13" font-weight="500" fill="#6e6676">jaybird</text>
+<rect x="266" y="116" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,116 h41.25 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-41.25 z" fill="#8a8297"/>
+<text x="526" y="128" font-size="14" font-weight="700" fill="#2a2433">$2.00</text>
 </g>
 <g><title>delicious_zebu: $2.50</title>
-<text x="266" y="208" font-size="13" font-weight="500" fill="#6e6676">delicious_zebu</text>
-<rect x="266" y="216" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,216 h57.56 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-57.56 z" fill="#8a8297"/>
-<text x="526" y="228" font-size="14" font-weight="700" fill="#2a2433">$2.50</text>
-<rect x="588" y="212" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="227" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">2.5× the price</text>
+<text x="266" y="158" font-size="13" font-weight="500" fill="#6e6676">delicious_zebu</text>
+<rect x="266" y="166" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,166 h51.57 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-51.57 z" fill="#8a8297"/>
+<text x="526" y="178" font-size="14" font-weight="700" fill="#2a2433">$2.50</text>
 </g>
 <g><title>epctex: $3.90</title>
-<text x="266" y="258" font-size="13" font-weight="500" fill="#6e6676">epctex</text>
+<text x="266" y="208" font-size="13" font-weight="500" fill="#6e6676">epctex</text>
+<rect x="266" y="216" width="250" height="14" rx="7" fill="#ece5f4"/>
+<path d="M266,216 h80.45 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-80.45 z" fill="#8a8297"/>
+<text x="526" y="228" font-size="14" font-weight="700" fill="#2a2433">$3.90</text>
+</g>
+<g><title>Amazon Product Scraper (this): $4.50 (55 fields; offers, sellers and variants priced separately)</title>
+<text x="266" y="258" font-size="13" font-weight="700" fill="#2a2433">Amazon Product Scraper (this)</text>
 <rect x="266" y="266" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,266 h92.04 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-92.04 z" fill="#8a8297"/>
-<text x="526" y="278" font-size="14" font-weight="700" fill="#2a2433">$3.90</text>
-<rect x="588" y="262" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="277" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">3.9× the price</text>
+<path d="M266,266 h92.82 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-92.82 z" fill="#6250d6"/>
+<text x="526" y="278" font-size="14" font-weight="700" fill="#2a2433">$4.50</text>
+<rect x="588" y="262" width="80" height="22" rx="11" fill="#d2c6f1"/><text x="628" y="277" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">This actor</text>
 </g>
 <g><title>junglee: $5.00 (sellers and offers $2.50 per 1,000 extra)</title>
 <text x="266" y="308" font-size="13" font-weight="500" fill="#6e6676">junglee</text>
 <rect x="266" y="316" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,316 h119.12 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-119.12 z" fill="#8a8297"/>
+<path d="M266,316 h103.14 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-103.14 z" fill="#8a8297"/>
 <text x="526" y="328" font-size="14" font-weight="700" fill="#2a2433">$5.00</text>
-<rect x="588" y="312" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="327" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">5.0× the price</text>
 </g>
 <g><title>automly: $5.55 (plus $0.05 per run)</title>
 <text x="266" y="358" font-size="13" font-weight="500" fill="#6e6676">automly</text>
 <rect x="266" y="366" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,366 h132.67 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-132.67 z" fill="#8a8297"/>
+<path d="M266,366 h114.48 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-114.48 z" fill="#8a8297"/>
 <text x="526" y="378" font-size="14" font-weight="700" fill="#2a2433">$5.55</text>
-<rect x="588" y="362" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="377" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">5.5× the price</text>
 </g>
 <g><title>logical_scrapers: $9.99</title>
 <text x="266" y="408" font-size="13" font-weight="500" fill="#6e6676">logical_scrapers</text>
 <rect x="266" y="416" width="250" height="14" rx="7" fill="#ece5f4"/>
-<path d="M266,416 h242.00 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-242.00 z" fill="#8a8297"/>
+<path d="M266,416 h206.06 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-206.06 z" fill="#8a8297"/>
 <text x="526" y="428" font-size="14" font-weight="700" fill="#2a2433">$9.99</text>
-<rect x="588" y="412" width="106" height="22" rx="11" fill="#f4c3ad"/><text x="641" y="427" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a2433">10.0× the price</text>
 </g>
 </svg>
-<details class="table-view"><summary>Show as a table</summary><table><thead><tr><th>Scraper</th><th>USD per 1,000 products, free tier</th><th>Note</th></tr></thead><tbody><tr class=ours><td>Amazon Product Scraper (this)</td><td>$1.00</td><td>plus $0.00005 per run; error rows never charged</td></tr><tr><td>curious_coder</td><td>$1.00</td><td>plus $0.005 per run</td></tr><tr><td>jaybird</td><td>$2.00</td><td>plus $0.007 per run</td></tr><tr><td>delicious_zebu</td><td>$2.50</td><td></td></tr><tr><td>epctex</td><td>$3.90</td><td></td></tr><tr><td>junglee</td><td>$5.00</td><td>sellers and offers $2.50 per 1,000 extra</td></tr><tr><td>automly</td><td>$5.55</td><td>plus $0.05 per run</td></tr><tr><td>logical_scrapers</td><td>$9.99</td><td></td></tr></tbody></table></details></figure>
+<details class="table-view"><summary>Show as a table</summary><table><thead><tr><th>Scraper</th><th>USD per 1,000 products, free tier</th><th>Note</th></tr></thead><tbody>
+<tr><td>curious_coder</td><td>$1.00</td><td>plus $0.005 per run</td></tr>
+<tr><td>jaybird</td><td>$2.00</td><td>plus $0.007 per run</td></tr>
+<tr><td>delicious_zebu</td><td>$2.50</td><td></td></tr>
+<tr><td>epctex</td><td>$3.90</td><td></td></tr>
+<tr class=ours><td>Amazon Product Scraper (this)</td><td>$4.50</td><td>55 fields; offers, sellers and variants priced separately</td></tr>
+<tr><td>junglee</td><td>$5.00</td><td>sellers and offers $2.50 per 1,000 extra</td></tr>
+<tr><td>automly</td><td>$5.55</td><td>plus $0.05 per run</td></tr>
+<tr><td>logical_scrapers</td><td>$9.99</td><td></td></tr>
+</tbody></table></details></figure>
 
       <h2 id="what-you-get-for-every-product">What you get for every product</h2>
       <p>Every product is one row in a JSON, CSV, Excel or XML export. Fields Amazon does not show for a product come back as <code>null</code>, so the columns never shift between marketplaces or categories.</p>
       <ul class="fact-tiles reveal"><li><b>Product</b><span>title, ASIN, brand, URL, breadcrumbs</span></li><li><b>Price</b><span>price, list price, shipping, featured offer</span></li><li><b>Reviews</b><span>stars, star breakdown, review count, AI summary</span></li><li><b>Demand</b><span>bestseller ranks, bought in past month</span></li><li><b>Seller</b><span>business name, address, ratings</span></li><li><b>Content</b><span>attributes, overview, features, A+ content, images</span></li><li><b>Variants</b><span>variant ASINs, names and prices</span></li><li><b>Delivery</b><span>in stock, delivery date, fastest delivery</span></li></ul>
 
-      <h2 id="how-to-scrape-amazon-product-data">How to scrape Amazon product data</h2>
-      <ol class="steps"><li class="reveal"><b>1</b><span>Open Amazon Product Scraper on Apify.</span></li><li class="reveal"><b>2</b><span>Paste search, category or product URLs.</span></li><li class="reveal"><b>3</b><span>Set Max results per start URL, and optionally a postcode, sellers or variant prices.</span></li><li class="reveal"><b>4</b><span>Run it and export JSON, CSV, Excel or XML.</span></li></ol>
-      <p>Three kinds of Amazon URL work:</p>
-      <table>
-        <thead><tr><th>URL type</th><th>Example</th></tr></thead>
-        <tbody>
-          <tr><td>Search</td><td><code>https://www.amazon.com/s?k=keyboard</code></td></tr>
-          <tr><td>Category</td><td><code>https://www.amazon.com/s?i=electronics&amp;rh=n%3A16225007011</code></td></tr>
-          <tr><td>Product</td><td><code>https://www.amazon.com/dp/B09X7MPX8L</code></td></tr>
-        </tbody>
-      </table>
-      <p>An example input: one search on amazon.com and one product on amazon.de, priced for a New York delivery address, with seller details:</p>
-      <pre><code>{
-  &quot;categoryOrProductUrls&quot;: [
-    { &quot;url&quot;: &quot;https://www.amazon.com/s?k=mechanical+keyboard&quot; },
-    { &quot;url&quot;: &quot;https://www.amazon.de/dp/B0D14N2QZF&quot; }
-  ],
-  &quot;maxItemsPerStartUrl&quot;: 50,
-  &quot;zipCode&quot;: &quot;10001&quot;,
-  &quot;scrapeSellers&quot;: true
-}</code></pre>
-
-      <h2 id="scrape-amazon-products-with-python">Scrape Amazon products with Python</h2>
-      <p>Install the client with <code>pip install apify-client</code>, then start a run and read the products. Replace <code>YOUR_APIFY_TOKEN</code> with the token from your Apify account settings.</p>
-      <pre><code>from apify_client import ApifyClient
-
-client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
-run = client.actor(&quot;molded_mountainpass/amazon-product-scraper&quot;).call(run_input={
-    &quot;categoryOrProductUrls&quot;: [{&quot;url&quot;: &quot;https://www.amazon.com/s?k=mechanical+keyboard&quot;}],
-    &quot;maxItemsPerStartUrl&quot;: 50,
-})
-
-for product in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
-    print(product[&quot;asin&quot;], product[&quot;price&quot;], product[&quot;title&quot;])</code></pre>
-      <p>The same run works from JavaScript, from a plain HTTP request to the Apify API, or from n8n, Make and Zapier without code.</p>
-
-      <h2 id="how-much-does-it-cost">How much does it cost?</h2>
-      <p>You pay per result on the Apify free plan, plus $0.00005 per run. Optional extras are charged only when you switch them on, and error rows are never charged.</p>
-      <table>
-        <thead><tr><th>What you get</th><th>Price</th></tr></thead>
-        <tbody>
-          <tr><td>Full product record, 55 fields</td><td>$1.00 per 1,000</td></tr>
-          <tr><td>Product from the search grid only (details off)</td><td>$0.20 per 1,000</td></tr>
-          <tr><td>Seller profile (once per seller per run)</td><td>$1.50 per 1,000</td></tr>
-          <tr><td>Variant priced from its own page</td><td>$1.00 per 1,000</td></tr>
-          <tr><td>Page rendered in a browser (amazon.fr and amazon.in only, usually the first run)</td><td>$0.025 per page</td></tr>
-        </tbody>
-      </table>
-      <p>For example, 10,000 full products cost about $10, and the title, ASIN, price and rating of 10,000 search results cost about $2.</p>
-
       <h2 id="limits-worth-knowing">Limits worth knowing</h2>
       <ul>
-        <li><strong>One offer per product.</strong> The featured (buy box) offer is included. Other sellers' offers are not returned yet.</li>
+        <li><strong>Offers cost extra.</strong> The featured (buy box) offer is included. Other sellers come from the offers panel, which you switch on with <code>maxOffers</code> and which is charged separately.</li>
         <li><strong>Review insights, not every review.</strong> You get the star breakdown and Amazon's AI review summary, not each review's text.</li>
         <li><strong>Amazon caps some searches at 7 pages.</strong> Use a category URL, or a category plus a search term, to go deeper.</li>
         <li><strong>Prices follow the delivery address.</strong> Two runs from different locations can show different prices, so set a postcode when you compare.</li>
       </ul>
 
       <h2 id="faq">Frequently asked questions</h2>
-      <div class="faq"><details class="reveal"><summary>Is there an Amazon product API I can use without a key?</summary><p>The official Amazon Product Advertising API needs an approved affiliate account and a key. Amazon Product Scraper reads the public product pages instead, so it needs no key, no login and no cookies, and it returns fields the official API does not, such as bestseller ranks, the AI review summary and seller business details.</p></details><details class="reveal"><summary>How much does it cost to scrape 1,000 Amazon products?</summary><p>$1 for 1,000 full product records with all 55 fields, plus $0.00005 per run. With product details switched off you get the search-grid fields for $0.20 per 1,000. Error rows are never charged.</p></details><details class="reveal"><summary>Which Amazon marketplaces does it support?</summary><p>24: amazon.com, .co.uk, .de, .fr, .it, .es, .nl, .se, .pl, .com.be, .ie, .com.tr, .ae, .sa, .eg, .in, .sg, .co.jp, .com.au, .ca, .com.mx, .com.br, .cl and .co.za. Each returns its own language, currency and delivery dates.</p></details><details class="reveal"><summary>Can I scrape Amazon products with Python?</summary><p>Yes. Start a run with the apify-client package and read the results as JSON, as shown above. JavaScript and plain HTTP work the same way.</p></details><details class="reveal"><summary>Can it scrape a whole Amazon category?</summary><p>Yes. Paste the category URL and raise the result limit. Amazon caps some bare search terms at 7 pages; a category URL, or a category combined with a search term, goes deeper.</p></details><details class="reveal"><summary>Can I get prices for a specific postcode?</summary><p>Yes. Set a ZIP or postal code and the prices, stock and delivery dates are the ones that address sees, at no extra charge.</p></details><details class="reveal"><summary>Does it scrape Amazon reviews?</summary><p>It returns review insights: the star breakdown, review count and Amazon&#x27;s own AI review summary with sentiment per aspect and the quoted reviews behind it. Review-by-review scraping is not included.</p></details><details class="reveal"><summary>Is scraping Amazon product data legal?</summary><p>The Actor reads publicly visible product pages, needs no login and collects no personal data. How you use the data is your responsibility, so check the rules that apply to you before republishing it.</p></details></div>
+      <div class="faq"><details class="reveal"><summary>Is there an Amazon product API I can use without a key?</summary><p>The official Amazon Product Advertising API needs an approved affiliate account and a key. Amazon Product Scraper reads the public product pages instead, so it needs no key, no login and no cookies, and it returns fields the official API does not, such as bestseller ranks, the AI review summary and seller business details.</p></details><details class="reveal"><summary>How much does it cost to scrape 1,000 Amazon products?</summary><p>$4.50 for 1,000 full product records with all 55 fields, plus $0.00005 per run. With product details switched off you get the search-grid fields for $0.50 per 1,000. Error rows are never charged.</p></details><details class="reveal"><summary>Which Amazon marketplaces does it support?</summary><p>24: amazon.com, .co.uk, .de, .fr, .it, .es, .nl, .se, .pl, .com.be, .ie, .com.tr, .ae, .sa, .eg, .in, .sg, .co.jp, .com.au, .ca, .com.mx, .com.br, .cl and .co.za. Each returns its own language, currency and delivery dates.</p></details><details class="reveal"><summary>Can I scrape Amazon products with Python?</summary><p>Yes. Start a run with the apify-client package and read the results as JSON, as shown above. JavaScript and plain HTTP work the same way.</p></details><details class="reveal"><summary>Can it scrape a whole Amazon category?</summary><p>Yes. Paste the category URL and raise the result limit. Amazon caps some bare search terms at 7 pages; a category URL, or a category combined with a search term, goes deeper.</p></details><details class="reveal"><summary>Can I get prices for a specific postcode?</summary><p>Yes. Set a ZIP or postal code and the prices, stock and delivery dates are the ones that address sees, at no extra charge.</p></details><details class="reveal"><summary>Does it scrape Amazon reviews?</summary><p>It returns review insights: the star breakdown, review count and Amazon&#x27;s own AI review summary with sentiment per aspect and the quoted reviews behind it. Review-by-review scraping is not included.</p></details><details class="reveal"><summary>Is scraping Amazon product data legal?</summary><p>The Actor reads publicly visible product pages, needs no login and collects no personal data. How you use the data is your responsibility, so check the rules that apply to you before republishing it.</p></details></div>
 
       <div class="note reveal">Need search rankings and ads rather than product pages? <a href="/blog/amazon-search-scraper">Amazon Search Scraper</a> returns every result with its organic rank. Tracking your own ASINs? <a href="/blog/amazon-keyword-rank-tracker">Amazon Keyword Rank Tracker</a> charges only for the ASINs you track.</div>
       <div class="cta center reveal"><a class="btn big" href="https://apify.com/molded_mountainpass/amazon-product-scraper?fpr=2untzw">Try Amazon Product Scraper on Apify</a></div>
       <p class="more-posts">More articles: <a href="/blog/amazon-search-scraper">Amazon Search Scraper</a> · <a href="/blog/amazon-ads-scraper">Amazon Ads Scraper</a> · <a href="/blog/amazon-keyword-rank-tracker">Amazon Keyword Rank Tracker</a> · <a href="/blog/linkedin-jobs-scraper-with-glassdoor">LinkedIn Jobs Scraper + Glassdoor</a> · <a href="/blog/glassdoor-jobs-scraper">Glassdoor Jobs Scraper</a> · <a href="/blog/zhihu-scraper">Zhihu Scraper</a> · <a href="/blog/china-trending-topics-api">China Trending Topics API</a></p>
+        </div>
+        <div class="tabpanel" id="panel-howto" role="tabpanel" aria-labelledby="tb-howto" hidden>
+      <section class="answer reveal" aria-label="In short">
+        <p class="kicker">In short</p>
+        <p>Paste an Amazon search, category or product URL, set how many results you want, and click Start. Everything below is the detail: which URL to use, which extras are worth switching on, how to get the prices a specific address sees, and what each option costs.</p>
+        <a class="btn big" href="https://apify.com/molded_mountainpass/amazon-product-scraper?fpr=2untzw" rel="noopener">Open the Actor on Apify</a>
+      </section>
+
+      <h2 id="step-1-run-a-small-test">Step 1 &mdash; Run a small test</h2>
+      <ol>
+        <li>Open the <a href="https://apify.com/molded_mountainpass/amazon-product-scraper?fpr=2untzw" rel="noopener">Actor on Apify</a> and sign in. The free plan has enough credit to try it.</li>
+        <li>In <b>Enter one or more Amazon category or product URLs</b>, paste one URL. The field starts with <code>https://www.amazon.com/s?k=keyboard</code> as an example.</li>
+        <li>Set <b>Max results (per start URL)</b> to <code>25</code> for the first run, not the default 100.</li>
+        <li>Click <b>Start</b>, then watch the Output tab.</li>
+      </ol>
+      <p>Check a row or two before you spend more. A full record carries about 55 fields, so it is easier to see what you are paying for on 25 products than on 1,000.</p>
+
+      <h2 id="step-2-pick-the-right-url">Step 2 &mdash; Pick the right URL</h2>
+      <p>Three kinds of Amazon URL work, and the one you choose decides how much you get back:</p>
+      <table>
+        <thead><tr><th>URL type</th><th>Example</th><th>What you get</th></tr></thead>
+        <tbody>
+          <tr><td>Search</td><td><code>https://www.amazon.com/s?k=keyboard</code></td><td>Every product on the result pages</td></tr>
+          <tr><td>Category</td><td><code>https://www.amazon.com/s?i=electronics&amp;rh=n%3A16225007011</code></td><td>Everything in the category, past the search cap</td></tr>
+          <tr><td>Product</td><td><code>https://www.amazon.com/dp/B09X7MPX8L</code></td><td>That one product</td></tr>
+        </tbody>
+      </table>
+      <p>The domain decides the marketplace: an <code>amazon.de</code> URL returns German listings in euros, with no proxy setting needed. All 24 marketplaces work this way.</p>
+      <div class="note reveal"><b>Amazon caps plain searches at about 7 pages.</b> To go deeper, use a category URL, or a category combined with a search term &mdash; rather than searching for <i>diamond rings</i>, open the <i>Women&rsquo;s rings</i> category and search inside it.</div>
+
+      <h2 id="step-3-choose-what-to-collect">Step 3 &mdash; Choose what to collect</h2>
+      <p>Everything below is off by default except product details, and each one is charged separately, so switch on only what you need.</p>
+      <table>
+        <thead><tr><th>Setting</th><th>What it does</th><th>Cost per 1,000</th></tr></thead>
+        <tbody>
+          <tr><td><b>Scrape product details</b> (on)</td><td>Opens each product page for the full 55-field record. Turn it <b>off</b> to keep only the search-grid fields &mdash; title, ASIN, price, rating &mdash; far faster and far cheaper.</td><td>$4.50 on &middot; $0.50 off</td></tr>
+          <tr><td><b>Maximum scraped offers</b></td><td>Reads the offers panel for other sellers of the same product, not just the buy box.</td><td>$2.00</td></tr>
+          <tr><td><b>Scrape sellers</b></td><td>Adds each seller&rsquo;s registered business name, address and rating history.</td><td>$2.00</td></tr>
+          <tr><td><b>Scrape product variant prices</b></td><td>Opens each variant&rsquo;s own page for its real price.</td><td>$1.00</td></tr>
+          <tr><td><b>Maximum product variants as separate results</b></td><td>Outputs each variant as its own row. Most variant detail is already in the <code>variantDetails</code> field, so leave this at 0 unless you need one row per variant.</td><td>charged as products</td></tr>
+        </tbody>
+      </table>
+      <p>Both <b>Max results (per start URL)</b> and <b>Maximum search pages (per start URL)</b> stop a run; whichever is reached first wins.</p>
+
+      <h2 id="step-4-set-the-delivery-location">Step 4 &mdash; Set the delivery location</h2>
+      <p>Amazon shows different prices, stock and delivery dates depending on where it is shipping. Two runs from different locations can disagree, so pin the location when you compare prices over time.</p>
+      <ul>
+        <li><b>Zip code</b> and <b>Country code</b> set the delivery address. There is no extra charge for this.</li>
+        <li><b>Location deliverable routes</b> decides where the address is applied &mdash; product pages, search pages, offers, or any combination. Narrowing it speeds up a run when you only need localised data in one place.</li>
+        <li><b>Language</b> asks Amazon for a specific language. Each domain supports its own set; an unsupported choice falls back to the domain default.</li>
+        <li><b>Proxy country</b> defaults to matching the marketplace, which is usually what you want. Change it only to see what a shopper in another country sees.</li>
+      </ul>
+
+      <h2 id="run-it-from-python">Run it from Python or the API</h2>
+      <p>Install the client with <code>pip install apify-client</code>, then start a run and read the products. Replace <code>YOUR_APIFY_TOKEN</code> with the token from your Apify account settings.</p>
+      <pre><code>from apify_client import ApifyClient
+
+client = ApifyClient("YOUR_APIFY_TOKEN")
+run = client.actor("molded_mountainpass/amazon-product-scraper").call(run_input={
+    "categoryOrProductUrls": [
+        {"url": "https://www.amazon.com/s?k=mechanical+keyboard"},
+        {"url": "https://www.amazon.de/dp/B0D14N2QZF"},
+    ],
+    "maxItemsPerStartUrl": 50,
+    "zipCode": "10001",
+    "scrapeSellers": True,
+})
+
+for product in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(product["asin"], product["price"], product["title"])</code></pre>
+      <p>The same input works from JavaScript, from a plain HTTP call to the Apify API, and from n8n, Make or Zapier without code. To keep a price history, save the run as a task and give it a schedule.</p>
+
+      <h2 id="what-a-run-costs">What a run costs</h2>
+      <p>You are billed per result on the Apify free plan, plus $0.00005 per run, and error rows are never charged.</p>
+      <table>
+        <thead><tr><th>What you get</th><th>Free plan</th><th>Bronze</th><th>Gold</th></tr></thead>
+        <tbody>
+          <tr><td>Full product record, 55 fields</td><td>$4.50 / 1,000</td><td>$3.75</td><td>$2.75</td></tr>
+          <tr><td>Product from the search grid (details off)</td><td>$0.50 / 1,000</td><td>$0.50</td><td>$0.40</td></tr>
+          <tr><td>Offers panel, all sellers for one product</td><td>$2.00 / 1,000</td><td>$1.70</td><td>$1.20</td></tr>
+          <tr><td>Seller profile</td><td>$2.00 / 1,000</td><td>$1.70</td><td>$1.20</td></tr>
+          <tr><td>Variant priced from its own page</td><td>$1.00 / 1,000</td><td>$1.00</td><td>$0.80</td></tr>
+          <tr><td>Page that needed a browser</td><td>$0.025 each</td><td>$0.025</td><td>$0.020</td></tr>
+        </tbody>
+      </table>
+      <p>So 10,000 full products cost about $45 on the free plan, and the title, ASIN, price and rating of 10,000 search results cost about $5 with details switched off.</p>
+
+      <h2 id="if-a-run-returns-too-little">If a run returns too little</h2>
+      <ul>
+        <li><b>A search stopped early.</b> Amazon caps some searches at about 7 pages. Use a category URL instead, or a category plus a search term.</li>
+        <li><b>Rows are missing fields.</b> The schema is stable across marketplaces and writes an explicit <code>null</code> where Amazon does not show a field, so a null means Amazon had nothing there, not that the run failed.</li>
+        <li><b>Results look blocked.</b> Requests start on datacenter proxies and retry on residential ones; <code>amazon.in</code>, <code>amazon.fr</code> and <code>amazon.sg</code> go straight to residential. Setting <b>Proxy configuration</b> to RESIDENTIAL sends every request that way: more reliable, several times the cost.</li>
+        <li><b>Captcha solver is a trade-off.</b> It works well on <code>.com</code>, but even there Amazon hides <code>attributes</code>, manufacturer attributes and bestseller ranks after a captcha is solved. Leave it off if you need those fields.</li>
+        <li><b>Prices differ between runs.</b> That is the delivery address, not a bug. Set a zip code and keep it fixed.</li>
+      </ul>
+
+      <h2 id="is-it-legal">Is it legal?</h2>
+      <p>The Actor reads publicly visible product pages and needs no Amazon account, login or API key. It collects no personal data about shoppers. As with any data collection, use the results lawfully and follow Amazon&rsquo;s terms and your local laws.</p>
+
+      <div class="cta center reveal"><a class="btn big" href="https://apify.com/molded_mountainpass/amazon-product-scraper?fpr=2untzw" rel="noopener">Run your first scrape on Apify</a></div>
+        </div>
       </article>
     </div>
   </main>
