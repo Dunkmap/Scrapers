@@ -400,3 +400,17 @@ main.cmp .steps { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%
 @media (prefers-reduced-motion: reduce) {
   .shortvid-play, .shortvid-btn { transition: none; }
 }
+
+/* ---- "Also in the browser extension" card ---- */
+.ext-cta { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 26px 0;
+  padding: 20px 24px; border-radius: 28px; background: var(--surface); box-shadow: var(--clay);
+  border-left: 6px solid var(--sky); }
+.ext-cta img { flex: none; width: 54px; height: 54px; border-radius: 16px; box-shadow: var(--clay-sm); }
+.ext-cta-text { flex: 1; min-width: 210px; }
+.ext-cta-text b { display: block; font: 600 1.1rem/1.3 var(--serif); margin-bottom: 4px; }
+.ext-cta-text span { color: var(--muted); font-size: .94rem; }
+.ext-cta .btn { flex: none; }
+@media (max-width: 560px) {
+  .ext-cta { padding: 18px; }
+  .ext-cta .btn { width: 100%; text-align: center; }
+}

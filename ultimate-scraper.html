@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f3ede4">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4NHL4WT');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH5BEL56V4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MH5BEL56V4');
+  </script>
+  <title>Ultimate Scraper: Run Apify Scrapers From Your Browser</title>
+  <meta name="description" content="How to use Ultimate Scraper, the free Chrome extension that runs Apify scrapers on the Amazon, LinkedIn, Glassdoor or Bilibili page you already have open.">
+  <link rel="canonical" href="https://scrapers.practicemysql.com/ultimate-scraper">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ultimate Scraper: run my Apify scrapers from the page you have open">
+  <meta property="og:description" content="Install it, paste your Apify token once, open an Amazon, LinkedIn, Glassdoor or Bilibili page, and click Run scraper. Results download as Excel, CSV or JSON.">
+  <meta property="og:url" content="https://scrapers.practicemysql.com/ultimate-scraper">
+  <meta property="og:image" content="https://scrapers.practicemysql.com/images/ultimate-data-scraper.webp">
+  <meta name="twitter:card" content="summary">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Ultimate Data Scraper",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "url": "https://scrapers.practicemysql.com/ultimate-scraper",
+        "image": "https://scrapers.practicemysql.com/images/ultimate-data-scraper.webp",
+        "description": "Chrome extension that runs Apify scrapers on the page you have open and downloads the results as Excel, CSV or JSON.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "Divya Raj" }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to use Ultimate Scraper",
+        "description": "Install the Chrome extension, connect it to your own Apify account, open the page you want to scrape, pick a scraper and run it.",
+        "totalTime": "PT3M",
+        "tool": [{ "@type": "HowToTool", "name": "An Apify account (the free plan is enough)" }],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Install the extension",
+            "url": "https://scrapers.practicemysql.com/ultimate-scraper#step-install",
+            "text": "Add Ultimate Data Scraper from the Chrome Web Store and pin it to your toolbar."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Connect your Apify account",
+            "url": "https://scrapers.practicemysql.com/ultimate-scraper#step-connect",
+            "text": "Open the Account tab and paste your Apify API token. The header changes from Not connected to your Apify username. The token is stored only in your browser."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Open the page you want to scrape",
+            "url": "https://scrapers.practicemysql.com/ultimate-scraper#step-open",
+            "text": "Open an Amazon search, a LinkedIn or Glassdoor job search, or a Bilibili video, then open the extension. It reads the address of the tab and shows it under On this page."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Choose a scraper",
+            "url": "https://scrapers.practicemysql.com/ultimate-scraper#step-choose",
+            "text": "Under Choose a scraper, pick a category tab such as E-commerce or Jobs, then the scraper you want."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Run it and download",
+            "url": "https://scrapers.practicemysql.com/ultimate-scraper#step-run",
+            "text": "Check the fields, read the price line above the button, then click Run scraper. The Runs tab keeps your last five runs so you can download Excel, CSV or JSON when a run finishes."
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://scrapers.practicemysql.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Chrome extensions", "item": "https://scrapers.practicemysql.com/#extensions" },
+          { "@type": "ListItem", "position": 3, "name": "Ultimate Scraper", "item": "https://scrapers.practicemysql.com/ultimate-scraper" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Ultimate Scraper need an Apify account?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The extension is free, but the scrapers run on Apify's cloud under your own account, so you paste your Apify API token once in the Account tab. Apify's free plan includes monthly credit, which is enough to try every scraper." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it use my logins or cookies?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. The scrapers run in Apify's cloud, not in your browser, and they read public pages without any login. The extension reads the address of the tab you have open to pick the right scraper, not the page's content." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is my Apify token stored?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Only in Chrome's local extension storage on your own device. It is sent only to api.apify.com to start your runs and fetch your results, never to the developer. Click Disconnect in the Account tab to delete it." }
+          },
+          {
+            "@type": "Question",
+            "name": "What does it cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The extension itself is free. You pay Apify for the results each scraper returns, from your own Apify credit. The price per 1,000 results is shown in the extension, just above the Run scraper button, before you run anything." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the same scrapers without the extension?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every scraper in the extension is an Apify Actor you can open and run directly on apify.com, or call from Python, JavaScript, the Apify API, n8n, Make or Zapier. The extension is a shortcut, not a separate product." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261128">
+  <script src="/script.js?v=20261128"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4NHL4WT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="/"><i>DR</i><span>Divya Raj · Scrapers</span></a>
+      <ul>
+        <li><a href="/#scrapers">Scrapers</a></li>
+        <li><a href="/#extensions">Extensions</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> › <a href="/#extensions">Chrome extensions</a> › Ultimate Scraper</p>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Chrome extension · Free</span>
+          <h1>Run my scrapers on the page you <em>already have open</em></h1>
+          <p>Ultimate Scraper puts my Apify scrapers in a popup. Open an Amazon search, a LinkedIn or Glassdoor job search, or a Bilibili video, click the extension, and it picks the right scraper and fills in the page for you. Runs happen in Apify's cloud on your own account, so nothing touches your logins or cookies.</p>
+          <div class="cta">
+            <a class="btn big" href="https://chromewebstore.google.com/detail/bannkninegedmjdhaodmcdhkidpdahod">Add to Chrome, it's free</a>
+            <a class="btn ghost" href="#how">How to use it</a>
+          </div>
+          <ul class="facts">
+            <li>Amazon · LinkedIn · Glassdoor · Bilibili</li>
+            <li>XLSX · CSV · JSON</li>
+            <li>Your Apify credit, your account</li>
+          </ul>
+        </div>
+        <div class="term" role="img" aria-label="The Ultimate Scraper popup, showing the scraper list">
+          <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Ultimate Scraper · popup</div>
+<pre><span class="c">Scrape        Runs        Account</span>
+
+<span class="p">On this page:</span> <span class="s">Amazon</span>
+<span class="c">amazon.com/s?k=wireless+earbuds</span>
+
+<span class="p">CHOOSE A SCRAPER</span>
+<span class="k">E-commerce</span>  Social media  Trending  Jobs
+
+<span class="s">Amazon Search Scraper</span>        <span class="n">›</span>
+<span class="s">Amazon Ads Scraper</span>           <span class="n">›</span>
+<span class="s">Amazon Keyword Rank Tracker</span>  <span class="n">›</span><span class="cursor"></span></pre>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="how">
+      <div class="wrap">
+        <p class="kicker">How to use it</p>
+        <h2>From an open tab to a spreadsheet, in five steps</h2>
+        <p class="lead">The extension is free and takes about three minutes to set up. You only do steps 1 and 2 once.</p>
+        <ol class="steps">
+          <li class="reveal" id="step-install"><b>1</b><span>Install <a href="https://chromewebstore.google.com/detail/bannkninegedmjdhaodmcdhkidpdahod">Ultimate Data Scraper</a> from the Chrome Web Store and pin it to your toolbar.</span></li>
+          <li class="reveal" id="step-connect"><b>2</b><span>Open the <strong>Account</strong> tab and paste your <a href="https://console.apify.com/settings/integrations">Apify API token</a>. The pill at the top changes from <strong>Not connected</strong> to your Apify username.</span></li>
+          <li class="reveal" id="step-open"><b>3</b><span>Open the page you want to scrape, then open the extension. It reads the tab's address and shows it under <strong>On this page</strong>.</span></li>
+          <li class="reveal" id="step-choose"><b>4</b><span>Under <strong>Choose a scraper</strong>, pick a category — E-commerce, Social media, Trending or Jobs — and then the scraper.</span></li>
+          <li class="reveal" id="step-run"><b>5</b><span>Check the fields, read the price line above the button, and click <strong>Run scraper</strong>. Download from the <strong>Runs</strong> tab when it finishes.</span></li>
+        </ol>
+
+        <h3>What each tab is for</h3>
+        <table>
+          <thead><tr><th>Tab</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Scrape</strong></td><td>Shows the page you are on, the scraper list, and the form for whichever scraper you pick.</td></tr>
+            <tr><td><strong>Runs</strong></td><td>Keeps your last five runs with their status and row count, so you can come back and download the results.</td></tr>
+            <tr><td><strong>Account</strong></td><td>Where you paste your Apify token, see which account is connected, and click Disconnect to remove it.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Filling in a scraper</h3>
+        <p>Picking a scraper opens its form. The example below is Amazon Search Scraper, but every scraper works the same way:</p>
+        <ul>
+          <li><strong>Prefilled from your tab.</strong> If the page you have open fits the scraper, its keywords, URL or marketplace are already filled in.</li>
+          <li><strong>Details</strong> opens that scraper's full documentation on Apify, so you can read what each field does.</li>
+          <li><strong>Advanced</strong> holds the options most runs never need — proxies, languages, delivery postcodes and the like.</li>
+          <li><strong>The price line</strong> sits just above the button and names the cost per 1,000 of each thing that scraper charges for, before you run anything.</li>
+          <li><strong>‹ All scrapers</strong> takes you back to the list without losing your place.</li>
+        </ul>
+        <div class="note reveal">The extension reads only the <em>address</em> of the tab you have open, to pick the right scraper and prefill it. It never reads the page's content, your other tabs or your history.</div>
+      </div>
+    </section>
+
+    <section id="scrapers">
+      <div class="wrap">
+        <p class="kicker">What's inside</p>
+        <h2>The scrapers, sorted into four tabs</h2>
+        <p class="lead">Each one is an Apify Actor of mine. Open any of them on Apify instead if you would rather run them there, schedule them, or call them from code.</p>
+        <ul class="fact-tiles reveal">
+          <li><b>E-commerce</b><span>Amazon search results, sponsored ads, keyword rank tracking and full product records across Amazon's marketplaces.</span></li>
+          <li><b>Jobs</b><span>LinkedIn and Glassdoor job searches, with salaries, company ratings and skills.</span></li>
+          <li><b>Social media</b><span>Bilibili videos, comments, danmaku and creator profiles.</span></li>
+          <li><b>Trending</b><span>Zhihu's hot list and trending topics from Baidu, Douyin and other Chinese sites.</span></li>
+        </ul>
+        <p>Guides for each one live on <a href="/blog/">the blog</a>, and every scraper's own Apify page lists its full input and output.</p>
+      </div>
+    </section>
+
+    <section id="cost">
+      <div class="wrap">
+        <p class="kicker">What it costs</p>
+        <h2>The extension is free; Apify charges for results</h2>
+        <p class="lead">There is no subscription and no licence for the extension itself. The scrapers run on Apify under your own account and draw on your Apify credit, exactly as they would if you opened them on apify.com.</p>
+        <ul>
+          <li>Apify's free plan includes monthly credit, which is enough to try every scraper in the popup.</li>
+          <li>Each scraper's price per 1,000 results is printed above the <strong>Run scraper</strong> button before you run it.</li>
+          <li>You pay for results, not for time. Rows that fail are not charged.</li>
+          <li>New to Apify? <a href="https://apify.com/?fpr=2untzw">Create a free Apify account</a>, then copy the token from Settings → Integrations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <p class="kicker">FAQ</p>
+        <h2>Common questions</h2>
+        <div class="faq">
+          <details class="reveal"><summary>Does Ultimate Scraper need an Apify account?</summary><p>Yes. The extension is free, but the scrapers run on Apify's cloud under your own account, so you paste your Apify API token once in the Account tab. Apify's free plan includes monthly credit, which is enough to try every scraper.</p></details>
+          <details class="reveal"><summary>Does it use my logins or cookies?</summary><p>No. The scrapers run in Apify's cloud, not in your browser, and they read public pages without any login. The extension reads the address of the tab you have open to pick the right scraper, not the page's content.</p></details>
+          <details class="reveal"><summary>Where is my Apify token stored?</summary><p>Only in Chrome's local extension storage on your own device. It is sent only to api.apify.com to start your runs and fetch your results, never to the developer. Click <strong>Disconnect</strong> in the Account tab to delete it. The <a href="/privacy">privacy policy</a> has the full detail.</p></details>
+          <details class="reveal"><summary>What does it cost?</summary><p>The extension itself is free. You pay Apify for the results each scraper returns, from your own Apify credit. The price per 1,000 results is shown in the extension, just above the Run scraper button, before you run anything.</p></details>
+          <details class="reveal"><summary>Can I use the same scrapers without the extension?</summary><p>Yes. Every scraper in the extension is an Apify Actor you can open and run directly on apify.com, or call from Python, JavaScript, the Apify API, n8n, Make or Zapier. The extension is a shortcut, not a separate product.</p></details>
+          <details class="reveal"><summary>Why does it say "Not connected"?</summary><p>That is the state before you add a token. Open the Account tab and paste your Apify API token; the pill then shows your Apify username. If it still says Not connected, the token was probably copied with a missing character — copy it again from Apify's Settings → Integrations.</p></details>
+        </div>
+        <div class="cta center reveal"><a class="btn big" href="https://chromewebstore.google.com/detail/bannkninegedmjdhaodmcdhkidpdahod">Add Ultimate Scraper to Chrome</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Ultimate Data Scraper is not affiliated with, endorsed by or sponsored by Amazon, LinkedIn, Glassdoor or Bilibili. <a href="/privacy">Privacy policy</a></p>
+      <p>Apify links on this site are referral links: if you sign up and later choose a paid Apify plan, I may earn a reward, at no extra cost to you.</p>
+      <p>© Divya Raj · <a href="/">scrapers.practicemysql.com</a> · <a href="mailto:divyaraj@practicemysql.com">divyaraj@practicemysql.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
