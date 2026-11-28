@@ -414,3 +414,31 @@ main.cmp .steps { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%
   .ext-cta { padding: 18px; }
   .ext-cta .btn { width: 100%; text-align: center; }
 }
+
+/* ---- Card rows that scroll sideways instead of wrapping ---- */
+/* The padding/negative-margin pair keeps the cards' hover lift from being
+   clipped by the scroll container. */
+.grid.row-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(288px, 360px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 4px;
+  padding: 12px 4px 20px;
+  margin: -12px -4px 0;
+  scrollbar-color: var(--lilac) transparent;
+  scrollbar-width: thin;
+}
+.grid.row-scroll > .card { scroll-snap-align: start; }
+.grid.row-scroll::-webkit-scrollbar { height: 10px; }
+.grid.row-scroll::-webkit-scrollbar-track { background: transparent; }
+.grid.row-scroll::-webkit-scrollbar-thumb {
+  background: var(--lilac); border-radius: 999px;
+  border: 3px solid var(--bg); background-clip: padding-box;
+}
+.grid.row-scroll::-webkit-scrollbar-thumb:hover { background: #bcaae8; background-clip: padding-box; }
+@media (prefers-reduced-motion: reduce) {
+  .grid.row-scroll { scroll-snap-type: none; }
+}
